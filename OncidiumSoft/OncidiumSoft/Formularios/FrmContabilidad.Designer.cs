@@ -55,6 +55,7 @@
             this.btnCalcularInversion.TabIndex = 50;
             this.btnCalcularInversion.Text = "Calcular inversion";
             this.btnCalcularInversion.UseVisualStyleBackColor = true;
+            this.btnCalcularInversion.Click += new System.EventHandler(this.btnCalcularInversion_Click);
             // 
             // GastosGenerales
             // 
@@ -65,6 +66,7 @@
             this.GastosGenerales.Size = new System.Drawing.Size(20, 20);
             this.GastosGenerales.TabIndex = 49;
             this.GastosGenerales.UseVisualStyleBackColor = false;
+            this.GastosGenerales.Click += new System.EventHandler(this.GastosGenerales_Click);
             // 
             // lblFechaA
             // 
@@ -119,6 +121,7 @@
             this.btnHistorial.TabIndex = 43;
             this.btnHistorial.Text = "Ver historial";
             this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // btnCancelar
             // 
@@ -128,6 +131,7 @@
             this.btnCancelar.TabIndex = 42;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCalcular
             // 
@@ -145,6 +149,7 @@
             this.txtSalarios.Name = "txtSalarios";
             this.txtSalarios.Size = new System.Drawing.Size(100, 20);
             this.txtSalarios.TabIndex = 40;
+            this.txtSalarios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalarios_KeyPress);
             // 
             // lblSalarios
             // 
@@ -204,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 240);
+            this.ClientSize = new System.Drawing.Size(482, 240);
             this.Controls.Add(this.btnCalcularInversion);
             this.Controls.Add(this.GastosGenerales);
             this.Controls.Add(this.lblFechaA);
@@ -224,6 +229,7 @@
             this.Controls.Add(this.lblVentas);
             this.Name = "FrmContabilidad";
             this.Text = "FrmContabilidad";
+            this.Load += new System.EventHandler(this.FrmContabilidad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
