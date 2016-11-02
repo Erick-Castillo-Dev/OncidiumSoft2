@@ -49,6 +49,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion_Datos\Conexion.cs" />
+    <Compile Include="Daos\Cls_DaoAjusteInventario.cs" />
+    <Compile Include="Daos\Cls_DaoCompra.cs" />
+    <Compile Include="Daos\Cls_DaoContabilidad.cs" />
+    <Compile Include="Daos\Cls_DaoPedidos.cs" />
+    <Compile Include="Daos\Cls_DaoVentas.cs" />
+    <Compile Include="Formularios\FrmAjusteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAjusteInventario.Designer.cs">
+      <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmContabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +108,17 @@
     <Compile Include="Formularios\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmVenta.Designer.cs">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\Cls_AjusteInventario.cs" />
+    <Compile Include="Objetos\Cls_Compra.cs" />
+    <Compile Include="Objetos\Cls_Contabilidad.cs" />
+    <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
+    <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
@@ -117,6 +145,9 @@
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -140,7 +171,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\12283043_773212156137905_384527972_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
