@@ -49,15 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion_Datos\Conexion.cs" />
-    <Compile Include="Daos\Cls_DaoAjusteInventario.cs" />
-    <Compile Include="Daos\Cls_DaoContabilidad.cs" />
-    <Compile Include="Daos\Cls_DaoVentas.cs" />
-    <Compile Include="Formularios\FrmAjusteInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmAjusteInventario.Designer.cs">
-      <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FrmContabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +67,18 @@
     <Compile Include="Formularios\FrmHistorialContabilidades.Designer.cs">
       <DependentUpon>FrmHistorialContabilidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmListPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmListPedidos.Designer.cs">
+      <DependentUpon>frmListPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPedidos.Designer.cs">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,14 +91,13 @@
     <Compile Include="Formularios\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Cls_AjusteInventario.cs" />
-    <Compile Include="Objetos\Cls_Contabilidad.cs" />
-    <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
-    <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmContabilidad.resx">
       <DependentUpon>FrmContabilidad.cs</DependentUpon>
@@ -105,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmHistorialContabilidades.resx">
       <DependentUpon>FrmHistorialContabilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListPedidos.resx">
+      <DependentUpon>frmListPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPedidos.resx">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
