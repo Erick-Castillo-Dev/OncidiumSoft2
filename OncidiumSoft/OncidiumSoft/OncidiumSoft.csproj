@@ -58,6 +58,12 @@
     <Compile Include="Formularios\FrmGastosEspecificos.Designer.cs">
       <DependentUpon>FrmGastosEspecificos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmHistorialContabilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmHistorialContabilidades.Designer.cs">
+      <DependentUpon>FrmHistorialContabilidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmGastosEspecificos.resx">
       <DependentUpon>FrmGastosEspecificos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmHistorialContabilidades.resx">
+      <DependentUpon>FrmHistorialContabilidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
