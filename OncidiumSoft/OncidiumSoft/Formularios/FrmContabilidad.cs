@@ -21,7 +21,7 @@ namespace OncidiumSoft.Formularios
         /// <summary>
         /// Creación de variables requeridas
         /// </summary>
-        double Inversion;
+        double Inversion, ganancia;
 
         /// <summary>
         /// Creación de los objetos de las clases de contabilidad
@@ -35,6 +35,7 @@ namespace OncidiumSoft.Formularios
         private void FrmContabilidad_Load(object sender, EventArgs e)
         {
             lblFechaA.Text = DateTime.Now.ToLongDateString();
+            lblVentasT.Text = objDCont.obtenerVenta();
         }
 
         /// <summary>
@@ -80,6 +81,12 @@ namespace OncidiumSoft.Formularios
         {
             Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
             lblInversionT.Text = Inversion.ToString();
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            ganancia = double.Parse(lblInversionT.Text) - double.Parse(lblVentasT.Text);
+            lblGananciaT.Text = ganancia.ToString();
         }
     }
 }
