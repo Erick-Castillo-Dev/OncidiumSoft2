@@ -136,6 +136,7 @@
       <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
+    <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

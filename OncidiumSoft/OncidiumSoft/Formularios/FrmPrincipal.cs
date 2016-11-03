@@ -24,5 +24,11 @@ namespace OncidiumSoft
             obj.Show();
 
         }
+
+        private void Productos_Click(object sender, EventArgs e)
+        {
+            FrmProductos llamProductos = new FrmProductos();
+            llamProductos.Show();
+        }
     }
 }
