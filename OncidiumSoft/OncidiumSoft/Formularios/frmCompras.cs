@@ -16,5 +16,10 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
+
+        private void btnRealizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
