@@ -63,6 +63,7 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -72,6 +73,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar  Producto";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -104,6 +106,7 @@
             this.Controls.Add(this.dgVProductos);
             this.Name = "FrmProductos";
             this.Text = "FrmProductos";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
