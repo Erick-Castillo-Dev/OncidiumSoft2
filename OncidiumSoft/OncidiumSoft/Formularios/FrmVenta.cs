@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace OncidiumSoft.Formularios
 {
-    public partial class frmCompras : Form
+    public partial class FrmVenta : Form
     {
-        public frmCompras()
+        public FrmVenta()
         {
             InitializeComponent();
-        }
-
-        private void btnRealizar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

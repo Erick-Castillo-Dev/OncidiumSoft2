@@ -224,6 +224,7 @@
             this.btnRealizar.TabIndex = 70;
             this.btnRealizar.Text = "Realizar Compra";
             this.btnRealizar.UseVisualStyleBackColor = true;
+            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
             // 
             // btnCancelar
             // 
