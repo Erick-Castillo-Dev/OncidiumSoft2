@@ -139,6 +139,7 @@
             this.VentasDia.Name = "VentasDia";
             this.VentasDia.Size = new System.Drawing.Size(173, 22);
             this.VentasDia.Text = "Ventas del dia";
+            this.VentasDia.Click += new System.EventHandler(this.VentasDia_Click);
             // 
             // VentasFecha
             // 

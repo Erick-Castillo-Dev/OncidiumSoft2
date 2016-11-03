@@ -18,6 +18,13 @@ namespace OncidiumSoft
             InitializeComponent();
         }
 
+        private void VentasDia_Click(object sender, EventArgs e)
+        {
+            frmCalendario obj = new frmCalendario();
+            obj.Show();
+
+        }
+
         private void Productos_Click(object sender, EventArgs e)
         {
             FrmProductos llamProductos = new FrmProductos();
