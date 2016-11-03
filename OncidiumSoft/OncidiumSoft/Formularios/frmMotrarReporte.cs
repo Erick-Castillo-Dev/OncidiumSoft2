@@ -19,8 +19,19 @@ namespace OncidiumSoft.Formularios
 
         private void frmMotrarReporte_Load(object sender, EventArgs e)
         {
-
+           
             this.reportViewer1.RefreshReport();
+        }
+
+        public DateTime fecha
+        {
+            set;
+            get;
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
