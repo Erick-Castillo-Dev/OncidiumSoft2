@@ -52,6 +52,7 @@
             this.btnCancelarGastos.TabIndex = 41;
             this.btnCancelarGastos.Text = "Cancelar";
             this.btnCancelarGastos.UseVisualStyleBackColor = true;
+            this.btnCancelarGastos.Click += new System.EventHandler(this.btnCancelarGastos_Click);
             // 
             // btnAceptarGastos
             // 
@@ -61,6 +62,7 @@
             this.btnAceptarGastos.TabIndex = 40;
             this.btnAceptarGastos.Text = "Aceptar";
             this.btnAceptarGastos.UseVisualStyleBackColor = true;
+            this.btnAceptarGastos.Click += new System.EventHandler(this.btnAceptarGastos_Click);
             // 
             // txtImprevistos
             // 
@@ -69,6 +71,7 @@
             this.txtImprevistos.Name = "txtImprevistos";
             this.txtImprevistos.Size = new System.Drawing.Size(100, 20);
             this.txtImprevistos.TabIndex = 39;
+            this.txtImprevistos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImprevistos_KeyPress);
             // 
             // lblGastosImprevistos
             // 
@@ -86,6 +89,7 @@
             this.txtGastosLuz.Name = "txtGastosLuz";
             this.txtGastosLuz.Size = new System.Drawing.Size(100, 20);
             this.txtGastosLuz.TabIndex = 37;
+            this.txtGastosLuz.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosLuz_KeyPress);
             // 
             // lblGastosLuz
             // 
@@ -103,6 +107,7 @@
             this.txtGastosAgua.Name = "txtGastosAgua";
             this.txtGastosAgua.Size = new System.Drawing.Size(100, 20);
             this.txtGastosAgua.TabIndex = 35;
+            this.txtGastosAgua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosAgua_KeyPress);
             // 
             // lblGastosAgua
             // 
@@ -120,6 +125,7 @@
             this.txtGastosGasolina.Name = "txtGastosGasolina";
             this.txtGastosGasolina.Size = new System.Drawing.Size(100, 20);
             this.txtGastosGasolina.TabIndex = 33;
+            this.txtGastosGasolina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosGasolina_KeyPress);
             // 
             // lblGastosGasolina
             // 
@@ -137,6 +143,7 @@
             this.txtGastosInsecticidas.Name = "txtGastosInsecticidas";
             this.txtGastosInsecticidas.Size = new System.Drawing.Size(100, 20);
             this.txtGastosInsecticidas.TabIndex = 31;
+            this.txtGastosInsecticidas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosInsecticidas_KeyPress);
             // 
             // lblGastosInsecticidas
             // 
@@ -154,6 +161,7 @@
             this.txtGastosFertilizantes.Name = "txtGastosFertilizantes";
             this.txtGastosFertilizantes.Size = new System.Drawing.Size(100, 20);
             this.txtGastosFertilizantes.TabIndex = 29;
+            this.txtGastosFertilizantes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosFertilizantes_KeyPress);
             // 
             // lblGastosFertilizantes
             // 

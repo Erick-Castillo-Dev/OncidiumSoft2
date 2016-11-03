@@ -13,10 +13,10 @@ namespace OncidiumSoft.Daos
 
         Conexion c = new Conexion();
 
-        public bool venta(List<Cls_Producto> list, int id)
-        {
-            return false;
-        }
+        //public bool venta(List<Cls_Producto> list, int id)
+        //{
+        //    return false;
+        //}
 
     }
 }
