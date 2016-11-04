@@ -45,6 +45,7 @@
             this.lblInversion = new System.Windows.Forms.Label();
             this.lblGastosGenerales = new System.Windows.Forms.Label();
             this.lblVentas = new System.Windows.Forms.Label();
+            this.lblFechaIni = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCalcularInversion
@@ -206,11 +207,22 @@
             this.lblVentas.TabIndex = 34;
             this.lblVentas.Text = "Ventas:       $";
             // 
+            // lblFechaIni
+            // 
+            this.lblFechaIni.AutoSize = true;
+            this.lblFechaIni.Location = new System.Drawing.Point(311, 9);
+            this.lblFechaIni.Name = "lblFechaIni";
+            this.lblFechaIni.Size = new System.Drawing.Size(29, 13);
+            this.lblFechaIni.TabIndex = 51;
+            this.lblFechaIni.Text = "label";
+            this.lblFechaIni.Visible = false;
+            // 
             // FrmContabilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 240);
+            this.Controls.Add(this.lblFechaIni);
             this.Controls.Add(this.btnCalcularInversion);
             this.Controls.Add(this.GastosGenerales);
             this.Controls.Add(this.lblFechaA);
@@ -255,5 +267,6 @@
         private System.Windows.Forms.Label lblGastosGenerales;
         private System.Windows.Forms.Label lblVentas;
         public System.Windows.Forms.Label lblVentasT;
+        private System.Windows.Forms.Label lblFechaIni;
     }
 }
