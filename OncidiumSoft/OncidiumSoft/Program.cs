@@ -17,7 +17,7 @@ namespace OncidiumSoft
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmContabilidad());
+            Application.Run(new FrmPrincipal());
         }
     }
 }
