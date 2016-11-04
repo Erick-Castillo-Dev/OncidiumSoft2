@@ -30,6 +30,7 @@ namespace OncidiumSoft.Formularios
         /// </summary>
         Cls_DaoContabilidad objDCont = new Cls_DaoContabilidad();
         Cls_Contabilidad objCont = new Cls_Contabilidad();
+        FrmHistorialContabilidades objHistorial = new FrmHistorialContabilidades();
 
         /// <summary>
         /// Método para agregar contabilidad

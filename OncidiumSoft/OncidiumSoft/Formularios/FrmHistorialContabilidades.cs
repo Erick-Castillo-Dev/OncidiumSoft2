@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OncidiumSoft.Daos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace OncidiumSoft.Formularios
         public FrmHistorialContabilidades()
         {
             InitializeComponent();
+        }
+
+        public void VerContabilidad()
+        {
+            Cls_DaoContabilidad objDCont = new Cls_DaoContabilidad();
+            dgvContabilidad.DataSource = objDCont.getContabilidad();
+        }
+
+        private void FrmHistorialContabilidades_Load(object sender, EventArgs e)
+        {
+            VerContabilidad();
         }
     }
 }

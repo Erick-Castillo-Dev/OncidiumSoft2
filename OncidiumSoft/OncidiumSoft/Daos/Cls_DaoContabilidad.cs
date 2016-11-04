@@ -52,5 +52,30 @@ namespace OncidiumSoft.Daos
             cm.ExecuteNonQuery();
             objC.Cerrar();
         }
+
+        public List<Cls_Contabilidad> getContabilidad()
+        {
+            List<Cls_Contabilidad> lstContabilidad = new List<Cls_Contabilidad>();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            objC.Conectar();
+            sql = "SELECT * FROM contabilidad";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = objC.cConexion;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                Cls_Contabilidad objContabilidad = new Cls_Contabilidad();
+                objContabilidad.idContabilidad = dr.GetInt32(0);
+                objContabilidad.FechaInicio = dr.GetDateTime(1);
+                objContabilidad.FechaFin = dr.GetDateTime(2);
+                objContabilidad.Ganancia_Perdida = dr.GetDouble(3);
+                lstContabilidad.Add(objContabilidad);
+            }
+            objC.Cerrar();
+            return lstContabilidad;
+        }
     }
 }
