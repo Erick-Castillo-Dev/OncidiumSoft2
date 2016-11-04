@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Conexion_Datos\Conexion.cs" />
     <Compile Include="Daos\Cls_DaoAjusteInventario.cs" />
+    <Compile Include="Daos\Cls_DaoCompra.cs" />
     <Compile Include="Daos\Cls_DaoContabilidad.cs" />
     <Compile Include="Daos\Cls_DaoVentas.cs" />
     <Compile Include="Formularios\FrmAjusteInventario.cs">
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="Formularios\FrmAjusteInventario.designer.cs">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmContabilidad.cs">
       <SubType>Form</SubType>
