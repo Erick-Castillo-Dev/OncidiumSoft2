@@ -56,6 +56,9 @@
     <Compile Include="Daos\Cls_DaoCompra.cs" />
     <Compile Include="Daos\Cls_DaoContabilidad.cs" />
     <Compile Include="Daos\Cls_DaoPedidos.cs" />
+    <Compile Include="Daos\Cls_DaoProductos.cs" />
+    <Compile Include="Daos\Cls_DaoProvedores.cs" />
+    <Compile Include="Daos\Cls_DaoUsuarios.cs" />
     <Compile Include="Daos\Cls_DaoVentas.cs" />
     <Compile Include="Formularios\FrmAjusteInventario.cs">
       <SubType>Form</SubType>
@@ -123,6 +126,7 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ClsProvedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />

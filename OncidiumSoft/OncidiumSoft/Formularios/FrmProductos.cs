@@ -25,20 +25,16 @@ namespace OncidiumSoft.Formularios
         /// Objecto para acceder a la conexion de la clase conexion
         /// </summary>
           Conexion conexionDB = new Conexion();
-        /// <summary>
-        /// Conexion para enlistar los datos de la tabla en el DataView
-        /// </summary>
-        /// <returns></returns>
-          public static MySqlConnection obtConexion()
-          {
-              MySqlConnection conectar = new MySqlConnection("SERVER=" + "localhost" + ";PORT=3307" + ";DATABASE=" + "vivero" + ";UID=" + "root" + ";PWD=" + "");
-              conectar.Open();
-              return conectar;
-          }
+       /// <summary>
+       /// Cargamos los datos de la tabla productos en el datagridView.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from productos", obtConexion());
+            conexionDB.Conectar();
+            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from productos", conexionDB.cConexion);
             DataSet productos = new DataSet();
             muestreo.Fill(productos, "productos");
             dgVProductos.DataSource = productos;
