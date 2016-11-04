@@ -33,7 +33,24 @@ namespace OncidiumSoft.Daos
             return res;
         }
 
-        
-        
+        public void AgregarContabilidad(Cls_Contabilidad objContabilidad)
+        {
+            string sql;
+            MySqlCommand cm;
+            objC.Conectar();
+
+            cm = new MySqlCommand();
+            cm.Parameters.AddWithValue("@IDCONTABILIDAD", objContabilidad.idContabilidad);
+            cm.Parameters.AddWithValue("@FECHAINICIO", objContabilidad.FechaInicio);
+            cm.Parameters.AddWithValue("@FECHAFIN", objContabilidad.FechaFin);
+            cm.Parameters.AddWithValue("@GANANCIA", objContabilidad.Ganancia_Perdida);
+
+            sql = "INSERT INTO contabilidad(idContabilidad, Fecha_Inicio, Fecha_Fin, Ganancia_Perdida) VALUES (@IDCONTABILIDAD, @FECHAINICIO, @FECHAFIN, @GANANCIA)";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = objC.cConexion;
+            cm.ExecuteNonQuery();
+            objC.Cerrar();
+        }
     }
 }
