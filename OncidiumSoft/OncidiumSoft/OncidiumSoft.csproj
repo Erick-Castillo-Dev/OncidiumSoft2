@@ -32,12 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,12 +55,22 @@
     <Compile Include="Daos\Cls_DaoAjusteInventario.cs" />
     <Compile Include="Daos\Cls_DaoCompra.cs" />
     <Compile Include="Daos\Cls_DaoContabilidad.cs" />
+    <Compile Include="Daos\Cls_DaoPedidos.cs" />
+    <Compile Include="Daos\Cls_DaoProductos.cs" />
+    <Compile Include="Daos\Cls_DaoProvedores.cs" />
+    <Compile Include="Daos\Cls_DaoUsuarios.cs" />
     <Compile Include="Daos\Cls_DaoVentas.cs" />
     <Compile Include="Formularios\FrmAjusteInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmAjusteInventario.designer.cs">
+    <Compile Include="Formularios\FrmAjusteInventario.Designer.cs">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCalendario.designer.cs">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmCompras.cs">
       <SubType>Form</SubType>
@@ -89,6 +102,12 @@
     <Compile Include="Formularios\frmListPedidos.Designer.cs">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmMotrarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMotrarReporte.Designer.cs">
+      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,14 +126,35 @@
     <Compile Include="Formularios\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmVenta.Designer.cs">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ClsProvedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
+    <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />
+    <Compile Include="Objetos\Cls_DataSetPrincipal.cs">
+      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_DataSetPrincipal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
+    <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmCalendario.resx">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmCompras.resx">
       <DependentUpon>frmCompras.cs</DependentUpon>
@@ -131,14 +171,18 @@
     <EmbeddedResource Include="Formularios\frmListPedidos.resx">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMotrarReporte.resx">
+      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmProductos.resx">
-      <DependentUpon>FrmProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Objetos\ReporteVentasDiarias.rdlc" />
+    <EmbeddedResource Include="Formularios\FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,6 +194,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Objetos\Cls_DataSetPrincipal.xsc">
+      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    </None>
+    <None Include="Objetos\Cls_DataSetPrincipal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cls_DataSetPrincipal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Objetos\Cls_DataSetPrincipal.xss">
+      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,7 +218,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\12283043_773212156137905_384527972_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -21,20 +21,42 @@ namespace OncidiumSoft.Formularios
         /// <summary>
         /// Creación de variables requeridas
         /// </summary>
-        double Inversion;
+        /// 
+        int con;
+        double Inversion, ganancia;
 
         /// <summary>
         /// Creación de los objetos de las clases de contabilidad
         /// </summary>
         Cls_DaoContabilidad objDCont = new Cls_DaoContabilidad();
         Cls_Contabilidad objCont = new Cls_Contabilidad();
+        FrmHistorialContabilidades objHistorial = new FrmHistorialContabilidades();
+
+        /// <summary>
+        /// Método para agregar contabilidad
+        /// </summary>
+        public void Agregar()
+        {
+            objCont.idContabilidad = con;
+            objCont.FechaInicio = Convert.ToDateTime(lblFechaIni.Text);
+            objCont.FechaFin = Convert.ToDateTime(lblFechaA.Text);
+            objCont.Ganancia_Perdida = Convert.ToDouble(lblGananciaT.Text);
+            objDCont.AgregarContabilidad(objCont);
+            MessageBox.Show("Contabilidad registrada", "Insertar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            con += 1;
+        }
 
         /// <summary>
         /// Método del formulario principal de contabilidad
         /// </summary>
         private void FrmContabilidad_Load(object sender, EventArgs e)
         {
-            lblFechaA.Text = DateTime.Now.ToLongDateString();
+            DateTime fecha = DateTime.Now;
+            int mes = DateTime.Now.Month; 
+            int anio = DateTime.Now.Year;
+            lblFechaA.Text = DateTime.Now.ToShortDateString();
+            lblFechaIni.Text = fecha.ToString("01/" + mes + "/" + anio);
+            lblVentasT.Text = objDCont.obtenerVenta();
         }
 
         /// <summary>
@@ -55,6 +77,7 @@ namespace OncidiumSoft.Formularios
             txtSalarios.Clear();
             txtGastosGenerales.Enabled = false;
             lblInversionT.Text = "0.00";
+            lblGananciaT.Text = "0.00";
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
@@ -80,6 +103,13 @@ namespace OncidiumSoft.Formularios
         {
             Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
             lblInversionT.Text = Inversion.ToString();
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            ganancia = double.Parse(lblVentasT.Text) - double.Parse(lblInversionT.Text);
+            lblGananciaT.Text = ganancia.ToString();
+            Agregar();
         }
     }
 }

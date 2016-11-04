@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(31, 29);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(240, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpFecha.Location = new System.Drawing.Point(35, 63);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(240, 20);
+            this.dtpFecha.TabIndex = 0;
             // 
-            // button1
+            // btnGenerar
             // 
-            this.button1.Location = new System.Drawing.Point(86, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Generar Reporte";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGenerar.Location = new System.Drawing.Point(86, 145);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(128, 23);
+            this.btnGenerar.TabIndex = 1;
+            this.btnGenerar.Text = "Generar Reporte";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // frmCalendario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 250);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(302, 245);
+            this.Controls.Add(this.btnGenerar);
+            this.Controls.Add(this.dtpFecha);
             this.Name = "frmCalendario";
             this.Text = "frmCalendario";
             this.ResumeLayout(false);
@@ -63,7 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnGenerar;
     }
 }
