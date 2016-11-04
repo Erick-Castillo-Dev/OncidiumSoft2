@@ -69,8 +69,14 @@
     <Compile Include="Formularios\frmCalendario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmCalendario.Designer.cs">
+    <Compile Include="Formularios\frmCalendario.designer.cs">
       <DependentUpon>frmCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmContabilidad.cs">
       <SubType>Form</SubType>
