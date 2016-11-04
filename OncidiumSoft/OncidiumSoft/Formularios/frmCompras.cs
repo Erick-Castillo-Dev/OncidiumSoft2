@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OncidiumSoft.Conexxion_Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace OncidiumSoft.Formularios
         public frmCompras()
         {
             InitializeComponent();
+        }
+
+        private void btnRealizar_Click(object sender, EventArgs e)
+        {
+            Conexion conect = new Conexion();
+            conect.Conectar();
+            MessageBox.Show("si se conecto");
         }
     }
 }
