@@ -19,9 +19,14 @@ namespace OncidiumSoft.Formularios
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            frmMotrarReporte mostrar = new frmMotrarReporte();
-            mostrar.fecha= dtpFecha.Value;
+            frmMostrarReporte mostrar = new frmMostrarReporte();
+            mostrar.Fecha = dtpFecha.Value;
             mostrar.Show();
+        }
+
+        private void frmCalendario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
