@@ -102,6 +102,12 @@
     <Compile Include="Formularios\frmListPedidos.Designer.cs">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmMotrarReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,7 +138,7 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\ClsProvedores.cs" />
+    <Compile Include="Objetos\Cls_Provedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />
@@ -147,6 +153,7 @@
     </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
+    <Compile Include="Objetos\Cls_Usuarios.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmListPedidos.resx">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMotrarReporte.resx">
       <DependentUpon>frmMotrarReporte.cs</DependentUpon>
@@ -229,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\apply.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch-307129_1280.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

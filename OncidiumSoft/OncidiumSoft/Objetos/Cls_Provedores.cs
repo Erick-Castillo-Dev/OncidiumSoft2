@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OncidiumSoft.Objetos
 {
-    class ClsProvedores
+    class Cls_Provedores
     {
     }
 }
