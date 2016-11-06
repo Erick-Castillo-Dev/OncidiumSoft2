@@ -92,8 +92,9 @@
             // Ventas1
             // 
             this.Ventas1.Name = "Ventas1";
-            this.Ventas1.Size = new System.Drawing.Size(109, 22);
+            this.Ventas1.Size = new System.Drawing.Size(152, 22);
             this.Ventas1.Text = "Ventas";
+            this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click);
             // 
             // Administrar
             // 

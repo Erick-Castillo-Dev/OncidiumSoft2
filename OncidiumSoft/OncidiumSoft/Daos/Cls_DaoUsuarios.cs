@@ -13,9 +13,15 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoUsuarios
     {
-
+        /// <summary>
+        /// Objeto para hacer la conexion a la base de datos
+        /// </summary>
         Conexion c = new Conexion();
-
+        /// <summary>
+        /// Metodo para obtener el id del usuario para su uso posterio
+        /// </summary>
+        /// <param name="clsU"></param>
+        /// <returns></returns>
         public int idUsuario(Cls_Usuarios clsU)
         {
             try
@@ -49,10 +55,17 @@ namespace OncidiumSoft.Daos
             catch (MySqlException e)
             {
                 return -1;
+                c.Cerrar();
             }
             return -1;
         }
-
+        /// <summary>
+        /// Metodo para la autenticacion de los ususarios que podran entrar al
+        /// sistema mediante su usuario y contraseña ademas de usar encriptacion
+        /// sh1 con md5
+        /// </summary>
+        /// <param name="clsU"></param>
+        /// <returns></returns>
         public bool entrar(Cls_Usuarios clsU)
         {
             try
@@ -89,6 +102,7 @@ namespace OncidiumSoft.Daos
                 }
             }catch(MySqlException e){
                 return false;
+                c.Cerrar();
             }
             return false;
         }

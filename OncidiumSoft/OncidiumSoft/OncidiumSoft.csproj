@@ -138,6 +138,7 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\Cls_DatosVenta.cs" />
     <Compile Include="Objetos\Cls_Provedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
