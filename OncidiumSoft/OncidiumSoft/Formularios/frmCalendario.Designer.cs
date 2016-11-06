@@ -34,16 +34,16 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(35, 63);
+            this.dtpFecha.Location = new System.Drawing.Point(29, 63);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(240, 20);
             this.dtpFecha.TabIndex = 0;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(86, 145);
+            this.btnGenerar.Location = new System.Drawing.Point(81, 143);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(128, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(128, 57);
             this.btnGenerar.TabIndex = 1;
             this.btnGenerar.Text = "Generar Reporte";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -53,11 +53,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 245);
+            this.ClientSize = new System.Drawing.Size(302, 242);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dtpFecha);
             this.Name = "frmCalendario";
             this.Text = "frmCalendario";
+            this.Load += new System.EventHandler(this.frmCalendario_Load);
             this.ResumeLayout(false);
 
         }
