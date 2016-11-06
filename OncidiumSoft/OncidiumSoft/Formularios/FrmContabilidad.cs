@@ -101,15 +101,44 @@ namespace OncidiumSoft.Formularios
 
         private void btnCalcularInversion_Click(object sender, EventArgs e)
         {
-            Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
-            lblInversionT.Text = Inversion.ToString();
+            if (txtGastosGenerales.Text != string.Empty && txtSalarios.Text != string.Empty)
+            {
+                Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
+                lblInversionT.Text = Inversion.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Hay campos vacíos");
+            }
+            
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            ganancia = double.Parse(lblVentasT.Text) - double.Parse(lblInversionT.Text);
-            lblGananciaT.Text = ganancia.ToString();
-            Agregar();
+            if (txtGastosGenerales.Text != string.Empty && txtSalarios.Text != string.Empty)
+            {
+                ganancia = double.Parse(lblVentasT.Text) - double.Parse(lblInversionT.Text);
+                lblGananciaT.Text = ganancia.ToString();
+                Agregar();
+            }
+            else
+            {
+                MessageBox.Show("Hay campos vacíos");
+            }
+        }
+
+        private void txtSalarios_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGastosGenerales.Text != string.Empty && txtSalarios.Text != string.Empty)
+            {
+                Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
+                lblInversionT.Text = Inversion.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Hay campos vacíos");
+                txtSalarios.Clear();
+            }
         }
     }
 }

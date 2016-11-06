@@ -12,7 +12,7 @@ namespace OncidiumSoft.Formularios
 {
     public partial class FrmGastosEspecificos : Form
     {
-        double sumaGastos;
+        double sumaGastos=0;
         public FrmGastosEspecificos()
         {
             InitializeComponent();
@@ -38,13 +38,49 @@ namespace OncidiumSoft.Formularios
             {
                 sumaGastos = double.Parse(txtGastosFertilizantes.Text) + double.Parse(txtGastosInsecticidas.Text) + double.Parse(txtGastosGasolina.Text) +
                 double.Parse(txtGastosAgua.Text) + double.Parse(txtGastosLuz.Text) + double.Parse(txtImprevistos.Text);
+                String.Format("{0:####,##}", sumaGastos); 
                 objCont.txtGastosGenerales.Text = sumaGastos.ToString();
                 this.Hide();
                 objCont.Show();
             }
+            else if (txtGastosFertilizantes.Text == string.Empty && txtGastosInsecticidas.Text == string.Empty && txtGastosGasolina.Text == string.Empty &&
+                txtGastosAgua.Text == string.Empty && txtGastosLuz.Text == string.Empty && txtImprevistos.Text == string.Empty)
+            {
+                MessageBox.Show("Es necesario llenar por lo menos un campo");
+            }
             else
             {
-                MessageBox.Show("Hay campos vacíos");
+                 if (MessageBox.Show("¿Estas seguro que no deseas agregar ningún otro gasto?", "*** AVISO ***", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                 {
+                     if (txtGastosFertilizantes.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     if (txtGastosInsecticidas.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     if (txtGastosGasolina.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     if (txtGastosAgua.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     if (txtGastosLuz.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     if (txtImprevistos.Text != string.Empty)
+                     {
+                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                     }
+                     String.Format("{0:####,##}", sumaGastos); 
+                     objCont.txtGastosGenerales.Text = sumaGastos.ToString();
+                     this.Hide();
+                     objCont.Show();
+                 }
             }
         }
 
