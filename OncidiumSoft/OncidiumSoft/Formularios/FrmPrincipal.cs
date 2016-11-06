@@ -30,5 +30,11 @@ namespace OncidiumSoft
             FrmProductos llamProductos = new FrmProductos();
             llamProductos.Show();
         }
+
+        private void ventasPorMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPorMes obj = new frmPorMes();
+            obj.Show();
+        }
     }
 }
