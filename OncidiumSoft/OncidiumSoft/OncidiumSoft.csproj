@@ -102,23 +102,32 @@
     <Compile Include="Formularios\frmListPedidos.Designer.cs">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmMostrarReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
       <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmMostrarReporte.cs">
+    <Compile Include="Formularios\frmMostrarReporteMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
+    <Compile Include="Formularios\frmMostrarReporteMes.Designer.cs">
+      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmPedidos.Designer.cs">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.Designer.cs">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -138,8 +147,7 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Cls_DatosVenta.cs" />
-    <Compile Include="Objetos\Cls_Provedores.cs" />
+    <Compile Include="Objetos\ClsProvedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />
@@ -177,14 +185,17 @@
     <EmbeddedResource Include="Formularios\frmListPedidos.resx">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
       <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPorMes.resx">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -210,6 +221,8 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetPrincipal1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPrincipal.Designer.cs</LastGenOutput>
     </None>
     <None Include="Objetos\DataSetPrincipal.xss">
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
