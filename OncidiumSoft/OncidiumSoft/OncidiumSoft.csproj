@@ -112,40 +112,20 @@
     <Compile Include="Formularios\frmMostrarReporteMes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
-    <Compile Include="Formularios\frmMostrarReporteMes.Designer.cs">
-      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmPedidos.Designer.cs">
-      <DependentUpon>frmPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmPorMes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmPorMes.Designer.cs">
-      <DependentUpon>frmPorMes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmProductos.Designer.cs">
-      <DependentUpon>FrmProductos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FrmVenta.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ClsProvedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
