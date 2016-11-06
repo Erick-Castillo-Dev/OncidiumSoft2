@@ -290,6 +290,7 @@
             this.btnCancelar.TabIndex = 37;
             this.btnCancelar.Text = "Cancelar venta";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pictureBox2
             // 

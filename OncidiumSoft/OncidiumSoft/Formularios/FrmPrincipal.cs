@@ -34,6 +34,7 @@ namespace OncidiumSoft
         private void Ventas1_Click(object sender, EventArgs e)
         {
             FrmVenta llamarVentas = new FrmVenta();
+            llamarVentas.id = int.Parse(idUsuario.Text.ToString());
             llamarVentas.Show();
         }
     }

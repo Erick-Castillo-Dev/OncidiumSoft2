@@ -20,6 +20,14 @@ namespace OncidiumSoft.Formularios
             InitializeComponent();
         }
         /// <summary>
+        /// Variable para el id del usuario
+        /// </summary>
+        public int id=0;
+        /// <summary>
+        /// Objeto de clase dao para acceder a los metodos de la venta
+        /// </summary>
+        Cls_DaoVentas vDao = new Cls_DaoVentas();
+        /// <summary>
         /// Objeto de la clase productos
         /// </summary>
         Cls_Productos pro = new Cls_Productos();
@@ -59,6 +67,11 @@ namespace OncidiumSoft.Formularios
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             reiniciar();
+            FrmPrincipal f = new FrmPrincipal();
+            Cls_Usuarios c = new Cls_Usuarios();
+            c.idUsuario = id;
+            txtEmpleado.Text = new Cls_DaoUsuarios().NombreUsuario(c);
+            txtIdVenta.Text = "" + vDao.folio();
         }
 
         public void limpiar()
@@ -119,6 +132,13 @@ namespace OncidiumSoft.Formularios
                     MessageBox.Show("El producto no existe");
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            reiniciar();
+            limpiar();
+            MessageBox.Show("Venta cancelada");
         }
     }
 }

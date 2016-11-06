@@ -107,5 +107,42 @@ namespace OncidiumSoft.Daos
             return false;
         }
 
+        public string NombreUsuario(Cls_Usuarios clsU)
+        {
+            try
+            {
+
+                string sql;
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                cm.Parameters.AddWithValue("@id", clsU.idUsuario);
+                sql = "select Nombre from usuarios where idUsuarios = @id";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    string s = dr.GetString("Nombre");
+                    c.Cerrar();
+                    return s;
+                }
+                else
+                {
+                    c.Cerrar();
+                    return "";
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                return "";
+                c.Cerrar();
+            }
+            return "";
+        }
+
     }
 }
