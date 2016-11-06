@@ -102,17 +102,29 @@
     <Compile Include="Formularios\frmListPedidos.Designer.cs">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.cs">
+    <Compile Include="Formularios\frmMostrarReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.Designer.cs">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteMes.Designer.cs">
+      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmPedidos.Designer.cs">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.Designer.cs">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -136,18 +148,18 @@
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />
-    <Compile Include="Objetos\Cls_DataSetPrincipal.cs">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Objetos\Cls_DataSetPrincipal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
+    <Compile Include="Objetos\DataSetPrincipal.cs">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Objetos\DataSetPrincipal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
@@ -171,19 +183,25 @@
     <EmbeddedResource Include="Formularios\frmListPedidos.resx">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMotrarReporte.resx">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteMes.resx">
+      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPorMes.resx">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Objetos\ReporteVentasDiarias.rdlc" />
     <EmbeddedResource Include="Formularios\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Objetos\ReporteVentas.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -194,16 +212,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsc">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xsc">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsd">
+    <None Include="Objetos\DataSetPrincipal.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Cls_DataSetPrincipal.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetPrincipal.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xss">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xss">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
