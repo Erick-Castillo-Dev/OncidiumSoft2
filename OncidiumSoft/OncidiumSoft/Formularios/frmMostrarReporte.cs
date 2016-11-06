@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace OncidiumSoft.Formularios
 
         private void frmMostrarReporte_Load(object sender, EventArgs e)
         {
+            
         this.dataTableTableAdapter.Fill(this.dataSetPrincipal.DataTable, Fecha);
         this.reportViewer1.RefreshReport();
       
