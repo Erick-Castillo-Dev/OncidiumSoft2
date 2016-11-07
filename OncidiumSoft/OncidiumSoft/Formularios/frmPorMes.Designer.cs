@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 42);
+            this.label1.Location = new System.Drawing.Point(112, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 0;
@@ -45,14 +45,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 89);
+            this.comboBox1.Location = new System.Drawing.Point(66, 89);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(138, 154);
+            this.btnGenerar.Location = new System.Drawing.Point(89, 149);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(128, 57);
             this.btnGenerar.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 272);
+            this.ClientSize = new System.Drawing.Size(299, 246);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
