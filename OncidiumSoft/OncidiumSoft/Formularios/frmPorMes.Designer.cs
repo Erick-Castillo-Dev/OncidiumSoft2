@@ -1,6 +1,6 @@
 ﻿namespace OncidiumSoft.Formularios
 {
-    partial class frmCalendario
+    partial class frmPorMes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dtpFecha
+            // label1
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(29, 63);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(240, 20);
-            this.dtpFecha.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Selecciona mes";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(66, 89);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
+            this.comboBox1.TabIndex = 1;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(81, 143);
+            this.btnGenerar.Location = new System.Drawing.Point(89, 149);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(128, 57);
-            this.btnGenerar.TabIndex = 1;
+            this.btnGenerar.TabIndex = 2;
             this.btnGenerar.Text = "Generar Reporte";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // frmCalendario
+            // frmPorMes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 242);
+            this.ClientSize = new System.Drawing.Size(299, 246);
             this.Controls.Add(this.btnGenerar);
-            this.Controls.Add(this.dtpFecha);
-            this.Name = "frmCalendario";
-            this.Text = "frmCalendario";
-            this.Load += new System.EventHandler(this.frmCalendario_Load);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
+            this.Name = "frmPorMes";
+            this.Text = "frmPorMes";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnGenerar;
     }
 }

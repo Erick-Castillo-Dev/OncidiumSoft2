@@ -10,23 +10,22 @@ using System.Windows.Forms;
 
 namespace OncidiumSoft.Formularios
 {
-    public partial class frmMotrarReporte : Form
+    public partial class frmMostrarReporteSemana : Form
     {
-        public frmMotrarReporte()
+        public frmMostrarReporteSemana()
         {
             InitializeComponent();
         }
 
-        private void frmMotrarReporte_Load(object sender, EventArgs e)
+        private void frmMostrarReporteSemana_Load(object sender, EventArgs e)
         {
-           
-            this.reportViewer1.RefreshReport();
-        }
 
-        public DateTime fecha
-        {
-            set;
-            get;
+           
+            // Esta línea de código carga datos en la tabla 'dataSetPrincipal.DataTable2' Puede moverla o quitarla según sea necesario.
+            this.dataTable2TableAdapter.Fill(this.dataSetPrincipal.DataTable2);
+            this.reportViewer1.RefreshReport();
+
+      
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)

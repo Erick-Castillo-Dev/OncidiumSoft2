@@ -34,10 +34,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MySql.Data.dll</HintPath>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -52,19 +49,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion_Datos\Conexion.cs" />
-    <Compile Include="Daos\Cls_DaoAjusteInventario.cs" />
-    <Compile Include="Daos\Cls_DaoCompra.cs" />
-    <Compile Include="Daos\Cls_DaoContabilidad.cs" />
-    <Compile Include="Daos\Cls_DaoPedidos.cs" />
-    <Compile Include="Daos\Cls_DaoProductos.cs" />
-    <Compile Include="Daos\Cls_DaoProvedores.cs" />
-    <Compile Include="Daos\Cls_DaoUsuarios.cs" />
-    <Compile Include="Daos\Cls_DaoVentas.cs" />
-    <Compile Include="Formularios\FrmAgregarProductos.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Daos\Cls_DaoAjusteInventario.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmAgregarProductos.Designer.cs">
-      <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    <Compile Include="Daos\Cls_DaoCompra.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoContabilidad.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoPedidos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoProductos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoProvedores.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoUsuarios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Daos\Cls_DaoVentas.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Formularios\FrmAjusteInventario.cs">
       <SubType>Form</SubType>
@@ -108,17 +115,47 @@
     <Compile Include="Formularios\frmListPedidos.Designer.cs">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.cs">
+    <Compile Include="Formularios\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.Designer.cs">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <Compile Include="Formularios\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteDiario.Designer.cs">
+      <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteMes.Designer.cs">
+      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteSemana.Designer.cs">
+      <DependentUpon>frmMostrarReporteSemana.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmPedidos.Designer.cs">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPorMes.Designer.cs">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPorSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPorSemana.Designer.cs">
+      <DependentUpon>frmPorSemana.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -138,18 +175,39 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\Cls_AjusteInventario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_Compra.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_Contabilidad.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_DataSetPrincipal1.Designer.cs" />
+    <Compile Include="Objetos\Cls_DatosVenta.cs" />
+    <Compile Include="Objetos\Cls_Detalles_Ventas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_Productos.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Objetos\Cls_Provedores.cs" />
-    <Compile Include="Objetos\Cls_AjusteInventario.cs" />
-    <Compile Include="Objetos\Cls_Compra.cs" />
-    <Compile Include="Objetos\Cls_Contabilidad.cs" />
-    <Compile Include="Objetos\Cls_DataSetPrincipal.cs">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <Compile Include="Objetos\Cls_Usuarios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\Cls_Ventas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objetos\DataSetPrincipal.cs">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Objetos\Cls_DataSetPrincipal.Designer.cs">
+    <Compile Include="Objetos\DataSetPrincipal.Designer.cs">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
@@ -181,11 +239,26 @@
     <EmbeddedResource Include="Formularios\frmListPedidos.resx">
       <DependentUpon>frmListPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMotrarReporte.resx">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
+      <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteMes.resx">
+      <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteSemana.resx">
+      <DependentUpon>frmMostrarReporteSemana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPorMes.resx">
+      <DependentUpon>frmPorMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPorSemana.resx">
+      <DependentUpon>frmPorSemana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -193,30 +266,30 @@
     <EmbeddedResource Include="Formularios\FrmProductos.resx">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Objetos\ReporteVentasDiarias.rdlc" />
     <EmbeddedResource Include="Formularios\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Objetos\ReporteVentas.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsc">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xsc">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsd">
+    <None Include="Objetos\DataSetPrincipal.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Cls_DataSetPrincipal.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetPrincipal.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xss">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xss">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +315,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\apply.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch-307129_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,117 +8,56 @@ namespace OncidiumSoft.Objetos
 {
     class Cls_Usuarios
     {
-        /// <summary>
-        /// Variables para la manipulacion de los usuarios.
-        /// </summary>
-        private int idUsuarios;
-        private string Nombre;
-        private string Direccion;
-        private string Telefono;
-        private string Usuario;
-        private string Contrasena;
-        private string Puesto;
-        /// <summary>
-        /// Getter y setter del id del usuario.
-        /// </summary>
-        public int iddeUsuario
+
+        private int _idUsuario;
+        private string _nombre;
+        private string _direccion;
+        private string _telefono;
+        private string _usuario;
+        private string _contrasena;
+        private string _puesto;
+
+        public int idUsuario
         {
-            get
-            {
-                return idUsuarios;
-            }
-            set
-            {
-                idUsuarios = value;
-            }
-        }
-        /// <summary>
-        /// Getter y setter del nombre del usuario.
-        /// </summary>
-        public string nombreUasuario
-        {
-            get
-            {
-                return Nombre;
-            }
-            set
-            {
-                Nombre = value;
-            }
-        }
-        /// <summary>
-        /// Getter y setter de la direccion del usuario
-        /// </summary>
-        public string direccionUsuario
-        {
-            get
-            {
-                return Direccion;
-            }
-            set
-            {
-                Direccion = value;
-            }
-        }
-        /// <summary>
-        /// Getter y setter del telefono del usuario
-        /// </summary>
-        public string telefonoUsuario
-        {
-            get
-            {
-                return Telefono;
-            }
-            set
-            {
-                Telefono = value;
-            }
-        }
-        /// <summary>
-        /// Getter y setter de la Nombre de usuario
-        /// </summary>
-        public string cuentaUsuario
-        {
-            get
-            {
-                return Usuario;
-            }
-            set
-            {
-                Usuario = value;
-            }
+            get { return _idUsuario; }
+            set { _idUsuario = value; }
         }
 
-        /// <summary>
-        /// Getter y setter de la contrasena del usuario
-        /// </summary>
-        public string contrasenadeUsuario
+        public string nombre
         {
-            get
-            {
-                return Contrasena;
-            }
-            set
-            {
-                Contrasena = value;
-            }
-
+            get { return _nombre; }
+            set { _nombre = value; }
         }
-        /// <summary>
-        /// Getter y setter del puesto del usuario.
-        /// </summary>
-        public string puestodeUsuario
+
+        public string direccion
         {
-            get
-            {
-                return Puesto;
-            }
-            set
-            {
-                Puesto = value;
-            }
-
-            
+            get { return _direccion; }
+            set { _direccion = value; }
         }
+
+        public string telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
+        }
+
+        public string usuario
+        {
+            get { return _usuario; }
+            set { _usuario = value; }
+        }
+
+        public string contrasena
+        {
+            get { return _contrasena; }
+            set { _contrasena = value; }
+        }
+
+        public string puesto
+        {
+            get { return _puesto; }
+            set { _puesto = value; }
+        }
+
     }
 }

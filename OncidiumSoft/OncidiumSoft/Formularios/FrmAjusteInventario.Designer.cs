@@ -30,158 +30,265 @@
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboAjuste = new System.Windows.Forms.ComboBox();
             this.lblTipoAjuste = new System.Windows.Forms.Label();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblPrecioCliente = new System.Windows.Forms.Label();
             this.txtPrecioCliente = new System.Windows.Forms.TextBox();
             this.lblPrecioCosto = new System.Windows.Forms.Label();
             this.txtPrecioCosto = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.cbProducto = new System.Windows.Forms.ComboBox();
+            this.cboProducto = new System.Windows.Forms.ComboBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(183, 280);
+            this.btnCancelar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancelar.Location = new System.Drawing.Point(224, 340);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(97, 33);
             this.btnCancelar.TabIndex = 44;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(92, 280);
+            this.btnAceptar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAceptar.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAceptar.Location = new System.Drawing.Point(127, 340);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(91, 33);
             this.btnAceptar.TabIndex = 43;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // comboBox1
+            // cboAjuste
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 236);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 21);
-            this.comboBox1.TabIndex = 42;
+            this.cboAjuste.FormattingEnabled = true;
+            this.cboAjuste.Items.AddRange(new object[] {
+            "Alta",
+            "Baja"});
+            this.cboAjuste.Location = new System.Drawing.Point(155, 295);
+            this.cboAjuste.Name = "cboAjuste";
+            this.cboAjuste.Size = new System.Drawing.Size(167, 21);
+            this.cboAjuste.TabIndex = 42;
             // 
             // lblTipoAjuste
             // 
             this.lblTipoAjuste.AutoSize = true;
-            this.lblTipoAjuste.Location = new System.Drawing.Point(12, 239);
+            this.lblTipoAjuste.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipoAjuste.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblTipoAjuste.Location = new System.Drawing.Point(38, 295);
             this.lblTipoAjuste.Name = "lblTipoAjuste";
-            this.lblTipoAjuste.Size = new System.Drawing.Size(75, 13);
+            this.lblTipoAjuste.Size = new System.Drawing.Size(113, 19);
             this.lblTipoAjuste.TabIndex = 41;
             this.lblTipoAjuste.Text = "Tipo de Ajuste";
             // 
-            // cbEstado
+            // cboEstado
             // 
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(92, 193);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(167, 21);
-            this.cbEstado.TabIndex = 40;
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
+            "Disponible",
+            "No disponible"});
+            this.cboEstado.Location = new System.Drawing.Point(155, 250);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(167, 21);
+            this.cboEstado.TabIndex = 40;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(13, 196);
+            this.lblEstado.BackColor = System.Drawing.Color.Transparent;
+            this.lblEstado.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblEstado.Location = new System.Drawing.Point(39, 252);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblEstado.Size = new System.Drawing.Size(59, 19);
             this.lblEstado.TabIndex = 39;
             this.lblEstado.Text = "Estado";
             // 
             // lblPrecioCliente
             // 
             this.lblPrecioCliente.AutoSize = true;
-            this.lblPrecioCliente.Location = new System.Drawing.Point(13, 154);
+            this.lblPrecioCliente.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrecioCliente.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblPrecioCliente.Location = new System.Drawing.Point(39, 210);
             this.lblPrecioCliente.Name = "lblPrecioCliente";
-            this.lblPrecioCliente.Size = new System.Drawing.Size(72, 13);
+            this.lblPrecioCliente.Size = new System.Drawing.Size(111, 19);
             this.lblPrecioCliente.TabIndex = 38;
             this.lblPrecioCliente.Text = "Precio Cliente";
             // 
             // txtPrecioCliente
             // 
-            this.txtPrecioCliente.Location = new System.Drawing.Point(92, 147);
+            this.txtPrecioCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecioCliente.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.txtPrecioCliente.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPrecioCliente.Location = new System.Drawing.Point(155, 209);
             this.txtPrecioCliente.Name = "txtPrecioCliente";
-            this.txtPrecioCliente.Size = new System.Drawing.Size(167, 20);
+            this.txtPrecioCliente.Size = new System.Drawing.Size(167, 23);
             this.txtPrecioCliente.TabIndex = 37;
             // 
             // lblPrecioCosto
             // 
             this.lblPrecioCosto.AutoSize = true;
-            this.lblPrecioCosto.Location = new System.Drawing.Point(13, 111);
+            this.lblPrecioCosto.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrecioCosto.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblPrecioCosto.Location = new System.Drawing.Point(39, 167);
             this.lblPrecioCosto.Name = "lblPrecioCosto";
-            this.lblPrecioCosto.Size = new System.Drawing.Size(67, 13);
+            this.lblPrecioCosto.Size = new System.Drawing.Size(101, 19);
             this.lblPrecioCosto.TabIndex = 36;
             this.lblPrecioCosto.Text = "Precio Costo";
             // 
             // txtPrecioCosto
             // 
-            this.txtPrecioCosto.Location = new System.Drawing.Point(92, 104);
+            this.txtPrecioCosto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecioCosto.Font = new System.Drawing.Font("Rockwell", 9.75F);
+            this.txtPrecioCosto.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPrecioCosto.Location = new System.Drawing.Point(154, 166);
             this.txtPrecioCosto.Name = "txtPrecioCosto";
-            this.txtPrecioCosto.Size = new System.Drawing.Size(167, 20);
+            this.txtPrecioCosto.Size = new System.Drawing.Size(167, 23);
             this.txtPrecioCosto.TabIndex = 35;
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(12, 69);
+            this.lblCantidad.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantidad.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblCantidad.Location = new System.Drawing.Point(38, 125);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(49, 13);
+            this.lblCantidad.Size = new System.Drawing.Size(77, 19);
             this.lblCantidad.TabIndex = 34;
             this.lblCantidad.Text = "Cantidad";
             // 
-            // cbProducto
+            // cboProducto
             // 
-            this.cbProducto.FormattingEnabled = true;
-            this.cbProducto.Location = new System.Drawing.Point(91, 20);
-            this.cbProducto.Name = "cbProducto";
-            this.cbProducto.Size = new System.Drawing.Size(167, 21);
-            this.cbProducto.TabIndex = 33;
+            this.cboProducto.FormattingEnabled = true;
+            this.cboProducto.Items.AddRange(new object[] {
+            "Rosal coster",
+            "malva chica",
+            "lengua de suegra",
+            "rosal grande",
+            "pera",
+            "azucena chica",
+            "Begonia ala de angel",
+            "Phalenopsis",
+            "Limon persa",
+            "Camelina roja",
+            "Maceta bongo roja chica"});
+            this.cboProducto.Location = new System.Drawing.Point(155, 82);
+            this.cboProducto.Name = "cboProducto";
+            this.cboProducto.Size = new System.Drawing.Size(167, 21);
+            this.cboProducto.TabIndex = 33;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(91, 62);
+            this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCantidad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtCantidad.Location = new System.Drawing.Point(155, 124);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(167, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(167, 23);
             this.txtCantidad.TabIndex = 32;
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(12, 28);
+            this.lblProducto.BackColor = System.Drawing.Color.Transparent;
+            this.lblProducto.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblProducto.Location = new System.Drawing.Point(38, 84);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(50, 13);
+            this.lblProducto.Size = new System.Drawing.Size(75, 19);
             this.lblProducto.TabIndex = 31;
             this.lblProducto.Text = "Producto";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.ForestGreen;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(343, 53);
+            this.pictureBox1.TabIndex = 53;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.ForestGreen;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(24, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(243, 29);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Ajuste de inventario";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.ForestGreen;
+            this.pictureBox3.BackgroundImage = global::OncidiumSoft.Properties.Resources._12283043_773212156137905_384527972_n;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(276, 26);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(49, 47);
+            this.pictureBox3.TabIndex = 56;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.ForestGreen;
+            this.pictureBox2.Location = new System.Drawing.Point(-1, 386);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(343, 27);
+            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabStop = false;
             // 
             // FrmAjusteInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 322);
+            this.ClientSize = new System.Drawing.Size(342, 413);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboAjuste);
             this.Controls.Add(this.lblTipoAjuste);
-            this.Controls.Add(this.cbEstado);
+            this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblPrecioCliente);
             this.Controls.Add(this.txtPrecioCliente);
             this.Controls.Add(this.lblPrecioCosto);
             this.Controls.Add(this.txtPrecioCosto);
             this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.cbProducto);
+            this.Controls.Add(this.cboProducto);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.lblProducto);
             this.Name = "FrmAjusteInventario";
             this.Text = "FrmAjusteInventario";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,17 +298,21 @@
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblTipoAjuste;
-        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblPrecioCliente;
         private System.Windows.Forms.TextBox txtPrecioCliente;
         private System.Windows.Forms.Label lblPrecioCosto;
         private System.Windows.Forms.TextBox txtPrecioCosto;
         private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.ComboBox cbProducto;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblProducto;
+        public System.Windows.Forms.ComboBox cboProducto;
+        public System.Windows.Forms.ComboBox cboAjuste;
+        public System.Windows.Forms.ComboBox cboEstado;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -30,5 +30,46 @@ namespace OncidiumSoft
             FrmProductos llamProductos = new FrmProductos();
             llamProductos.Show();
         }
+
+        private void Ventas1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Ventas1_Click_1(object sender, EventArgs e)
+        {
+            FrmVenta llamarVentas = new FrmVenta();
+            llamarVentas.id = int.Parse(idUsuario.Text.ToString());
+            llamarVentas.Show();
+        }
+
+        private void ventasPorMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPorMes obj = new frmPorMes();
+            obj.Show();
+        }
+
+        private void VentasFecha_Click(object sender, EventArgs e)
+        {
+            frmPorSemana jaja = new frmPorSemana();
+            jaja.Show();
+        }
+
+        private void Usuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void realizarContabilidad_Click(object sender, EventArgs e)
+        {
+            FrmContabilidad objC = new FrmContabilidad();
+            objC.Show();
+        }
+
+        private void realizarAjuste_Click(object sender, EventArgs e)
+        {
+            FrmAjusteInventario objA = new FrmAjusteInventario();
+            objA.Show();
+        }
     }
 }
