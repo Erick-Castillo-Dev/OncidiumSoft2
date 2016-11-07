@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.Archivo = new System.Windows.Forms.ToolStripMenuItem();
             this.Salir = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,17 +41,9 @@
             this.VentasDia = new System.Windows.Forms.ToolStripMenuItem();
             this.VentasFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.AutoSize = true;
-            this.idUsuario.Location = new System.Drawing.Point(-784, -139);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(0, 13);
-            this.idUsuario.TabIndex = 5;
-            this.idUsuario.Visible = false;
             // 
             // menuPrincipal
             // 
@@ -94,7 +85,7 @@
             this.Ventas1.Name = "Ventas1";
             this.Ventas1.Size = new System.Drawing.Size(152, 22);
             this.Ventas1.Text = "Ventas";
-            this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click);
+            this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click_1);
             // 
             // Administrar
             // 
@@ -154,6 +145,15 @@
             this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
             // 
+            // idUsuario
+            // 
+            this.idUsuario.AutoSize = true;
+            this.idUsuario.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario.TabIndex = 5;
+            this.idUsuario.Visible = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,7 +173,6 @@
 
         #endregion
 
-        public System.Windows.Forms.Label idUsuario;
         private System.Windows.Forms.MenuStrip menuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem Archivo;
         private System.Windows.Forms.ToolStripMenuItem Salir;
@@ -187,6 +186,7 @@
         private System.Windows.Forms.ToolStripMenuItem VentasDia;
         private System.Windows.Forms.ToolStripMenuItem VentasFecha;
         private System.Windows.Forms.ToolStripMenuItem ventasPorMesToolStripMenuItem;
+        public System.Windows.Forms.Label idUsuario;
     }
 }
 
