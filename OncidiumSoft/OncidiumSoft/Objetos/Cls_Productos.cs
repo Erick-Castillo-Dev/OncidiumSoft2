@@ -19,9 +19,9 @@ namespace OncidiumSoft.Objetos
         private byte[] img;
         private int idProvedores;//esta es llave foranea
         private double Precio_Costo;
-        private bool Disponible;//checar el tipo de dato de la base de datos
-        private bool Ajuste;//checar el tipo de dato de la base de datos
-
+        private string Disponible;//checar el tipo de dato de la base de datos
+        private string Ajuste;//checar el tipo de dato de la base de datos
+        
         /// <summary>
         /// Getter y setter del id de los productos.
         /// </summary>
@@ -123,7 +123,7 @@ namespace OncidiumSoft.Objetos
         /// <summary>
         /// Getter y setter de la disponibilidad del producto
         /// </summary>
-         public bool Disponibilidad
+            public string Disponibilidad
             {
                 get
                 {
@@ -137,7 +137,7 @@ namespace OncidiumSoft.Objetos
         /// <summary>
         /// Getter y setter de los ajustes de los productos
         /// </summary>
-         public bool AjusteProducto
+            public string AjusteProducto
          {
              get
              {

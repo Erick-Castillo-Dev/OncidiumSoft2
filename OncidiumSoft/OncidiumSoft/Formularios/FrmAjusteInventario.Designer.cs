@@ -137,7 +137,7 @@
             // 
             this.txtPrecioCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioCliente.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtPrecioCliente.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPrecioCliente.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtPrecioCliente.Location = new System.Drawing.Point(155, 209);
             this.txtPrecioCliente.Name = "txtPrecioCliente";
             this.txtPrecioCliente.Size = new System.Drawing.Size(167, 23);
@@ -158,7 +158,7 @@
             // 
             this.txtPrecioCosto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioCosto.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtPrecioCosto.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPrecioCosto.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtPrecioCosto.Location = new System.Drawing.Point(154, 166);
             this.txtPrecioCosto.Name = "txtPrecioCosto";
             this.txtPrecioCosto.Size = new System.Drawing.Size(167, 23);
@@ -198,8 +198,8 @@
             // txtCantidad
             // 
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCantidad.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtCantidad.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCantidad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtCantidad.Location = new System.Drawing.Point(155, 124);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 23);

@@ -40,16 +40,17 @@
             // dgVProductos
             // 
             this.dgVProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVProductos.Location = new System.Drawing.Point(38, 127);
+            this.dgVProductos.Location = new System.Drawing.Point(37, 127);
             this.dgVProductos.Name = "dgVProductos";
-            this.dgVProductos.Size = new System.Drawing.Size(499, 265);
+            this.dgVProductos.Size = new System.Drawing.Size(757, 265);
             this.dgVProductos.TabIndex = 0;
+            this.dgVProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVProductos_CellContentClick);
             // 
             // lblProductos
             // 
             this.lblProductos.AutoSize = true;
             this.lblProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductos.Location = new System.Drawing.Point(286, 50);
+            this.lblProductos.Location = new System.Drawing.Point(399, 29);
             this.lblProductos.Name = "lblProductos";
             this.lblProductos.Size = new System.Drawing.Size(395, 31);
             this.lblProductos.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(571, 142);
+            this.btnAgregar.Location = new System.Drawing.Point(832, 140);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(123, 23);
             this.btnAgregar.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(571, 184);
+            this.btnModificar.Location = new System.Drawing.Point(832, 182);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(123, 23);
             this.btnModificar.TabIndex = 3;
@@ -77,35 +78,38 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(571, 232);
+            this.btnEliminar.Location = new System.Drawing.Point(832, 230);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 23);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar Producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnPrincipal
             // 
-            this.btnPrincipal.Location = new System.Drawing.Point(571, 351);
+            this.btnPrincipal.Location = new System.Drawing.Point(832, 349);
             this.btnPrincipal.Name = "btnPrincipal";
             this.btnPrincipal.Size = new System.Drawing.Size(123, 23);
             this.btnPrincipal.TabIndex = 5;
             this.btnPrincipal.Text = "Menú Principal";
             this.btnPrincipal.UseVisualStyleBackColor = true;
+            this.btnPrincipal.Click += new System.EventHandler(this.btnPrincipal_Click);
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 454);
+            this.ClientSize = new System.Drawing.Size(1019, 453);
             this.Controls.Add(this.btnPrincipal);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.dgVProductos);
+            this.MaximizeBox = false;
             this.Name = "FrmProductos";
-            this.Text = "FrmProductos";
+            this.Text = "Administración Productos.";
             this.Load += new System.EventHandler(this.FrmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVProductos)).EndInit();
             this.ResumeLayout(false);

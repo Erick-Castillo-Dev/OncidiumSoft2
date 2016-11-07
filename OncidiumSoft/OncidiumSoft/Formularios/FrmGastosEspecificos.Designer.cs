@@ -83,7 +83,7 @@
             // 
             this.txtImprevistos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtImprevistos.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtImprevistos.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtImprevistos.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtImprevistos.Location = new System.Drawing.Point(228, 289);
             this.txtImprevistos.MaxLength = 8;
             this.txtImprevistos.Name = "txtImprevistos";
@@ -106,7 +106,7 @@
             // 
             this.txtGastosLuz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosLuz.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosLuz.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosLuz.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosLuz.Location = new System.Drawing.Point(228, 250);
             this.txtGastosLuz.MaxLength = 8;
             this.txtGastosLuz.Name = "txtGastosLuz";
@@ -129,7 +129,7 @@
             // 
             this.txtGastosAgua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosAgua.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosAgua.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosAgua.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosAgua.Location = new System.Drawing.Point(228, 211);
             this.txtGastosAgua.MaxLength = 8;
             this.txtGastosAgua.Name = "txtGastosAgua";
@@ -152,7 +152,7 @@
             // 
             this.txtGastosGasolina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosGasolina.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosGasolina.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosGasolina.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosGasolina.Location = new System.Drawing.Point(227, 172);
             this.txtGastosGasolina.MaxLength = 8;
             this.txtGastosGasolina.Name = "txtGastosGasolina";
@@ -175,7 +175,7 @@
             // 
             this.txtGastosInsecticidas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosInsecticidas.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosInsecticidas.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosInsecticidas.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosInsecticidas.Location = new System.Drawing.Point(227, 133);
             this.txtGastosInsecticidas.MaxLength = 8;
             this.txtGastosInsecticidas.Name = "txtGastosInsecticidas";
@@ -198,7 +198,7 @@
             // 
             this.txtGastosFertilizantes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosFertilizantes.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosFertilizantes.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosFertilizantes.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosFertilizantes.Location = new System.Drawing.Point(227, 94);
             this.txtGastosFertilizantes.MaxLength = 8;
             this.txtGastosFertilizantes.Name = "txtGastosFertilizantes";

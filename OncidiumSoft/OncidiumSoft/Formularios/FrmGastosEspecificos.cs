@@ -36,12 +36,20 @@ namespace OncidiumSoft.Formularios
             if (txtGastosFertilizantes.Text != string.Empty && txtGastosInsecticidas.Text != string.Empty && txtGastosGasolina.Text != string.Empty &&
                 txtGastosAgua.Text != string.Empty && txtGastosLuz.Text != string.Empty && txtImprevistos.Text != string.Empty)
             {
-                sumaGastos = double.Parse(txtGastosFertilizantes.Text) + double.Parse(txtGastosInsecticidas.Text) + double.Parse(txtGastosGasolina.Text) +
-                double.Parse(txtGastosAgua.Text) + double.Parse(txtGastosLuz.Text) + double.Parse(txtImprevistos.Text);
-                String.Format("{0:####,##}", sumaGastos); 
-                objCont.txtGastosGenerales.Text = sumaGastos.ToString();
-                this.Hide();
-                objCont.Show();
+                try
+                {
+                    sumaGastos = double.Parse(txtGastosFertilizantes.Text) + double.Parse(txtGastosInsecticidas.Text) + double.Parse(txtGastosGasolina.Text) +
+                    double.Parse(txtGastosAgua.Text) + double.Parse(txtGastosLuz.Text) + double.Parse(txtImprevistos.Text);
+                    String.Format("{0:####,##}", sumaGastos);
+                    objCont.txtGastosGenerales.Text = sumaGastos.ToString();
+                    this.Hide();
+                    objCont.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Introduzca el formato correcto para los gastos");
+                }
+                
             }
             else if (txtGastosFertilizantes.Text == string.Empty && txtGastosInsecticidas.Text == string.Empty && txtGastosGasolina.Text == string.Empty &&
                 txtGastosAgua.Text == string.Empty && txtGastosLuz.Text == string.Empty && txtImprevistos.Text == string.Empty)

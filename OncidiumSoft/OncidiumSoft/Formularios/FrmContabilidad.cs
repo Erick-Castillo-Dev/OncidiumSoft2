@@ -117,9 +117,9 @@ namespace OncidiumSoft.Formularios
         {
             if (txtGastosGenerales.Text != string.Empty && txtSalarios.Text != string.Empty)
             {
-                ganancia = double.Parse(lblVentasT.Text) - double.Parse(lblInversionT.Text);
-                lblGananciaT.Text = ganancia.ToString();
-                Agregar();
+                    ganancia = double.Parse(lblVentasT.Text) - double.Parse(lblInversionT.Text);
+                    lblGananciaT.Text = ganancia.ToString();
+                    Agregar();
             }
             else
             {
@@ -131,8 +131,15 @@ namespace OncidiumSoft.Formularios
         {
             if (txtGastosGenerales.Text != string.Empty && txtSalarios.Text != string.Empty)
             {
-                Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
-                lblInversionT.Text = Inversion.ToString();
+                try
+                {
+                    Inversion = double.Parse(txtGastosGenerales.Text) + double.Parse(txtSalarios.Text);
+                    lblInversionT.Text = Inversion.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Introduzca el formato correcto para los gastos");
+                }
             }
             else
             {
