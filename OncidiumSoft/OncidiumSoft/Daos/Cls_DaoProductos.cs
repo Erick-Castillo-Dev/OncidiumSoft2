@@ -52,13 +52,14 @@ namespace OncidiumSoft.Daos
                     pro.PrecioalCliente = dr.GetDouble("Precio_Cliente");
                     pro.TipoProducto = dr.GetString("Tipo");
                     pro.CantidadProducto = dr.GetInt32("Cantidad");
-                    pro.imgenProducto = dr.GetString("img");
+                    //pro.imgenProducto = buscarimg(pro.idProductoss);
                     pro.iddeProvedores = dr.GetInt32("idProvedores");
                     pro.Precio_costo = dr.GetDouble("Precio_Costo");
                     pro.Disponibilidad = dr.GetBoolean("Disponible");
                     pro.AjusteProducto = dr.GetBoolean("Ajuste");
 
                     c.Cerrar();
+                    pro.imgenProducto = buscarimg(pro.idProductoss);
                     return pro;
                 }
                 else
@@ -74,5 +75,22 @@ namespace OncidiumSoft.Daos
 
         }
 
+        public byte[] buscarimg(int id)
+        {
+            try
+            {
+                c.Conectar();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "select img from productos where idProductos = @id";
+                byte[] imgArr = (byte[])cmd.ExecuteScalar();
+                imgArr = (byte[])cmd.ExecuteScalar();
+                c.Cerrar();
+                return imgArr;
+            }catch(Exception e){
+                return null;
+            }
+        }
     }
 }

@@ -41,9 +41,9 @@
             this.VentasDia = new System.Windows.Forms.ToolStripMenuItem();
             this.VentasFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idUsuario = new System.Windows.Forms.Label();
             this.contabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,15 +148,6 @@
             this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
             // 
-            // idUsuario
-            // 
-            this.idUsuario.AutoSize = true;
-            this.idUsuario.Location = new System.Drawing.Point(402, 214);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(0, 13);
-            this.idUsuario.TabIndex = 5;
-            this.idUsuario.Visible = false;
-            // 
             // contabilidadToolStripMenuItem
             // 
             this.contabilidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,6 +162,15 @@
             this.realizarContabilidadToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.realizarContabilidadToolStripMenuItem.Text = "Realizar contabilidad";
             // 
+            // idUsuario
+            // 
+            this.idUsuario.AutoSize = true;
+            this.idUsuario.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario.TabIndex = 5;
+            this.idUsuario.Visible = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,8 +179,11 @@
             this.ClientSize = new System.Drawing.Size(995, 347);
             this.Controls.Add(this.idUsuario);
             this.Controls.Add(this.menuPrincipal);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmPrincipal";
-            this.Text = "FrmPrincipal";
+            this.Text = "Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.ResumeLayout(false);

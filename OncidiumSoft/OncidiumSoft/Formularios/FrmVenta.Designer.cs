@@ -53,14 +53,14 @@
             this.btnRealizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ptProducto = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPago = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -245,6 +245,7 @@
             this.dgvProductos.Location = new System.Drawing.Point(12, 264);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(733, 194);
             this.dgvProductos.TabIndex = 36;
             // 
@@ -278,6 +279,7 @@
             this.btnEliminar.TabIndex = 38;
             this.btnEliminar.Text = "Eliminar producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
@@ -292,13 +294,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // pictureBox2
+            // ptProducto
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(756, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(229, 155);
-            this.pictureBox2.TabIndex = 32;
-            this.pictureBox2.TabStop = false;
+            this.ptProducto.Location = new System.Drawing.Point(756, 12);
+            this.ptProducto.Name = "ptProducto";
+            this.ptProducto.Size = new System.Drawing.Size(229, 155);
+            this.ptProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptProducto.TabIndex = 32;
+            this.ptProducto.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -379,13 +382,13 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.lblNueva_Venta);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.ptProducto);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmVenta";
             this.Text = "FrmVenta";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -419,7 +422,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label lblNueva_Venta;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox ptProducto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
