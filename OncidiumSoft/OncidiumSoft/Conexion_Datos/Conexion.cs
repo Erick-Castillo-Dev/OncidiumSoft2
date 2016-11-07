@@ -18,6 +18,7 @@ namespace OncidiumSoft.Conexxion_Datos
         /// <summary>
         /// Metodo para conectarse a la base de datos
         /// </summary>
+        /// 
         public void Conectar()
         {
             string strCadenaConexion;//CHECAR ESTA PARTE POR EL PUERTO USUARIO Y CONTRASENA
