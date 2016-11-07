@@ -46,7 +46,6 @@
             this.idUsuario = new System.Windows.Forms.Label();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarAjuste = new System.Windows.Forms.ToolStripMenuItem();
-            this.realizarContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();

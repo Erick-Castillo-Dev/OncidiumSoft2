@@ -37,6 +37,7 @@ namespace OncidiumSoft.Daos
         public void AgregarAjuste(Cls_AjusteInventario objAjuste)
         {
             string sql;
+            int id = + Convert.ToInt32(obtenerIDProducto(objA.cboProducto.Text));
             MySqlCommand cm;
             objC.Conectar();
 
@@ -50,7 +51,7 @@ namespace OncidiumSoft.Daos
 
             sql = "UPDATE productos set "
                 + "Nombre = @NOMBRE, Precio_Cliente = @PRECIOCLIENTE, Cantidad = @CANTIDAD, Precio_Costo = @PRECIOCOSTO, "
-                + "Disponible = @ESTADO, Ajuste = @TIPOAJUSTE WHERE idProductos = '" + Convert.ToInt32(obtenerIDProducto(objA.cboProducto.Text)) + "'";
+                + "Disponible = @ESTADO, Ajuste = @TIPOAJUSTE WHERE idProductos = '" + id + "'";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text;
             cm.Connection = objC.cConexion;
