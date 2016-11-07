@@ -41,9 +41,9 @@
             this.VentasDia = new System.Windows.Forms.ToolStripMenuItem();
             this.VentasFecha = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idUsuario = new System.Windows.Forms.Label();
             this.contabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,20 +103,21 @@
             // Usuarios
             // 
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(133, 22);
+            this.Usuarios.Size = new System.Drawing.Size(152, 22);
             this.Usuarios.Text = "Usuarios";
+            this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
             // Productos
             // 
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(133, 22);
+            this.Productos.Size = new System.Drawing.Size(152, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 
             // Provedores
             // 
             this.Provedores.Name = "Provedores";
-            this.Provedores.Size = new System.Drawing.Size(133, 22);
+            this.Provedores.Size = new System.Drawing.Size(152, 22);
             this.Provedores.Text = "Provedores";
             // 
             // Reportes
@@ -141,21 +142,14 @@
             this.VentasFecha.Name = "VentasFecha";
             this.VentasFecha.Size = new System.Drawing.Size(174, 22);
             this.VentasFecha.Text = "Ventas por semana";
+            this.VentasFecha.Click += new System.EventHandler(this.VentasFecha_Click);
             // 
             // ventasPorMesToolStripMenuItem
             // 
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
             this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.AutoSize = true;
-            this.idUsuario.Location = new System.Drawing.Point(402, 214);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(0, 13);
-            this.idUsuario.TabIndex = 5;
-            this.idUsuario.Visible = false;
+            this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 
             // contabilidadToolStripMenuItem
             // 
@@ -170,6 +164,15 @@
             this.realizarContabilidadToolStripMenuItem.Name = "realizarContabilidadToolStripMenuItem";
             this.realizarContabilidadToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.realizarContabilidadToolStripMenuItem.Text = "Realizar contabilidad";
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.AutoSize = true;
+            this.idUsuario.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario.TabIndex = 5;
+            this.idUsuario.Visible = false;
             // 
             // FrmPrincipal
             // 
