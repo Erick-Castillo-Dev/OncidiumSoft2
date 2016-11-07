@@ -9,11 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OncidiumSoft.Daos;
 
 namespace OncidiumSoft.Formularios
 {
     public partial class FrmProductos : Form
     {
+        /// <summary>
+        /// Inicializa los componentes del formulario
+        /// </summary>
         public FrmProductos()
         {
             InitializeComponent();
@@ -33,26 +37,57 @@ namespace OncidiumSoft.Formularios
         
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            conexionDB.Conectar();
-            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from productos", conexionDB.cConexion);
-            DataSet productos = new DataSet();
-            muestreo.Fill(productos, "productos");
-            dgVProductos.DataSource = productos;
+            Cls_DaoProductos obj = new Cls_DaoProductos();
+            dgVProductos.DataSource = obj.llenar();
             dgVProductos.DataMember = "productos";
-            MessageBox.Show("Conexion generada con exito");
             conexionDB.Cerrar();
         }
-
+        /// <summary>
+        /// Llamada al formulario de nuevo registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            conexionDB.Conectar();
-            MessageBox.Show("Conexion Exitosa");
+            
+            FrmAgregarProductos agregar = new FrmAgregarProductos();
+            this.Hide();
+            agregar.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //cerrando la conexion.
-            conexionDB.Cerrar();
+          
         }
+
+       
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        /// <summary>
+        /// Cierra el formulario actual y nos envia al principal.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPrincipal_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+
+
+
+        private void dgVProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+       
     }
 }
