@@ -53,7 +53,7 @@ namespace OncidiumSoft.Formularios
             dgvProductos.DataSource = null;
             txtPago.Text = "0";
             lblTotal.Text = "Total:  $ " + 0;
-            lblDescuento.Text = "Descuento Aplicado al Total $ " + 0;
+            txtDescuento.Text = "0";
             lblCambio.Text = "Cambio: $ " + 0;
             lblFecha.Text = "Fecha de venta: " + DateTime.Now.ToString("yyyy/MM/dd");
             txtCantidad.Text = "1";
@@ -81,6 +81,7 @@ namespace OncidiumSoft.Formularios
             txtPrecio.Text = "";
             txtProducto.Text = "";
             txtTipo.Text = "";
+            txtDescuento.Text = "0";
         }
 
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
@@ -167,6 +168,18 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error consulta al Administrador");
             }
 
+        }
+
+        private void btnRealizar_Click(object sender, EventArgs e)
+        {
+            if (vDao.venta(lista, int.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id))
+            {
+                MessageBox.Show("Venta realizada");
+            }
+            else
+            {
+                MessageBox.Show("Error al hacer la venta");
+            }
         }
 
     }

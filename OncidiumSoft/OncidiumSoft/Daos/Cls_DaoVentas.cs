@@ -58,7 +58,11 @@ namespace OncidiumSoft.Daos
             }
             return 0;
         }
-
+        /// <summary>
+        /// Metodo para cargar la imagen de la base de datos
+        /// </summary>
+        /// <param name="sd"></param>
+        /// <returns></returns>
         public Image cargarimagen(byte[] sd)
         {
             using (var stream = new MemoryStream(sd))
@@ -67,8 +71,15 @@ namespace OncidiumSoft.Daos
                 return img;
             }
         }
-
-        public bool venta(List<Cls_DatosVenta> lis, int folio)
+        /// <summary>
+        /// Metodo de la transacion para hacer la venta
+        /// </summary>
+        /// <param name="lis"></param>
+        /// <param name="total"></param>
+        /// <param name="descuento"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool venta(List<Cls_DatosVenta> lis,int total,int descuento,int id)
         {
             MySqlTransaction tr = null;
             MySqlDataReader dr = null;
@@ -83,9 +94,12 @@ namespace OncidiumSoft.Daos
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = c.cConexion;
                 cmd.Transaction = tr;
-                cmd.Parameters.AddWithValue("@id", folio);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@total",total);
+                cmd.Parameters.AddWithValue("@subtotal", (total-descuento));
+                cmd.Parameters.AddWithValue("@descuento", descuento);
                 cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-MM-dd"));
-                cmd.CommandText = "insert into ventas (Fecha,idEmpleado) values (@fecha,@id)";
+                cmd.CommandText = "INSERT INTO ventas (SubTotal,Total,Fecha_Realizar,Fecha_Entregar,Tipo,Descuento,idUsuarios,Entregado)VALUES(@subtotal,@total,@fecha,@fecha,'Venta',@descuento,@id,1)";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "select idVenta from ventas order by idVenta desc";
                 dr = cmd.ExecuteReader();
@@ -102,10 +116,10 @@ namespace OncidiumSoft.Daos
                     cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
                     cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
                     cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
-                    cmd.CommandText = "insert into detalles_ventas (idProductos,idVentas,Cantidad,Precio) values (@idVenta,@idProducto,@Cantidad,@Precio);";
+                    cmd.CommandText = "INSERT INTO detalles_ventas (idProductos,idVentas,Cantidad,Precio)VALUES(@idProducto,@idVenta,@Cantidad,@Precio)";
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "update productos set Cantidad = Cantidad - @Cantidad where idProductos = @idProducto;";
+                    cmd.CommandText = "update Productos set Cantidad = Cantidad - @Cantidad where idProductos = @idProducto;";
                     cmd.ExecuteNonQuery();
                 }
                 tr.Commit();

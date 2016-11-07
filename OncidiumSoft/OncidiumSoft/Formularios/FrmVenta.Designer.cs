@@ -59,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPago = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -242,7 +243,7 @@
             this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(12, 264);
+            this.dgvProductos.Location = new System.Drawing.Point(12, 261);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -268,6 +269,7 @@
             this.btnRealizar.TabIndex = 39;
             this.btnRealizar.Text = "Realizar Venta";
             this.btnRealizar.UseVisualStyleBackColor = true;
+            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
             // 
             // btnEliminar
             // 
@@ -348,11 +350,20 @@
             this.txtPago.TabIndex = 93;
             this.txtPago.Text = "0";
             // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(163, 487);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(51, 20);
+            this.txtDescuento.TabIndex = 94;
+            this.txtDescuento.Text = "0";
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 539);
+            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.txtPago);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -428,5 +439,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.TextBox txtDescuento;
     }
 }
