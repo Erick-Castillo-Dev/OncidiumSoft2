@@ -121,11 +121,23 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmMostrarReporteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteDiario.Designer.cs">
+      <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmMostrarReporteMes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmMostrarReporteMes.Designer.cs">
       <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporteSemana.Designer.cs">
+      <DependentUpon>frmMostrarReporteSemana.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,12 @@
     </Compile>
     <Compile Include="Formularios\frmPorMes.Designer.cs">
       <DependentUpon>frmPorMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPorSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPorSemana.Designer.cs">
+      <DependentUpon>frmPorSemana.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -217,14 +235,23 @@
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
+      <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporteMes.resx">
       <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporteSemana.resx">
+      <DependentUpon>frmMostrarReporteSemana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPorMes.resx">
       <DependentUpon>frmPorMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPorSemana.resx">
+      <DependentUpon>frmPorSemana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

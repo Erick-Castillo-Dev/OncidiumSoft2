@@ -46,6 +46,8 @@
             this.idUsuario = new System.Windows.Forms.Label();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarAjuste = new System.Windows.Forms.ToolStripMenuItem();
+            this.realizarContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idUsuario = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +110,7 @@
             this.Usuarios.Name = "Usuarios";
             this.Usuarios.Size = new System.Drawing.Size(152, 22);
             this.Usuarios.Text = "Usuarios";
+            this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
             // Productos
             // 
@@ -144,6 +147,7 @@
             this.VentasFecha.Name = "VentasFecha";
             this.VentasFecha.Size = new System.Drawing.Size(174, 22);
             this.VentasFecha.Text = "Ventas por semana";
+            this.VentasFecha.Click += new System.EventHandler(this.VentasFecha_Click);
             // 
             // ventasPorMesToolStripMenuItem
             // 
@@ -167,6 +171,7 @@
             this.realizarContabilidad.Click += new System.EventHandler(this.realizarContabilidad_Click);
             // 
             // idUsuario
+            this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 
             this.idUsuario.AutoSize = true;
             this.idUsuario.Location = new System.Drawing.Point(402, 214);
@@ -189,6 +194,15 @@
             this.realizarAjuste.Size = new System.Drawing.Size(152, 22);
             this.realizarAjuste.Text = "Realizar ajuste";
             this.realizarAjuste.Click += new System.EventHandler(this.realizarAjuste_Click);
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.AutoSize = true;
+            this.idUsuario.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario.Name = "idUsuario";
+            this.idUsuario.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario.TabIndex = 5;
+            this.idUsuario.Visible = false;
             // 
             // FrmPrincipal
             // 

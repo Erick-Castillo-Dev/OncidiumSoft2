@@ -1,6 +1,6 @@
 ﻿namespace OncidiumSoft.Formularios
 {
-    partial class frmMostrarReporteMes
+    partial class frmMostrarReporteDiario
     {
         /// <summary>
         /// Required designer variable.
@@ -32,22 +32,22 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataSetPrincipal = new OncidiumSoft.Objetos.DataSetPrincipal();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1TableAdapter = new OncidiumSoft.Objetos.DataSetPrincipalTableAdapters.DataTable1TableAdapter();
+            this.dataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTableTableAdapter = new OncidiumSoft.Objetos.DataSetPrincipalTableAdapters.DataTableTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.dataTable1BindingSource;
+            reportDataSource1.Value = this.dataTableBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "OncidiumSoft.Objetos.ReporteVentas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1370, 750);
+            this.reportViewer1.Size = new System.Drawing.Size(1354, 712);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -56,27 +56,27 @@
             this.dataSetPrincipal.DataSetName = "DataSetPrincipal";
             this.dataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataTable1BindingSource
+            // dataTableBindingSource
             // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dataSetPrincipal;
+            this.dataTableBindingSource.DataMember = "DataTable";
+            this.dataTableBindingSource.DataSource = this.dataSetPrincipal;
             // 
-            // dataTable1TableAdapter
+            // dataTableTableAdapter
             // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            this.dataTableTableAdapter.ClearBeforeFill = true;
             // 
-            // frmMostrarReporteMes
+            // frmMostrarReporteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1354, 712);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "frmMostrarReporteMes";
-            this.Text = "frmMostrarReporteMes";
+            this.Name = "frmMostrarReporteDiario";
+            this.Text = "frmMostrarReporteDiario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmMostrarReporteMes_Load);
+            this.Load += new System.EventHandler(this.frmMostrarReporteDiario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,8 +84,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource dataTable1BindingSource;
+        private System.Windows.Forms.BindingSource dataTableBindingSource;
         private Objetos.DataSetPrincipal dataSetPrincipal;
-        private Objetos.DataSetPrincipalTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private Objetos.DataSetPrincipalTableAdapters.DataTableTableAdapter dataTableTableAdapter;
     }
 }

@@ -13,6 +13,10 @@ namespace OncidiumSoft.Formularios
 {
     public partial class frmPorMes : Form
     {
+        /// <summary>
+        /// El arreglo Meses se utiliza para ingresa automaticamente los meses
+        /// del año en el combobox
+        /// </summary>
         public frmPorMes()
         {
             InitializeComponent();
@@ -23,6 +27,7 @@ namespace OncidiumSoft.Formularios
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             frmMostrarReporteMes mostrar = new frmMostrarReporteMes();
+            // //Se envia el mes al metodo que recibe un int, se suma 1 porque el indice del combo empieza en 0
             mostrar.Mes = comboBox1.SelectedIndex+1;
             mostrar.Show();
         }
