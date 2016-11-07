@@ -103,20 +103,21 @@
             // Usuarios
             // 
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(133, 22);
+            this.Usuarios.Size = new System.Drawing.Size(152, 22);
             this.Usuarios.Text = "Usuarios";
+            this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
             // Productos
             // 
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(133, 22);
+            this.Productos.Size = new System.Drawing.Size(152, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 
             // Provedores
             // 
             this.Provedores.Name = "Provedores";
-            this.Provedores.Size = new System.Drawing.Size(133, 22);
+            this.Provedores.Size = new System.Drawing.Size(152, 22);
             this.Provedores.Text = "Provedores";
             // 
             // Reportes
@@ -141,12 +142,14 @@
             this.VentasFecha.Name = "VentasFecha";
             this.VentasFecha.Size = new System.Drawing.Size(174, 22);
             this.VentasFecha.Text = "Ventas por semana";
+            this.VentasFecha.Click += new System.EventHandler(this.VentasFecha_Click);
             // 
             // ventasPorMesToolStripMenuItem
             // 
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
             this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
+            this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 
             // contabilidadToolStripMenuItem
             // 

@@ -42,5 +42,22 @@ namespace OncidiumSoft
             llamarVentas.id = int.Parse(idUsuario.Text.ToString());
             llamarVentas.Show();
         }
+
+        private void ventasPorMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPorMes obj = new frmPorMes();
+            obj.Show();
+        }
+
+        private void VentasFecha_Click(object sender, EventArgs e)
+        {
+            frmPorSemana jaja = new frmPorSemana();
+            jaja.Show();
+        }
+
+        private void Usuarios_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
