@@ -115,7 +115,7 @@
             this.txtGastosGenerales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGastosGenerales.Enabled = false;
             this.txtGastosGenerales.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtGastosGenerales.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtGastosGenerales.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtGastosGenerales.Location = new System.Drawing.Point(192, 164);
             this.txtGastosGenerales.Name = "txtGastosGenerales";
             this.txtGastosGenerales.Size = new System.Drawing.Size(100, 23);
@@ -167,7 +167,7 @@
             // 
             this.txtSalarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSalarios.Font = new System.Drawing.Font("Rockwell", 9.75F);
-            this.txtSalarios.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSalarios.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtSalarios.Location = new System.Drawing.Point(432, 163);
             this.txtSalarios.MaxLength = 8;
             this.txtSalarios.Name = "txtSalarios";

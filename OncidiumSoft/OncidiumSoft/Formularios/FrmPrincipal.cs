@@ -42,5 +42,17 @@ namespace OncidiumSoft
             llamarVentas.id = int.Parse(idUsuario.Text.ToString());
             llamarVentas.Show();
         }
+
+        private void realizarContabilidad_Click(object sender, EventArgs e)
+        {
+            FrmContabilidad objC = new FrmContabilidad();
+            objC.Show();
+        }
+
+        private void realizarAjuste_Click(object sender, EventArgs e)
+        {
+            FrmAjusteInventario objA = new FrmAjusteInventario();
+            objA.Show();
+        }
     }
 }
