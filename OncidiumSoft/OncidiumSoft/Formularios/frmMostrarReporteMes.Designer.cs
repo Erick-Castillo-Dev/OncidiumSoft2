@@ -30,23 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetPrincipal = new OncidiumSoft.Objetos.DataSetPrincipal();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dataSetPrincipal = new OncidiumSoft.Objetos.DataSetPrincipal();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1TableAdapter = new OncidiumSoft.Objetos.DataSetPrincipalTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dataSetPrincipal;
-            // 
-            // dataSetPrincipal
-            // 
-            this.dataSetPrincipal.DataSetName = "DataSetPrincipal";
-            this.dataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -60,6 +50,16 @@
             this.reportViewer1.Size = new System.Drawing.Size(1370, 750);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            // 
+            // dataSetPrincipal
+            // 
+            this.dataSetPrincipal.DataSetName = "DataSetPrincipal";
+            this.dataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dataSetPrincipal;
             // 
             // dataTable1TableAdapter
             // 
@@ -75,8 +75,8 @@
             this.Text = "frmMostrarReporteMes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMostrarReporteMes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
