@@ -108,11 +108,11 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.cs">
+    <Compile Include="Formularios\frmMostrarReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmMotrarReporte.Designer.cs">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmPedidos.cs">
       <SubType>Form</SubType>
@@ -138,24 +138,26 @@
     <Compile Include="Formularios\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Cls_DatosVenta.cs" />
     <Compile Include="Objetos\Cls_Provedores.cs" />
     <Compile Include="Objetos\Cls_AjusteInventario.cs" />
     <Compile Include="Objetos\Cls_Compra.cs" />
     <Compile Include="Objetos\Cls_Contabilidad.cs" />
-    <Compile Include="Objetos\Cls_DataSetPrincipal.cs">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Objetos\Cls_DataSetPrincipal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Usuarios.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
+    <Compile Include="Objetos\DataSetPrincipal.cs">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Objetos\DataSetPrincipal.Designer.cs">
+      <DependentUpon>DataSetPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\DataSetPrincipal1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
@@ -182,8 +184,8 @@
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMotrarReporte.resx">
-      <DependentUpon>frmMotrarReporte.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
@@ -197,29 +199,29 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsc">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xsc">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Objetos\DataSetPrincipal.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Cls_DataSetPrincipal.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetPrincipal1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Objetos\Cls_DataSetPrincipal.xss">
-      <DependentUpon>Cls_DataSetPrincipal.xsd</DependentUpon>
+    <None Include="Objetos\DataSetPrincipal.xss">
+      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -243,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\branch-307129_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
