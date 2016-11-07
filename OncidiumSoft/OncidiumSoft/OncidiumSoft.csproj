@@ -124,10 +124,6 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.Designer.cs" />
     <Compile Include="Formularios\frmMostrarReporteMes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,7 +220,6 @@
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx" />
     <EmbeddedResource Include="Formularios\frmMostrarReporteMes.resx">
       <DependentUpon>frmMostrarReporteMes.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,11 +264,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

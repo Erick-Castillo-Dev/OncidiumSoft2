@@ -38,6 +38,18 @@ namespace OncidiumSoft.Formularios
 
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // frmMostrarReporte
+            // 
+            this.ClientSize = new System.Drawing.Size(287, 261);
+            this.Name = "frmMostrarReporte";
+            this.ResumeLayout(false);
+
+        }
+
 
      
 
