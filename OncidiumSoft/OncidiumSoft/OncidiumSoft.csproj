@@ -34,7 +34,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -186,17 +189,7 @@
     </Compile>
     <Compile Include="Objetos\Cls_DataSetPrincipal1.Designer.cs" />
     <Compile Include="Objetos\Cls_DatosVenta.cs" />
-    <Compile Include="Objetos\Cls_Detalles_Ventas.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Objetos\Cls_Productos.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Objetos\Cls_Provedores.cs" />
     <Compile Include="Objetos\Cls_Usuarios.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Objetos\Cls_Ventas.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Objetos\DataSetPrincipal.cs">
@@ -211,7 +204,6 @@
     </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
-    <Compile Include="Objetos\Cls_Usuarios.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

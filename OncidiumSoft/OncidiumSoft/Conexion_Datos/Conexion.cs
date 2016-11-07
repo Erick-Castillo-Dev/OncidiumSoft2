@@ -15,6 +15,7 @@ namespace OncidiumSoft.Conexxion_Datos
         /// </summary>wsa
         public MySqlConnection cConexion = new MySqlConnection();
 
+
         /// <summary>
         /// Metodo para conectarse a la base de datos
         /// </summary>
