@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OncidiumSoft.Daos;
+using OncidiumSoft.Formularios;
 
 namespace OncidiumSoft.Formularios
 {
@@ -50,9 +51,9 @@ namespace OncidiumSoft.Formularios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             
-            FrmAgregarProductos agregar = new FrmAgregarProductos();
+           /* FrmAgregarProductos agregar = new FrmAgregarProductos();
             this.Hide();
-            agregar.Show();
+            agregar.Show();*/
 
         }
 

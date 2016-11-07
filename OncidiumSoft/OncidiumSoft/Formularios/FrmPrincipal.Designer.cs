@@ -211,8 +211,11 @@
             this.ClientSize = new System.Drawing.Size(995, 347);
             this.Controls.Add(this.idUsuario);
             this.Controls.Add(this.menuPrincipal);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmPrincipal";
-            this.Text = "FrmPrincipal";
+            this.Text = "Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.ResumeLayout(false);

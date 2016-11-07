@@ -53,7 +53,7 @@ namespace OncidiumSoft.Formularios
             dgvProductos.DataSource = null;
             txtPago.Text = "0";
             lblTotal.Text = "Total:  $ " + 0;
-            lblDescuento.Text = "Descuento Aplicado al Total $ " + 0;
+            txtDescuento.Text = "0";
             lblCambio.Text = "Cambio: $ " + 0;
             lblFecha.Text = "Fecha de venta: " + DateTime.Now.ToString("yyyy/MM/dd");
             txtCantidad.Text = "1";
@@ -81,6 +81,7 @@ namespace OncidiumSoft.Formularios
             txtPrecio.Text = "";
             txtProducto.Text = "";
             txtTipo.Text = "";
+            txtDescuento.Text = "0";
         }
 
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
@@ -92,6 +93,7 @@ namespace OncidiumSoft.Formularios
                     Cls_Productos p = new Cls_Productos();
                     p.idProductoss = int.Parse(txtIdProducto.Text.ToString());
                     pro = proDao.BuscarProducto(p);
+                    ptProducto.Image = vDao.cargarimagen(pro.imgenProducto);
                     txtTipo.Text = pro.TipoProducto.ToString();
                     txtPrecio.Text = pro.PrecioalCliente.ToString();
                     txtProducto.Text = pro.NombreProducto.ToString();
@@ -127,7 +129,8 @@ namespace OncidiumSoft.Formularios
                     
                     dgvProductos.DataSource = null;
                     dgvProductos.DataSource = lista;
-                    dgvProductos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "C2";
+                    dgvProductos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "$ #,##0.00";
+                    dgvProductos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
                 }catch(Exception ex){
                     MessageBox.Show("El producto no existe");
                 }
@@ -140,5 +143,44 @@ namespace OncidiumSoft.Formularios
             limpiar();
             MessageBox.Show("Venta cancelada");
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 selectedRowCount = dgvProductos.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        for (int j = 0; j < lista.Count; j++)
+                        {
+                            if (dgvProductos.Rows[i].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                            {
+                                lista.RemoveAt(j);
+                            }
+                        }
+                    }
+                    dgvProductos.DataSource = null;
+                    dgvProductos.DataSource = lista;
+                }
+            }catch(Exception ex){
+                MessageBox.Show("Error consulta al Administrador");
+            }
+
+        }
+
+        private void btnRealizar_Click(object sender, EventArgs e)
+        {
+            if (vDao.venta(lista, int.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id))
+            {
+                MessageBox.Show("Venta realizada");
+            }
+            else
+            {
+                MessageBox.Show("Error al hacer la venta");
+            }
+        }
+
     }
 }
