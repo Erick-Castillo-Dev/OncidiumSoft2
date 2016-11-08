@@ -39,7 +39,7 @@ namespace OncidiumSoft
         private void Ventas1_Click_1(object sender, EventArgs e)
         {
             FrmVenta llamarVentas = new FrmVenta();
-            llamarVentas.id = int.Parse(idUsuario.Text.ToString());
+            llamarVentas.id = int.Parse(idUsuario2.Text.ToString());
             llamarVentas.Show();
         }
 
@@ -54,10 +54,15 @@ namespace OncidiumSoft
             frmPorSemana jaja = new frmPorSemana();
             jaja.Show();
         }
-
+        /// <summary>
+        /// Llamada al Formularios de  Usuarios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Usuarios_Click(object sender, EventArgs e)
         {
-
+            FrmUsuarios objU = new FrmUsuarios();
+            objU.Show();
         }
 
         private void realizarContabilidad_Click(object sender, EventArgs e)
