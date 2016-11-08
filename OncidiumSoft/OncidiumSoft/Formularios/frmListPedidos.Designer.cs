@@ -46,7 +46,7 @@
             this.btnRealizar.Name = "btnRealizar";
             this.btnRealizar.Size = new System.Drawing.Size(157, 37);
             this.btnRealizar.TabIndex = 31;
-            this.btnRealizar.Text = "Aceptar";
+            this.btnRealizar.Text = "Agregar";
             this.btnRealizar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar

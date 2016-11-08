@@ -130,6 +130,12 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmMostrarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmMostrarReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
+      <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
+      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
       <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
