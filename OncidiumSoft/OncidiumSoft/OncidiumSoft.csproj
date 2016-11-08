@@ -220,11 +220,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
-    <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
+      <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
     </EmbeddedResource>
