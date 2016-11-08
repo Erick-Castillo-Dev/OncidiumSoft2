@@ -73,7 +73,9 @@ namespace OncidiumSoft.Formularios
             txtEmpleado.Text = new Cls_DaoUsuarios().NombreUsuario(c);
             txtIdVenta.Text = "" + vDao.folio();
         }
-
+        /// <summary>
+        /// Metodo para limpiar todos los campos de texto del formulario
+        /// </summary>
         public void limpiar()
         {
             txtCantidad.Text = "1";
@@ -83,7 +85,11 @@ namespace OncidiumSoft.Formularios
             txtTipo.Text = "";
             txtDescuento.Text = "0";
         }
-
+        /// <summary>
+        /// Metodo para el lector de codigo de barras para agregar los productos a la venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Enter)
@@ -136,14 +142,23 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Cancelar la venta y dejar todo limpio para una nueva venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             reiniciar();
             limpiar();
+            lista.Clear();
             MessageBox.Show("Venta cancelada");
         }
-
+        /// <summary>
+        /// Metodo para eliminar los productois eliminados del datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -169,11 +184,18 @@ namespace OncidiumSoft.Formularios
             }
 
         }
-
+        /// <summary>
+        /// Metodo para realizar la venta y limpiar todo para la siguiente venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
             if (vDao.venta(lista, int.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id))
             {
+                reiniciar();
+                limpiar();
+                lista.Clear();
                 MessageBox.Show("Venta realizada");
             }
             else
