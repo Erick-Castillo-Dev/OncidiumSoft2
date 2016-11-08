@@ -43,10 +43,9 @@
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarContabilidad = new System.Windows.Forms.ToolStripMenuItem();
-            this.idUsuario = new System.Windows.Forms.Label();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarAjuste = new System.Windows.Forms.ToolStripMenuItem();
-            this.idUsuario = new System.Windows.Forms.Label();
+            this.idUsuario2 = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +89,7 @@
             // Ventas1
             // 
             this.Ventas1.Name = "Ventas1";
-            this.Ventas1.Size = new System.Drawing.Size(152, 22);
+            this.Ventas1.Size = new System.Drawing.Size(109, 22);
             this.Ventas1.Text = "Ventas";
             this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click_1);
             // 
@@ -107,21 +106,21 @@
             // Usuarios
             // 
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(152, 22);
+            this.Usuarios.Size = new System.Drawing.Size(133, 22);
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
             // Productos
             // 
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(152, 22);
+            this.Productos.Size = new System.Drawing.Size(133, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 
             // Provedores
             // 
             this.Provedores.Name = "Provedores";
-            this.Provedores.Size = new System.Drawing.Size(152, 22);
+            this.Provedores.Size = new System.Drawing.Size(133, 22);
             this.Provedores.Text = "Provedores";
             // 
             // Reportes
@@ -153,6 +152,7 @@
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
             this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
+            this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 
             // contabilidadToolStripMenuItem
             // 
@@ -169,16 +169,6 @@
             this.realizarContabilidad.Text = "Realizar contabilidad";
             this.realizarContabilidad.Click += new System.EventHandler(this.realizarContabilidad_Click);
             // 
-            // idUsuario
-            this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
-            // 
-            this.idUsuario.AutoSize = true;
-            this.idUsuario.Location = new System.Drawing.Point(402, 214);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(0, 13);
-            this.idUsuario.TabIndex = 5;
-            this.idUsuario.Visible = false;
-            // 
             // inventarioToolStripMenuItem
             // 
             this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -190,18 +180,18 @@
             // realizarAjuste
             // 
             this.realizarAjuste.Name = "realizarAjuste";
-            this.realizarAjuste.Size = new System.Drawing.Size(152, 22);
+            this.realizarAjuste.Size = new System.Drawing.Size(148, 22);
             this.realizarAjuste.Text = "Realizar ajuste";
             this.realizarAjuste.Click += new System.EventHandler(this.realizarAjuste_Click);
             // 
-            // idUsuario
+            // idUsuario2
             // 
-            this.idUsuario.AutoSize = true;
-            this.idUsuario.Location = new System.Drawing.Point(402, 214);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(0, 13);
-            this.idUsuario.TabIndex = 5;
-            this.idUsuario.Visible = false;
+            this.idUsuario2.AutoSize = true;
+            this.idUsuario2.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario2.Name = "idUsuario2";
+            this.idUsuario2.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario2.TabIndex = 5;
+            this.idUsuario2.Visible = false;
             // 
             // FrmPrincipal
             // 
@@ -209,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::OncidiumSoft.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(995, 347);
-            this.Controls.Add(this.idUsuario);
+            this.Controls.Add(this.idUsuario2);
             this.Controls.Add(this.menuPrincipal);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -238,7 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem VentasDia;
         private System.Windows.Forms.ToolStripMenuItem VentasFecha;
         private System.Windows.Forms.ToolStripMenuItem ventasPorMesToolStripMenuItem;
-        public System.Windows.Forms.Label idUsuario;
+        public System.Windows.Forms.Label idUsuario2;
         private System.Windows.Forms.ToolStripMenuItem contabilidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realizarContabilidad;
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;

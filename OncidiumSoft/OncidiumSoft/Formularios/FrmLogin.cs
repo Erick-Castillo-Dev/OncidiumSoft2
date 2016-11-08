@@ -55,7 +55,7 @@ namespace OncidiumSoft.Formularios
                 if(dao.entrar(obj)){
                     this.Hide();
                     FrmPrincipal frm = new FrmPrincipal();
-                    frm.idUsuario.Text = "" + dao.idUsuario(obj);
+                    frm.idUsuario2.Text = "" + dao.idUsuario(obj);
                     frm.Show();
                 }else{
                     MessageBox.Show("No entro");
