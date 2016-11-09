@@ -205,5 +205,190 @@ namespace OncidiumSoft.Daos
             return null;
         }
 
+        public bool Pedido(List<Cls_DatosVenta> lis, Cls_Ventas v)
+        {
+            MySqlTransaction tr = null;
+            bool q = false;
+            try
+            {
+                c.Conectar();
+                tr = c.cConexion.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Transaction = tr;
+                cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                cmd.Parameters.AddWithValue("@cliente", v.cliente);
+                cmd.Parameters.AddWithValue("@domicilio", v.domicilio);
+                cmd.Parameters.AddWithValue("@descripcion", v.descripcion);
+                cmd.Parameters.AddWithValue("@anticipo", v.anticipo);
+                cmd.Parameters.AddWithValue("@subtotal", v.subTotal);
+                cmd.Parameters.AddWithValue("@total", v.total);
+                cmd.Parameters.AddWithValue("@fecha_Realizar", v.fecha_Realizar);
+                cmd.Parameters.AddWithValue("@fecha_Entrega", v.fecha_Entrega);
+                cmd.Parameters.AddWithValue("@entrega", v.entrega);
+                cmd.Parameters.AddWithValue("@tipo", v.tipo);
+                cmd.Parameters.AddWithValue("@descuento", v.descuento);
+                cmd.Parameters.AddWithValue("@idUsuario", v.idUsuario);
+                cmd.Parameters.AddWithValue("@entregado", v.entregado);
+                cmd.Parameters.AddWithValue("@telefono", v.telefono);
+                cmd.CommandText = "INSERT INTO ventas(idVentas,Cliente,Domicilio,Descripcion,Anticipo,SubTotal,"+
+                                    "Total,Fecha_Realizar,Fecha_Entregar,Entrega_Domicilio,Tipo,Descuento,idUsuarios,Entregado,Telefono)"+
+                                    "VALUES(@idVenta,@cliente,@domicilio,@descripcion,@anticipo,@subtotal," +
+                                    "@total,@fecha_Realizar,@fecha_Entrega,@entrega,@tipo,@descuento," +
+                                    "@idUsuario,@entregado,qtelefono)";
+                cmd.ExecuteNonQuery();
+                for (int i = 0; i < lis.Count; i++)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                    cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                    cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
+                    cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                    cmd.CommandText = "INSERT INTO detalles_ventas (idProductos,idVentas,Cantidad,Precio)VALUES(@idProducto,@idVenta,@Cantidad,@Precio)";
+                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+                tr.Commit();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException ex)
+            {
+                tr.Rollback();
+                q = false;
+                c.Cerrar();
+            }
+
+            return q;
+        }
+
+        public bool ActualizarPedido(List<Cls_DatosVenta> lis, Cls_Ventas v)
+        {
+            List<Cls_DatosVenta> l = buscarPro(v.idVenta);
+            MySqlTransaction tr = null;
+            bool q = false;
+            try
+            {
+                c.Conectar();
+                tr = c.cConexion.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Transaction = tr;
+                cmd.Parameters.AddWithValue("@idVenta",v.idVenta);
+                cmd.Parameters.AddWithValue("@cliente", v.cliente);
+                cmd.Parameters.AddWithValue("@domicilio", v.domicilio);
+                cmd.Parameters.AddWithValue("@descripcion", v.descripcion);
+                cmd.Parameters.AddWithValue("@anticipo", v.anticipo);
+                cmd.Parameters.AddWithValue("@subtotal", v.subTotal);
+                cmd.Parameters.AddWithValue("@total", v.total);
+                cmd.Parameters.AddWithValue("@fecha_Realizar", v.fecha_Realizar);
+                cmd.Parameters.AddWithValue("@fecha_Entrega", v.fecha_Entrega);
+                cmd.Parameters.AddWithValue("@entrega", v.entrega);
+                cmd.Parameters.AddWithValue("@tipo", v.tipo);
+                cmd.Parameters.AddWithValue("@descuento", v.descuento);
+                cmd.Parameters.AddWithValue("@idUsuario", v.idUsuario);
+                cmd.Parameters.AddWithValue("@entregado", v.entregado);
+                cmd.Parameters.AddWithValue("@telefono", v.telefono);
+                cmd.CommandText = "UPDATE ventas SET idVentas = @idVenta, Cliente = @cliente, Domicilio = @domicilio, Descripcion = @descripcion, Anticipo = @anticipo, SubTotal = @subtotal, Total = @total, Fecha_Realizar = @fecha_Realizar, Fecha_Entregar = @fecha_Entrega, Entrega_Domicilio = @entrega, Tipo = @tipo, Descuento = @descuento, idUsuarios = @idUsuario,Entregado = @entregado, Telefono = @telefono WHERE idVentas = @idVenta";
+                cmd.ExecuteNonQuery();
+
+
+                if(l.Count == lis.Count){
+                    for (int i = 0; i < lis.Count;i++ )
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                        cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                        cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
+                        cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                        cmd.CommandText = "UPDATE detalles_ventas SET idProductos = @idProducto, idVentas = @idVenta, Cantidad = @Cantidad, Precio = @Precio WHERE idProductos = @idProducto AND idVentas = @idVenta";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else if (l.Count < lis.Count)
+                {
+                    bool x = false;
+                    for (int i = 0; i < lis.Count; i++)
+                    {
+                        x = false;
+                        for (int j = 0; j < l.Count; j++)
+                        {
+                            if (lis.ElementAt(i).ID == l.ElementAt(i).ID)
+                            {
+                                x = true;
+                                break;
+                            }
+                        }
+                        if(x){
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                            cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
+                            cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                            cmd.CommandText = "UPDATE detalles_ventas SET idProductos = @idProducto, idVentas = @idVenta, Cantidad = @Cantidad, Precio = @Precio WHERE idProductos = @idProducto AND idVentas = @idVenta";
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                            cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
+                            cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                            cmd.CommandText = "INSERT INTO detalles_ventas (idProductos,idVentas,Cantidad,Precio)VALUES(@idProducto,@idVenta,@Cantidad,@Precio)";
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                else if (l.Count > lis.Count)
+                {
+                    bool x = false;
+                    for (int i = 0; i < l.Count; i++)
+                    {
+                        x = false;
+                        for (int j = 0; j < lis.Count; j++)
+                        {
+                            if (lis.ElementAt(i).ID == l.ElementAt(i).ID)
+                            {
+                                x = true;
+                                break;
+                            }
+                        }
+                        if (x)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                            cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
+                            cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                            cmd.CommandText = "UPDATE detalles_ventas SET idProductos = @idProducto, idVentas = @idVenta, Cantidad = @Cantidad, Precio = @Precio WHERE idProductos = @idProducto AND idVentas = @idVenta";
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
+                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                            cmd.CommandText = "DELETE FROM detalles_ventas WHERE idProductos = @idProducto AND idVentas = @idVenta";
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                tr.Commit();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException ex)
+            {
+                tr.Rollback();
+                q = false;
+                c.Cerrar();
+            }
+
+            return q;
+        }
+
     }
 }

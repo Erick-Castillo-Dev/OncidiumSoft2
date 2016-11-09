@@ -21,6 +21,7 @@ namespace OncidiumSoft.Formularios
         }
         List<Cls_DatosPedidos> lista = new List<Cls_DatosPedidos>();
         Cls_DaoPedidos pDao = new Cls_DaoPedidos();
+        public int idu;
 
         private void frmListPedidos_Load(object sender, EventArgs e)
         {
@@ -45,6 +46,7 @@ namespace OncidiumSoft.Formularios
             frmPedidos f = new frmPedidos();
             f.editar = false;
             f.id = -1;
+            f.idu = idu;
             f.Show();
         }
 

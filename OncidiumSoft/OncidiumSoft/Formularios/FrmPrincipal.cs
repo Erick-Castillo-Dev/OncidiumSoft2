@@ -75,6 +75,7 @@ namespace OncidiumSoft
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListPedidos f = new frmListPedidos();
+            f.idu = int.Parse(idUsuario2.Text.ToString());
             f.Show();
         }
     }
