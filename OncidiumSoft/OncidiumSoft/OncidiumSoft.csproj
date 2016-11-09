@@ -51,7 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexion_Datos\Conexion.cs" />
+    <Compile Include="Conexion_Datos\Conexion.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Daos\Cls_DaoAjusteInventario.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -130,12 +132,6 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmMostrarReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +196,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Objetos\Cls_DataSetPrincipal1.Designer.cs" />
+    <Compile Include="Objetos\Cls_DatosPedidos.cs" />
     <Compile Include="Objetos\Cls_DatosVenta.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -252,9 +249,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
       <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>

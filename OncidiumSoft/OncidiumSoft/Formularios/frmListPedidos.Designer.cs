@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListPedidos));
             this.btnRealizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.DGVlistapedidos = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.dgvListapedidos = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVlistapedidos)).BeginInit();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListapedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRealizar
@@ -48,6 +49,7 @@
             this.btnRealizar.TabIndex = 31;
             this.btnRealizar.Text = "Agregar";
             this.btnRealizar.UseVisualStyleBackColor = true;
+            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
             // 
             // btnCancelar
             // 
@@ -60,21 +62,24 @@
             this.btnCancelar.Text = "Cancelar ";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(573, 20);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.Text = "Buscar......";
+            this.txtBuscar.Location = new System.Drawing.Point(56, 44);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(573, 20);
+            this.txtBuscar.TabIndex = 28;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // DGVlistapedidos
+            // dgvListapedidos
             // 
-            this.DGVlistapedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVlistapedidos.Location = new System.Drawing.Point(24, 93);
-            this.DGVlistapedidos.Name = "DGVlistapedidos";
-            this.DGVlistapedidos.Size = new System.Drawing.Size(859, 274);
-            this.DGVlistapedidos.TabIndex = 27;
+            this.dgvListapedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListapedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListapedidos.Location = new System.Drawing.Point(24, 93);
+            this.dgvListapedidos.Name = "dgvListapedidos";
+            this.dgvListapedidos.ReadOnly = true;
+            this.dgvListapedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListapedidos.Size = new System.Drawing.Size(859, 274);
+            this.dgvListapedidos.TabIndex = 27;
             // 
             // button1
             // 
@@ -97,21 +102,33 @@
             this.btnEliminar.TabIndex = 30;
             this.btnEliminar.Text = "Actualizar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(56, 25);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(140, 13);
+            this.lblBuscar.TabIndex = 33;
+            this.lblBuscar.Text = "Buscar por medio del cliente";
             // 
             // frmListPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 478);
+            this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRealizar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.DGVlistapedidos);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.dgvListapedidos);
             this.Name = "frmListPedidos";
             this.Text = "frmListPedidos";
-            ((System.ComponentModel.ISupportInitialize)(this.DGVlistapedidos)).EndInit();
+            this.Load += new System.EventHandler(this.frmListPedidos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListapedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +140,8 @@
         private System.Windows.Forms.Button btnRealizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView DGVlistapedidos;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView dgvListapedidos;
+        private System.Windows.Forms.Label lblBuscar;
     }
 }

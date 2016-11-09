@@ -79,7 +79,7 @@ namespace OncidiumSoft.Daos
         /// <param name="descuento"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool venta(List<Cls_DatosVenta> lis,int total,int descuento,int id)
+        public bool venta(List<Cls_DatosVenta> lis,double total,int descuento,int id)
         {
             MySqlTransaction tr = null;
             MySqlDataReader dr = null;

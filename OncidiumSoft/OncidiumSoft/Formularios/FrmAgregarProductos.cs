@@ -35,11 +35,11 @@ namespace OncidiumSoft.Formularios
             objProductos.PrecioalCliente = Convert.ToDouble(txtpreciocliente.Text);
             objProductos.TipoProducto = cboxTipo.Text;
             objProductos.CantidadProducto = Convert.ToInt32(txtCantidad.Text);
-            objProductos.imgenProducto = txtImagen.Text;
+            //objProductos.imgenProducto = txtImagen.Text;
             objProductos.iddeProvedores = Convert.ToInt32(txtidProvedor.Text);
             objProductos.Precio_costo = Convert.ToDouble(txtpreciocliente.Text);
-            objProductos.Disponibilidad = cBoxDiponible.Text;//checar este
-            objProductos.AjusteProducto = cBoxAjuste.Text;
+            //objProductos.Disponibilidad = cBoxDiponible.Text;//checar este
+            //objProductos.AjusteProducto = cBoxAjuste.Text;
 
             //agregacion con el objecto
             Cls_DaoProductos datosProductos = new Cls_DaoProductos();
