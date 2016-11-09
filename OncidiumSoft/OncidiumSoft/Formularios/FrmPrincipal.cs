@@ -54,10 +54,15 @@ namespace OncidiumSoft
             frmPorSemana jaja = new frmPorSemana();
             jaja.Show();
         }
-
+        /// <summary>
+        /// Llamada al Formularios de  Usuarios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Usuarios_Click(object sender, EventArgs e)
         {
-
+            FrmUsuarios objU = new FrmUsuarios();
+            objU.Show();
         }
 
         private void realizarContabilidad_Click(object sender, EventArgs e)
