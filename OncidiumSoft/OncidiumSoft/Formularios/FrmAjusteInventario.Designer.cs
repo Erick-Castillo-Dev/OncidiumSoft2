@@ -60,9 +60,10 @@
             this.btnCancelar.Location = new System.Drawing.Point(224, 340);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(97, 33);
-            this.btnCancelar.TabIndex = 44;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -73,13 +74,14 @@
             this.btnAceptar.Location = new System.Drawing.Point(127, 340);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 33);
-            this.btnAceptar.TabIndex = 43;
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cboAjuste
             // 
+            this.cboAjuste.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAjuste.FormattingEnabled = true;
             this.cboAjuste.Items.AddRange(new object[] {
             "Alta",
@@ -87,7 +89,7 @@
             this.cboAjuste.Location = new System.Drawing.Point(155, 295);
             this.cboAjuste.Name = "cboAjuste";
             this.cboAjuste.Size = new System.Drawing.Size(167, 21);
-            this.cboAjuste.TabIndex = 42;
+            this.cboAjuste.TabIndex = 6;
             // 
             // lblTipoAjuste
             // 
@@ -102,6 +104,7 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Items.AddRange(new object[] {
             "Disponible",
@@ -109,7 +112,7 @@
             this.cboEstado.Location = new System.Drawing.Point(155, 250);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(167, 21);
-            this.cboEstado.TabIndex = 40;
+            this.cboEstado.TabIndex = 5;
             // 
             // lblEstado
             // 
@@ -141,7 +144,8 @@
             this.txtPrecioCliente.Location = new System.Drawing.Point(155, 209);
             this.txtPrecioCliente.Name = "txtPrecioCliente";
             this.txtPrecioCliente.Size = new System.Drawing.Size(167, 23);
-            this.txtPrecioCliente.TabIndex = 37;
+            this.txtPrecioCliente.TabIndex = 4;
+            this.txtPrecioCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCliente_KeyPress);
             // 
             // lblPrecioCosto
             // 
@@ -162,7 +166,8 @@
             this.txtPrecioCosto.Location = new System.Drawing.Point(154, 166);
             this.txtPrecioCosto.Name = "txtPrecioCosto";
             this.txtPrecioCosto.Size = new System.Drawing.Size(167, 23);
-            this.txtPrecioCosto.TabIndex = 35;
+            this.txtPrecioCosto.TabIndex = 3;
+            this.txtPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCosto_KeyPress);
             // 
             // lblCantidad
             // 
@@ -177,23 +182,13 @@
             // 
             // cboProducto
             // 
+            this.cboProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProducto.FormattingEnabled = true;
-            this.cboProducto.Items.AddRange(new object[] {
-            "Rosal coster",
-            "malva chica",
-            "lengua de suegra",
-            "rosal grande",
-            "pera",
-            "azucena chica",
-            "Begonia ala de angel",
-            "Phalenopsis",
-            "Limon persa",
-            "Camelina roja",
-            "Maceta bongo roja chica"});
             this.cboProducto.Location = new System.Drawing.Point(155, 82);
             this.cboProducto.Name = "cboProducto";
             this.cboProducto.Size = new System.Drawing.Size(167, 21);
-            this.cboProducto.TabIndex = 33;
+            this.cboProducto.TabIndex = 1;
+            this.cboProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboProducto_KeyPress);
             // 
             // txtCantidad
             // 
@@ -201,9 +196,11 @@
             this.txtCantidad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtCantidad.Location = new System.Drawing.Point(155, 124);
+            this.txtCantidad.MaxLength = 3;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 23);
-            this.txtCantidad.TabIndex = 32;
+            this.txtCantidad.TabIndex = 2;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblProducto
             // 
@@ -285,7 +282,8 @@
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.lblProducto);
             this.Name = "FrmAjusteInventario";
-            this.Text = "FrmAjusteInventario";
+            this.Text = "Ajuste de inventario";
+            this.Load += new System.EventHandler(this.FrmAjusteInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -32,15 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblentrega = new System.Windows.Forms.Label();
-            this.lblCompra = new System.Windows.Forms.Label();
-            this.dtpCompra = new System.Windows.Forms.DateTimePicker();
-            this.dtpEntrega = new System.Windows.Forms.DateTimePicker();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
-            this.txtCantidaP = new System.Windows.Forms.TextBox();
+            this.txtCan = new System.Windows.Forms.TextBox();
             this.txtProducto = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -48,16 +44,17 @@
             this.lblProducto = new System.Windows.Forms.Label();
             this.lblIdProducto = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.btnRealizar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.dtgCompras = new System.Windows.Forms.DataGridView();
+            this.dgvCompra = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEmpresa = new System.Windows.Forms.Label();
             this.lblNueva_Venta = new System.Windows.Forms.Label();
-            this.pBcompra = new System.Windows.Forms.PictureBox();
+            this.ptProducto = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCompras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBcompra)).BeginInit();
+            this.btnRealizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +69,7 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(319, 224);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(81, 20);
@@ -86,40 +84,9 @@
             this.label4.TabIndex = 87;
             this.label4.Text = "Total: $";
             // 
-            // lblentrega
-            // 
-            this.lblentrega.AutoSize = true;
-            this.lblentrega.Location = new System.Drawing.Point(175, 123);
-            this.lblentrega.Name = "lblentrega";
-            this.lblentrega.Size = new System.Drawing.Size(91, 13);
-            this.lblentrega.TabIndex = 86;
-            this.lblentrega.Text = "Fecha de entrega";
-            // 
-            // lblCompra
-            // 
-            this.lblCompra.AutoSize = true;
-            this.lblCompra.Location = new System.Drawing.Point(452, 123);
-            this.lblCompra.Name = "lblCompra";
-            this.lblCompra.Size = new System.Drawing.Size(76, 13);
-            this.lblCompra.TabIndex = 85;
-            this.lblCompra.Text = "Fecha Compra";
-            // 
-            // dtpCompra
-            // 
-            this.dtpCompra.Location = new System.Drawing.Point(555, 117);
-            this.dtpCompra.Name = "dtpCompra";
-            this.dtpCompra.Size = new System.Drawing.Size(143, 20);
-            this.dtpCompra.TabIndex = 84;
-            // 
-            // dtpEntrega
-            // 
-            this.dtpEntrega.Location = new System.Drawing.Point(287, 116);
-            this.dtpEntrega.Name = "dtpEntrega";
-            this.dtpEntrega.Size = new System.Drawing.Size(143, 20);
-            this.dtpEntrega.TabIndex = 83;
-            // 
             // txtProveedor
             // 
+            this.txtProveedor.Enabled = false;
             this.txtProveedor.Location = new System.Drawing.Point(511, 220);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(116, 20);
@@ -127,38 +94,46 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.Enabled = false;
             this.txtTipo.Location = new System.Drawing.Point(106, 216);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(99, 20);
             this.txtTipo.TabIndex = 81;
             // 
-            // txtCantidaP
+            // txtCan
             // 
-            this.txtCantidaP.Location = new System.Drawing.Point(319, 173);
-            this.txtCantidaP.Name = "txtCantidaP";
-            this.txtCantidaP.Size = new System.Drawing.Size(81, 20);
-            this.txtCantidaP.TabIndex = 80;
+            this.txtCan.Location = new System.Drawing.Point(319, 173);
+            this.txtCan.MaxLength = 4;
+            this.txtCan.Name = "txtCan";
+            this.txtCan.Size = new System.Drawing.Size(81, 20);
+            this.txtCan.TabIndex = 80;
+            this.txtCan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtProducto
             // 
+            this.txtProducto.Enabled = false;
             this.txtProducto.Location = new System.Drawing.Point(105, 173);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(106, 20);
             this.txtProducto.TabIndex = 79;
             // 
-            // textBox3
+            // txtPrecio
             // 
-            this.textBox3.Location = new System.Drawing.Point(562, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(64, 20);
-            this.textBox3.TabIndex = 78;
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(562, 169);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(64, 20);
+            this.txtPrecio.TabIndex = 78;
             // 
             // txtIdProducto
             // 
             this.txtIdProducto.Location = new System.Drawing.Point(106, 132);
+            this.txtIdProducto.MaxLength = 4;
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(44, 20);
             this.txtIdProducto.TabIndex = 77;
+            this.txtIdProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProducto_KeyPress);
+            this.txtIdProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdProducto_KeyUp);
             // 
             // lblTipo
             // 
@@ -183,9 +158,9 @@
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Location = new System.Drawing.Point(451, 223);
             this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(54, 13);
+            this.lblProveedor.Size = new System.Drawing.Size(50, 13);
             this.lblProveedor.TabIndex = 74;
-            this.lblProveedor.Text = "Empleado";
+            this.lblProveedor.Text = "Provedor";
             // 
             // lblProducto
             // 
@@ -214,36 +189,13 @@
             this.lblPrecio.TabIndex = 71;
             this.lblPrecio.Text = "Precio $";
             // 
-            // btnRealizar
+            // dgvCompra
             // 
-            this.btnRealizar.Image = ((System.Drawing.Image)(resources.GetObject("btnRealizar.Image")));
-            this.btnRealizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRealizar.Location = new System.Drawing.Point(751, 377);
-            this.btnRealizar.Name = "btnRealizar";
-            this.btnRealizar.Size = new System.Drawing.Size(157, 37);
-            this.btnRealizar.TabIndex = 70;
-            this.btnRealizar.Text = "Realizar Compra";
-            this.btnRealizar.UseVisualStyleBackColor = true;
-            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(751, 302);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(157, 37);
-            this.btnCancelar.TabIndex = 69;
-            this.btnCancelar.Text = "Cancelar Compra";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // dtgCompras
-            // 
-            this.dtgCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCompras.Location = new System.Drawing.Point(12, 262);
-            this.dtgCompras.Name = "dtgCompras";
-            this.dtgCompras.Size = new System.Drawing.Size(733, 216);
-            this.dtgCompras.TabIndex = 68;
+            this.dgvCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompra.Location = new System.Drawing.Point(12, 262);
+            this.dgvCompra.Name = "dgvCompra";
+            this.dgvCompra.Size = new System.Drawing.Size(733, 216);
+            this.dgvCompra.TabIndex = 68;
             // 
             // label1
             // 
@@ -271,13 +223,14 @@
             this.lblNueva_Venta.Size = new System.Drawing.Size(0, 13);
             this.lblNueva_Venta.TabIndex = 65;
             // 
-            // pBcompra
+            // ptProducto
             // 
-            this.pBcompra.Location = new System.Drawing.Point(709, 55);
-            this.pBcompra.Name = "pBcompra";
-            this.pBcompra.Size = new System.Drawing.Size(199, 174);
-            this.pBcompra.TabIndex = 64;
-            this.pBcompra.TabStop = false;
+            this.ptProducto.Location = new System.Drawing.Point(709, 55);
+            this.ptProducto.Name = "ptProducto";
+            this.ptProducto.Size = new System.Drawing.Size(199, 174);
+            this.ptProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptProducto.TabIndex = 64;
+            this.ptProducto.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -289,23 +242,59 @@
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
             // 
+            // btnRealizar
+            // 
+            this.btnRealizar.Image = global::OncidiumSoft.Properties.Resources.apply;
+            this.btnRealizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRealizar.Location = new System.Drawing.Point(751, 410);
+            this.btnRealizar.Name = "btnRealizar";
+            this.btnRealizar.Size = new System.Drawing.Size(157, 37);
+            this.btnRealizar.TabIndex = 92;
+            this.btnRealizar.Text = "Realizar Venta";
+            this.btnRealizar.UseVisualStyleBackColor = true;
+            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click_1);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::OncidiumSoft.Properties.Resources.delete;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(751, 348);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(157, 41);
+            this.btnEliminar.TabIndex = 91;
+            this.btnEliminar.Text = "Eliminar producto";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.CausesValidation = false;
+            this.btnCancelar.Image = global::OncidiumSoft.Properties.Resources.cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(751, 285);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(157, 37);
+            this.btnCancelar.TabIndex = 90;
+            this.btnCancelar.Text = "Cancelar Compra";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 518);
+            this.Controls.Add(this.btnRealizar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblentrega);
-            this.Controls.Add(this.lblCompra);
-            this.Controls.Add(this.dtpCompra);
-            this.Controls.Add(this.dtpEntrega);
             this.Controls.Add(this.txtProveedor);
             this.Controls.Add(this.txtTipo);
-            this.Controls.Add(this.txtCantidaP);
+            this.Controls.Add(this.txtCan);
             this.Controls.Add(this.txtProducto);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.lblCantidad);
@@ -313,18 +302,17 @@
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.lblIdProducto);
             this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.btnRealizar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.dtgCompras);
+            this.Controls.Add(this.dgvCompra);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEmpresa);
             this.Controls.Add(this.lblNueva_Venta);
-            this.Controls.Add(this.pBcompra);
+            this.Controls.Add(this.ptProducto);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmCompras";
             this.Text = "frmCompras";
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCompras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBcompra)).EndInit();
+            this.Load += new System.EventHandler(this.frmCompras_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -336,15 +324,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblentrega;
-        private System.Windows.Forms.Label lblCompra;
-        private System.Windows.Forms.DateTimePicker dtpCompra;
-        private System.Windows.Forms.DateTimePicker dtpEntrega;
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.TextBox txtCantidaP;
+        private System.Windows.Forms.TextBox txtCan;
         private System.Windows.Forms.TextBox txtProducto;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtIdProducto;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblCantidad;
@@ -352,13 +336,14 @@
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Label lblIdProducto;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.Button btnRealizar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridView dtgCompras;
+        private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblEmpresa;
         private System.Windows.Forms.Label lblNueva_Venta;
-        private System.Windows.Forms.PictureBox pBcompra;
+        private System.Windows.Forms.PictureBox ptProducto;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnRealizar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

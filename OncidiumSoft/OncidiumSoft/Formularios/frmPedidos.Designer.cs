@@ -39,8 +39,8 @@
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.lblIdProducto = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtFecha = new System.Windows.Forms.DateTimePicker();
+            this.dtEntrega = new System.Windows.Forms.DateTimePicker();
+            this.dtRealizar = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
             this.txttelefono = new System.Windows.Forms.TextBox();
@@ -59,10 +59,11 @@
             this.lblrealizacion = new System.Windows.Forms.Label();
             this.btnRealizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.DGVpedidos = new System.Windows.Forms.DataGridView();
+            this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVpedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -84,6 +85,7 @@
             // 
             // txtProducto
             // 
+            this.txtProducto.Enabled = false;
             this.txtProducto.Location = new System.Drawing.Point(115, 75);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(106, 20);
@@ -100,6 +102,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.Enabled = false;
             this.txtTipo.Location = new System.Drawing.Point(525, 30);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(99, 20);
@@ -117,9 +120,11 @@
             // txtCantidaP
             // 
             this.txtCantidaP.Location = new System.Drawing.Point(525, 75);
+            this.txtCantidaP.MaxLength = 4;
             this.txtCantidaP.Name = "txtCantidaP";
             this.txtCantidaP.Size = new System.Drawing.Size(81, 20);
             this.txtCantidaP.TabIndex = 55;
+            this.txtCantidaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidaP_KeyPress);
             // 
             // lblCantidad
             // 
@@ -133,9 +138,12 @@
             // txtIdProducto
             // 
             this.txtIdProducto.Location = new System.Drawing.Point(113, 27);
+            this.txtIdProducto.MaxLength = 4;
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(44, 20);
             this.txtIdProducto.TabIndex = 51;
+            this.txtIdProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProducto_KeyPress);
+            this.txtIdProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdProducto_KeyUp);
             // 
             // lblIdProducto
             // 
@@ -148,8 +156,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.txtFecha);
+            this.groupBox1.Controls.Add(this.dtEntrega);
+            this.groupBox1.Controls.Add(this.dtRealizar);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.txtDomicilio);
             this.groupBox1.Controls.Add(this.txttelefono);
@@ -173,19 +181,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Pedido";
             // 
-            // dateTimePicker1
+            // dtEntrega
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(558, 5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 37;
+            this.dtEntrega.Location = new System.Drawing.Point(558, 5);
+            this.dtEntrega.Name = "dtEntrega";
+            this.dtEntrega.Size = new System.Drawing.Size(200, 20);
+            this.dtEntrega.TabIndex = 37;
             // 
-            // txtFecha
+            // dtRealizar
             // 
-            this.txtFecha.Location = new System.Drawing.Point(205, 6);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(200, 20);
-            this.txtFecha.TabIndex = 36;
+            this.dtRealizar.Location = new System.Drawing.Point(205, 6);
+            this.dtRealizar.Name = "dtRealizar";
+            this.dtRealizar.Size = new System.Drawing.Size(200, 20);
+            this.dtRealizar.TabIndex = 36;
             // 
             // txtDescripcion
             // 
@@ -205,12 +213,15 @@
             // txttelefono
             // 
             this.txttelefono.Location = new System.Drawing.Point(205, 94);
+            this.txttelefono.MaxLength = 10;
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(100, 20);
             this.txttelefono.TabIndex = 33;
+            this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(545, 142);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
@@ -218,6 +229,7 @@
             // 
             // txtSubtotal
             // 
+            this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Location = new System.Drawing.Point(545, 97);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
@@ -229,12 +241,14 @@
             this.txtAnticipo.Name = "txtAnticipo";
             this.txtAnticipo.Size = new System.Drawing.Size(100, 20);
             this.txtAnticipo.TabIndex = 30;
+            this.txtAnticipo.TextChanged += new System.EventHandler(this.txtAnticipo_TextChanged);
+            this.txtAnticipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnticipo_KeyPress);
             // 
             // txtNCliente
             // 
             this.txtNCliente.Location = new System.Drawing.Point(205, 51);
             this.txtNCliente.Name = "txtNCliente";
-            this.txtNCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtNCliente.Size = new System.Drawing.Size(172, 20);
             this.txtNCliente.TabIndex = 29;
             // 
             // label9
@@ -328,43 +342,61 @@
             this.btnRealizar.TabIndex = 47;
             this.btnRealizar.Text = "Realizar ";
             this.btnRealizar.UseVisualStyleBackColor = true;
+            this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(557, 550);
+            this.btnCancelar.Location = new System.Drawing.Point(624, 550);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(157, 37);
             this.btnCancelar.TabIndex = 46;
             this.btnCancelar.Text = "Cancelar ";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // DGVpedidos
+            // dgvPedidos
             // 
-            this.DGVpedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVpedidos.Location = new System.Drawing.Point(12, 360);
-            this.DGVpedidos.Name = "DGVpedidos";
-            this.DGVpedidos.Size = new System.Drawing.Size(841, 169);
-            this.DGVpedidos.TabIndex = 45;
+            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidos.Location = new System.Drawing.Point(12, 360);
+            this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedidos.Size = new System.Drawing.Size(841, 169);
+            this.dgvPedidos.TabIndex = 45;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(413, 550);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(157, 37);
+            this.btnEliminar.TabIndex = 48;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 623);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnRealizar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.DGVpedidos);
+            this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPedidos";
             this.Text = "frmPedidos";
+            this.Load += new System.EventHandler(this.frmPedidos_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVpedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,8 +413,8 @@
         private System.Windows.Forms.TextBox txtIdProducto;
         private System.Windows.Forms.Label lblIdProducto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker txtFecha;
+        private System.Windows.Forms.DateTimePicker dtEntrega;
+        private System.Windows.Forms.DateTimePicker dtRealizar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.TextBox txttelefono;
@@ -401,6 +433,7 @@
         private System.Windows.Forms.Label lblrealizacion;
         private System.Windows.Forms.Button btnRealizar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridView DGVpedidos;
+        private System.Windows.Forms.DataGridView dgvPedidos;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

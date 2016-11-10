@@ -36,7 +36,7 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\Source\Repos\OncidiumSoft2\OncidiumSoft\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,7 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexion_Datos\Conexion.cs" />
+    <Compile Include="Conexion_Datos\Conexion.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Daos\Cls_DaoAjusteInventario.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -213,25 +215,28 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Objetos\Cls_DataSetPrincipal1.Designer.cs" />
-    <Compile Include="Objetos\Cls_DatosVenta.cs" />
+    <Compile Include="Objetos\Cls_DatosPedidos.cs" />
+    <Compile Include="Objetos\Cls_DatosVenta.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objetos\Cls_DatosCompra.cs" />
+    <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Usuarios.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Objetos\DataSetPrincipal.cs">
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Objetos\DataSetPrincipal.Designer.cs">
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Objetos\Cls_Productos.cs" />
-    <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
