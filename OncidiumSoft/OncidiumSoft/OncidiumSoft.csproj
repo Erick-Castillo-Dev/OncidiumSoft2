@@ -34,10 +34,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MySql.Data.dll</HintPath>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -130,12 +127,6 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmMostrarReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,9 +195,6 @@
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Objetos\Cls_Productos.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Objetos\Cls_Usuarios.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -220,7 +208,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Cls_Detalles_Ventas.cs" />
     <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
@@ -248,9 +235,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
       <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
