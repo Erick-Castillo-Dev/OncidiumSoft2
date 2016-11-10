@@ -15,8 +15,8 @@ namespace OncidiumSoft.Objetos
         private int pCantidad;
         private decimal pPrecioCosto;
         private decimal pPrecioCliente;
-        private string pEstado;
-        private string pTipoAjuste;
+        private bool pEstado;
+        private bool pTipoAjuste;
 
         /// <summary>
         /// Getters y setters del ajuste de inventario
@@ -65,7 +65,7 @@ namespace OncidiumSoft.Objetos
                 pPrecioCliente = value;
             }
         }
-        public string Estado
+        public bool Estado
         {
             get
             {
@@ -76,7 +76,7 @@ namespace OncidiumSoft.Objetos
                 pEstado = value;
             }
         }
-        public string TipoAjuste
+        public bool TipoAjuste
         {
             get
             {

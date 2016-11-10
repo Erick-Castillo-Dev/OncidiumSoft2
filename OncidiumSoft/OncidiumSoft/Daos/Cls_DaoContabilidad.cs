@@ -13,7 +13,15 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoContabilidad
     {
+        /// <summary>
+        /// Creación del objeto para acceder a la conexión
+        /// </summary>
         Conexion objC = new Conexion();
+
+        /// <summary>
+        /// Método que permite obtener la venta obtenida hasta la fecha
+        /// </summary>
+        /// <returns></returns>
         public string obtenerVenta()
         {
             string res="";
@@ -33,6 +41,10 @@ namespace OncidiumSoft.Daos
             return res;
         }
 
+        /// <summary>
+        /// Método para agregar la contabilidad
+        /// </summary>
+        /// <param name="objContabilidad"></param>
         public void AgregarContabilidad(Cls_Contabilidad objContabilidad)
         {
             string sql;
@@ -53,6 +65,10 @@ namespace OncidiumSoft.Daos
             objC.Cerrar();
         }
 
+        /// <summary>
+        /// Lista que mostrara lo registrado en la tabla de contabilidad
+        /// </summary>
+        /// <returns></returns>
         public List<Cls_Contabilidad> getContabilidad()
         {
             List<Cls_Contabilidad> lstContabilidad = new List<Cls_Contabilidad>();
