@@ -144,5 +144,23 @@ namespace OncidiumSoft.Daos
             return "";
         }
 
+
+        /// <summary>
+        /// Objecto para acceder a la conexion de la db.
+        /// </summary>
+        Conexion conexionDB = new Conexion();
+        /// <summary>
+        /// Metodo de llenado de usuarios que contiene la base de datos.
+        /// </summary>
+        /// <returns></returns>
+        public DataSet llenar()
+        {
+            conexionDB.Conectar();
+            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from usuarios", conexionDB.cConexion);
+            DataSet usuarios = new DataSet();
+            muestreo.Fill(usuarios, "usuarios");
+            return usuarios;
+        }
+
     }
 }

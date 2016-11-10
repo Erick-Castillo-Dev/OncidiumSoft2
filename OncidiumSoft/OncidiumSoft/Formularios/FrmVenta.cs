@@ -191,7 +191,8 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
-            if (vDao.venta(lista, int.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id))
+            bool s = vDao.venta(lista, double.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id);
+            if (s)
             {
                 reiniciar();
                 limpiar();
