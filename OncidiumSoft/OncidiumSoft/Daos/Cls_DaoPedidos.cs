@@ -205,8 +205,39 @@ namespace OncidiumSoft.Daos
             return null;
         }
 
+        public bool eliminarPedido(int idVenta)
+        {
+            MySqlTransaction tr = null;
+            bool q = false;
+            try
+            {
+                c.Conectar();
+                tr = c.cConexion.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Transaction = tr;
+                cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                cmd.CommandText = "DELETE FROM detalles_ventas WHERE idVentas = @idVenta";
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                cmd.CommandText = "DELETE FROM ventas WHERE idVentas = @idVenta";
+                cmd.ExecuteNonQuery();
+                tr.Commit();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return q;
+            }
+            return q;
+        }
+
         public bool Pedido(List<Cls_DatosVenta> lis, Cls_Ventas v)
         {
+            v.idVenta = new Cls_DaoVentas().folio();
             MySqlTransaction tr = null;
             bool q = false;
             try
@@ -224,10 +255,10 @@ namespace OncidiumSoft.Daos
                 cmd.Parameters.AddWithValue("@anticipo", v.anticipo);
                 cmd.Parameters.AddWithValue("@subtotal", v.subTotal);
                 cmd.Parameters.AddWithValue("@total", v.total);
-                cmd.Parameters.AddWithValue("@fecha_Realizar", v.fecha_Realizar);
-                cmd.Parameters.AddWithValue("@fecha_Entrega", v.fecha_Entrega);
+                cmd.Parameters.AddWithValue("@fecha_Realizar", v.fecha_Realizar.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@fecha_Entrega", v.fecha_Entrega.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@entrega", v.entrega);
-                cmd.Parameters.AddWithValue("@tipo", v.tipo);
+                cmd.Parameters.AddWithValue("@tipo", "Pedido");
                 cmd.Parameters.AddWithValue("@descuento", v.descuento);
                 cmd.Parameters.AddWithValue("@idUsuario", v.idUsuario);
                 cmd.Parameters.AddWithValue("@entregado", v.entregado);
@@ -236,7 +267,7 @@ namespace OncidiumSoft.Daos
                                     "Total,Fecha_Realizar,Fecha_Entregar,Entrega_Domicilio,Tipo,Descuento,idUsuarios,Entregado,Telefono)"+
                                     "VALUES(@idVenta,@cliente,@domicilio,@descripcion,@anticipo,@subtotal," +
                                     "@total,@fecha_Realizar,@fecha_Entrega,@entrega,@tipo,@descuento," +
-                                    "@idUsuario,@entregado,qtelefono)";
+                                    "@idUsuario,@entregado,@telefono)";
                 cmd.ExecuteNonQuery();
                 for (int i = 0; i < lis.Count; i++)
                 {
@@ -246,7 +277,6 @@ namespace OncidiumSoft.Daos
                     cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
                     cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
                     cmd.CommandText = "INSERT INTO detalles_ventas (idProductos,idVentas,Cantidad,Precio)VALUES(@idProducto,@idVenta,@Cantidad,@Precio)";
-                    cmd.ExecuteNonQuery();
                     cmd.ExecuteNonQuery();
                 }
                 tr.Commit();

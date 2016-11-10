@@ -209,6 +209,8 @@
     <Compile Include="Objetos\Cls_Detalles_Ventas.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objetos\Cls_DatosCompra.cs" />
+    <Compile Include="Objetos\Cls_Productos.cs" />
     <Compile Include="Objetos\Cls_Usuarios.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -224,8 +226,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Objetos\Cls_Productos.cs" />
-    <Compile Include="Objetos\Cls_Ventas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">

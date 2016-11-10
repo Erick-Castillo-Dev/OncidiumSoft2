@@ -32,6 +32,9 @@ namespace OncidiumSoft.Formularios
         private void frmPedidos_Load(object sender, EventArgs e)
         {
             limpiar();
+            txtTotal.Text = "0";
+            txtSubtotal.Text = "0";
+            txtAnticipo.Text = "0";
             if(editar){
                 btnRealizar.Text = "Actualizar";
                 v = pDao.obtenerPedido(id);
@@ -60,54 +63,74 @@ namespace OncidiumSoft.Formularios
             txtCantidaP.Text = "1";
         }
 
+        public void limpiarTodo()
+        {
+            dtRealizar.Value = DateTime.Now;
+            dtEntrega.Value = DateTime.Now;
+            txtNCliente.Text = "";
+            txttelefono.Text = "";
+            txtDomicilio.Text = "";
+            txtDescripcion.Text = "";
+            txtAnticipo.Text = "0";
+            txtSubtotal.Text = "0";
+            txtTotal.Text = "0";
+            dgvPedidos.DataSource = dV;
+        }
+
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
         {
-            try
+            if (e.KeyValue == (char)Keys.Enter)
             {
-                Cls_Productos p = new Cls_Productos();
-                p.idProductoss = int.Parse(txtIdProducto.Text.ToString());
-                pro = proDao.BuscarProducto(p);
-                txtTipo.Text = pro.TipoProducto.ToString();
-                txtProducto.Text = pro.NombreProducto.ToString();
-                Thread.Sleep(50);
-                limpiar();
-                Cls_DatosVenta v = new Cls_DatosVenta();
-                v.ID = pro.idProductoss;
-                v.Producto = pro.NombreProducto;
-                v.Precio_Unitario = pro.PrecioalCliente;
-                v.Cantidad = int.Parse(txtCantidaP.Text.ToString());
-                v.Sub_Total = v.Cantidad * v.Precio_Unitario;
-                v.Tipo = pro.TipoProducto;
-                txtTotal.Text = (double.Parse(txtTotal.Text.ToString()) + v.Sub_Total).ToString();
-
-                if (dV == null)
+                try
                 {
-                    dV.Add(v);
-                }
-                else
-                {
-                    bool s = false;
-                    foreach (Cls_DatosVenta d in dV)
-                    {
-                        if (d.ID == v.ID)
-                        {
-                            d.Cantidad += v.Cantidad;
-                            d.Sub_Total += v.Sub_Total;
-                            s = true;
-                        }
-                    }
-                    if (!s)
+                    Cls_Productos p = new Cls_Productos();
+                    p.idProductoss = int.Parse(txtIdProducto.Text.ToString());
+                    pro = proDao.BuscarProducto(p);
+                    txtTipo.Text = pro.TipoProducto.ToString();
+                    txtProducto.Text = pro.NombreProducto.ToString();
+                    Thread.Sleep(50);
+                    limpiar();
+                    Cls_DatosVenta v = new Cls_DatosVenta();
+                    v.ID = pro.idProductoss;
+                    v.Producto = pro.NombreProducto;
+                    v.Precio_Unitario = pro.PrecioalCliente;
+                    v.Cantidad = int.Parse(txtCantidaP.Text.ToString());
+                    v.Sub_Total = v.Cantidad * v.Precio_Unitario;
+                    v.Tipo = pro.TipoProducto;
+                    double k = double.Parse(txtTotal.Text.ToString()) + v.Sub_Total;
+                    txtSubtotal.Text = k.ToString();
+                    txtTotal.Text = (k - double.Parse(txtAnticipo.Text.ToString())).ToString();
+                    if (dV == null)
                     {
                         dV.Add(v);
                     }
-                }
+                    else
+                    {
+                        bool s = false;
+                        foreach (Cls_DatosVenta d in dV)
+                        {
+                            if (d.ID == v.ID)
+                            {
+                                d.Cantidad += v.Cantidad;
+                                d.Sub_Total += v.Sub_Total;
+                                s = true;
+                            }
+                        }
+                        if (!s)
+                        {
+                            dV.Add(v);
+                        }
+                    }
 
-                dgvPedidos.DataSource = null;
-                dgvPedidos.DataSource = dV;
-                dgvPedidos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "$ #,##0.00";
-                dgvPedidos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
-            }catch(Exception ex){
-                MessageBox.Show("El producto no existe");
+                    dgvPedidos.DataSource = null;
+                    dgvPedidos.DataSource = dV;
+                    dgvPedidos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "$ #,##0.00";
+                    dgvPedidos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El producto no existe");
+                }
             }
         }
 
@@ -164,6 +187,17 @@ namespace OncidiumSoft.Formularios
                 v.subTotal = float.Parse(txtSubtotal.Text.ToString());
                 v.total = float.Parse(txtTotal.Text.ToString());
                 v.idUsuario = idu;
+                z = pDao.Pedido(dV, v);
+                if (z)
+                {
+                    MessageBox.Show("Edicion realizada");
+                    limpiarTodo();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar");
+                }
             }
         }
 
@@ -193,6 +227,74 @@ namespace OncidiumSoft.Formularios
             catch (Exception ex)
             {
                 MessageBox.Show("Error consulta al Administrador");
+            }
+        }
+
+        private void txtAnticipo_TextChanged(object sender, EventArgs e)
+        {
+            if(txtAnticipo.Text != ""){
+            txtTotal.Text = (double.Parse(txtSubtotal.Text.ToString()) - double.Parse(txtAnticipo.Text.ToString())).ToString();
+            }
+        }
+
+        private void txtAnticipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtAnticipo.Text.Length; i++)
+            {
+                if (txtAnticipo.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidaP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txttelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
         }
     }

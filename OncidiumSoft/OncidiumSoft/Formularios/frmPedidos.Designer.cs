@@ -120,9 +120,11 @@
             // txtCantidaP
             // 
             this.txtCantidaP.Location = new System.Drawing.Point(525, 75);
+            this.txtCantidaP.MaxLength = 4;
             this.txtCantidaP.Name = "txtCantidaP";
             this.txtCantidaP.Size = new System.Drawing.Size(81, 20);
             this.txtCantidaP.TabIndex = 55;
+            this.txtCantidaP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidaP_KeyPress);
             // 
             // lblCantidad
             // 
@@ -136,9 +138,11 @@
             // txtIdProducto
             // 
             this.txtIdProducto.Location = new System.Drawing.Point(113, 27);
+            this.txtIdProducto.MaxLength = 4;
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(44, 20);
             this.txtIdProducto.TabIndex = 51;
+            this.txtIdProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProducto_KeyPress);
             this.txtIdProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdProducto_KeyUp);
             // 
             // lblIdProducto
@@ -209,12 +213,15 @@
             // txttelefono
             // 
             this.txttelefono.Location = new System.Drawing.Point(205, 94);
+            this.txttelefono.MaxLength = 10;
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(100, 20);
             this.txttelefono.TabIndex = 33;
+            this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(545, 142);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
@@ -222,6 +229,7 @@
             // 
             // txtSubtotal
             // 
+            this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Location = new System.Drawing.Point(545, 97);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
@@ -233,12 +241,14 @@
             this.txtAnticipo.Name = "txtAnticipo";
             this.txtAnticipo.Size = new System.Drawing.Size(100, 20);
             this.txtAnticipo.TabIndex = 30;
+            this.txtAnticipo.TextChanged += new System.EventHandler(this.txtAnticipo_TextChanged);
+            this.txtAnticipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnticipo_KeyPress);
             // 
             // txtNCliente
             // 
             this.txtNCliente.Location = new System.Drawing.Point(205, 51);
             this.txtNCliente.Name = "txtNCliente";
-            this.txtNCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtNCliente.Size = new System.Drawing.Size(172, 20);
             this.txtNCliente.TabIndex = 29;
             // 
             // label9

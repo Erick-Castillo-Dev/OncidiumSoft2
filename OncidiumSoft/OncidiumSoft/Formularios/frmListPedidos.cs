@@ -77,5 +77,42 @@ namespace OncidiumSoft.Formularios
 
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 selectedRowCount = dgvListapedidos.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    if (selectedRowCount == 1)
+                    {
+                        bool m = pDao.eliminarPedido(int.Parse(dgvListapedidos.Rows[dgvListapedidos.CurrentCellAddress.Y].Cells["ID"].Value.ToString()));
+                        if(m){
+                            MessageBox.Show("Pedido eliminado");
+                            lista = pDao.cargardatos();
+                            dgvListapedidos.DataSource = lista;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar el pedido");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione solo un registro para editar");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error consulta al Administrador");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
