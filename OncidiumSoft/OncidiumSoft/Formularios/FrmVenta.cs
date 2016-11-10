@@ -57,6 +57,7 @@ namespace OncidiumSoft.Formularios
             lblCambio.Text = "Cambio: $ " + 0;
             lblFecha.Text = "Fecha de venta: " + DateTime.Now.ToString("yyyy/MM/dd");
             txtCantidad.Text = "1";
+            txtDescuento.Text = "0";
             total = 0;
         }
         /// <summary>
@@ -83,7 +84,6 @@ namespace OncidiumSoft.Formularios
             txtPrecio.Text = "";
             txtProducto.Text = "";
             txtTipo.Text = "";
-            txtDescuento.Text = "0";
         }
         /// <summary>
         /// Metodo para el lector de codigo de barras para agregar los productos a la venta
@@ -104,7 +104,6 @@ namespace OncidiumSoft.Formularios
                     txtPrecio.Text = pro.PrecioalCliente.ToString();
                     txtProducto.Text = pro.NombreProducto.ToString();
                     Thread.Sleep(50);
-                    limpiar();
                     Cls_DatosVenta v = new Cls_DatosVenta();
                     v.ID = pro.idProductoss;
                     v.Producto = pro.NombreProducto;
@@ -113,7 +112,7 @@ namespace OncidiumSoft.Formularios
                     v.Sub_Total = v.Cantidad * v.Precio_Unitario;
                     v.Tipo = pro.TipoProducto;
                     total += v.Sub_Total;
-                    lblTotal.Text = "Total:  $ " + total;
+                    lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
                     if(lista == null){
                         lista.Add(v);
                     }
@@ -137,6 +136,7 @@ namespace OncidiumSoft.Formularios
                     dgvProductos.DataSource = lista;
                     dgvProductos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "$ #,##0.00";
                     dgvProductos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
+                    limpiar();
                 }catch(Exception ex){
                     MessageBox.Show("El producto no existe");
                 }
@@ -170,14 +170,16 @@ namespace OncidiumSoft.Formularios
                     {
                         for (int j = 0; j < lista.Count; j++)
                         {
-                            if (dgvProductos.Rows[i].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                            if (dgvProductos.Rows[dgvProductos.SelectedRows[i].Index].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
                             {
+                                total -= lista.ElementAt(j).Sub_Total;
                                 lista.RemoveAt(j);
                             }
                         }
                     }
                     dgvProductos.DataSource = null;
                     dgvProductos.DataSource = lista;
+                    lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
                 }
             }catch(Exception ex){
                 MessageBox.Show("Error consulta al Administrador");
@@ -191,12 +193,13 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
-            bool s = vDao.venta(lista, double.Parse(lblTotal.Text.ToString()), int.Parse(txtDescuento.Text.ToString()), id);
+            bool s = vDao.venta(lista, total, int.Parse(txtDescuento.Text.ToString()), id);
             if (s)
             {
                 reiniciar();
                 limpiar();
                 lista.Clear();
+                dgvProductos.DataSource = null;
                 MessageBox.Show("Venta realizada");
             }
             else
