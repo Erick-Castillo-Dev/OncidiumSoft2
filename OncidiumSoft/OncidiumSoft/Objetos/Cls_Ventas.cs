@@ -23,6 +23,7 @@ namespace OncidiumSoft.Objetos
         private int _descuento;
         private int _idUsuario;
         private bool _entregado;
+        private string _telefono;
 
         public int idVenta
         {
@@ -106,6 +107,12 @@ namespace OncidiumSoft.Objetos
         {
             get { return _entregado; }
             set { _entregado = value; }
+        }
+
+        public string telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
         }
 
     }
