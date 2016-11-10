@@ -22,10 +22,7 @@ namespace OncidiumSoft.Formularios
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -35,11 +32,24 @@ namespace OncidiumSoft.Formularios
 
         private void frmPorSemana_Load(object sender, EventArgs e)
         {
-            //Se obtiene la fecha actual
-            label2.Text = DateTime.Now.ToShortDateString();
-            //Aqui se hace la resta de los 7 dias de una semana
-            label3.Text = DateTime.Today.AddDays(-7).ToShortDateString();
+           
         
+        }
+
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
+            //Se obtiene la fecha del DateTimePicker
+            De.Text = dtpFecha.Value.Date.ToShortDateString();
+            //Aqui se hace la resta de los 7 dias de una semana
+            Semana.Text = dtpFecha.Value.AddDays(-7).ToShortDateString();
+        }
+
+        private void btnGenerar_Click_1(object sender, EventArgs e)
+        {
+            frmMostrarReporteSemana mostrar = new frmMostrarReporteSemana();
+            //Se envia la fecha al metodo que recibe un DateTime
+            mostrar.Fecha = dtpFecha.Value;
+            mostrar.Show();
         }
     }
 }

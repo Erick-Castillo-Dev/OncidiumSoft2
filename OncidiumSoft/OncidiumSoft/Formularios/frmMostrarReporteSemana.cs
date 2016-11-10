@@ -22,12 +22,16 @@ namespace OncidiumSoft.Formularios
 
            
             // Esta línea de código carga datos en la tabla 'dataSetPrincipal.DataTable2' Puede moverla o quitarla según sea necesario.
-            this.dataTable2TableAdapter.Fill(this.dataSetPrincipal.DataTable2);
+            this.dataTable2TableAdapter.Fill(this.dataSetPrincipal.DataTable2,Fecha);
             this.reportViewer1.RefreshReport();
 
       
         }
 
+        /// <summary>
+        /// Metodo que recibe una varieble tipo DateTime la cual sirve para el procedimiento almacenado
+        /// </summary>
+        public DateTime Fecha { get; set; }
         private void reportViewer1_Load(object sender, EventArgs e)
         {
 
