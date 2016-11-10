@@ -19,8 +19,10 @@ namespace OncidiumSoft.Formularios
         }
 
         /// <summary>
-        /// Método para el boton cancelar gastos
+        /// Método para cancelar los gastos introducidos
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelarGastos_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,8 +30,10 @@ namespace OncidiumSoft.Formularios
         }
 
         /// <summary>
-        /// Método para el boton aceptar gastos
+        /// Método para aceptar los gastos introducidos
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptarGastos_Click(object sender, EventArgs e)
         {
             FrmContabilidad objCont = new FrmContabilidad();
@@ -40,7 +44,6 @@ namespace OncidiumSoft.Formularios
                 {
                     sumaGastos = double.Parse(txtGastosFertilizantes.Text) + double.Parse(txtGastosInsecticidas.Text) + double.Parse(txtGastosGasolina.Text) +
                     double.Parse(txtGastosAgua.Text) + double.Parse(txtGastosLuz.Text) + double.Parse(txtImprevistos.Text);
-                    String.Format("{0:####,##}", sumaGastos);
                     objCont.txtGastosGenerales.Text = sumaGastos.ToString();
                     this.Hide();
                     objCont.Show();
@@ -48,6 +51,12 @@ namespace OncidiumSoft.Formularios
                 catch (Exception ex)
                 {
                     MessageBox.Show("Introduzca el formato correcto para los gastos");
+                    txtGastosFertilizantes.Clear();
+                    txtGastosInsecticidas.Clear();
+                    txtGastosGasolina.Clear();
+                    txtGastosAgua.Clear();
+                    txtGastosLuz.Clear();
+                    txtImprevistos.Clear();
                 }
                 
             }
@@ -60,114 +69,265 @@ namespace OncidiumSoft.Formularios
             {
                  if (MessageBox.Show("¿Estas seguro que no deseas agregar ningún otro gasto?", "*** AVISO ***", MessageBoxButtons.YesNo) == DialogResult.Yes)
                  {
-                     if (txtGastosFertilizantes.Text != string.Empty)
+                     try
                      {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         if (txtGastosFertilizantes.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         if (txtGastosInsecticidas.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         if (txtGastosGasolina.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         if (txtGastosAgua.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         if (txtGastosLuz.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         if (txtImprevistos.Text != string.Empty)
+                         {
+                             sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         }
+                         objCont.txtGastosGenerales.Text = sumaGastos.ToString();
+                         this.Hide();
+                         objCont.Show();
                      }
-                     if (txtGastosInsecticidas.Text != string.Empty)
+                     catch(Exception ex)
                      {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
+                         MessageBox.Show("Introduzca el formato correcto para los gastos");
+                         txtGastosFertilizantes.Clear();
+                         txtGastosInsecticidas.Clear();
+                         txtGastosGasolina.Clear();
+                         txtGastosAgua.Clear();
+                         txtGastosLuz.Clear();
+                         txtImprevistos.Clear();
                      }
-                     if (txtGastosGasolina.Text != string.Empty)
-                     {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
-                     }
-                     if (txtGastosAgua.Text != string.Empty)
-                     {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
-                     }
-                     if (txtGastosLuz.Text != string.Empty)
-                     {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
-                     }
-                     if (txtImprevistos.Text != string.Empty)
-                     {
-                         sumaGastos += double.Parse(txtGastosFertilizantes.Text);
-                     }
-                     String.Format("{0:####,##}", sumaGastos); 
-                     objCont.txtGastosGenerales.Text = sumaGastos.ToString();
-                     this.Hide();
-                     objCont.Show();
+                     
                  }
             }
         }
 
         /// <summary>
-        /// Método keypress para el textbox de gastos en fertilizantes
+        /// Método keypress que valida números a solo dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGastosFertilizantes_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtGastosFertilizantes.Text.Length; i++)
+            {
+                if (txtGastosFertilizantes.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         /// <summary>
-        /// Método keypress para el textbox de gastos en insecticidas
+        /// Método keypress que valida números a solo dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGastosInsecticidas_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtGastosInsecticidas.Text.Length; i++)
+            {
+                if (txtGastosInsecticidas.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         /// <summary>
-        /// Método keypress para el textbox de gastos en gasolina
+        /// Método keypress que válida números a solo dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGastosGasolina_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtGastosGasolina.Text.Length; i++)
+            {
+                if (txtGastosGasolina.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         /// <summary>
-        /// Método keypress para el textbox de gastos en agua
+        /// Método keypress que válida números a solo dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGastosAgua_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtGastosAgua.Text.Length; i++)
+            {
+                if (txtGastosAgua.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         /// <summary>
-        /// Método keypress para el textbox de gastos en luz
+        /// Método keypress que válida números a solo dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGastosLuz_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtGastosLuz.Text.Length; i++)
+            {
+                if (txtGastosLuz.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         /// <summary>
-        /// Método keypress para el textbox de imprevistos
+        /// Método keypress que válida solo números a dos decimales
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtImprevistos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsNumber(e.KeyChar) == false) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != ','))
+            if (e.KeyChar == 8)
             {
-                e.Handled = true;
-            }
-            else
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtImprevistos.Text.Length; i++)
+            {
+                if (txtImprevistos.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == ',')
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
     }
 }
