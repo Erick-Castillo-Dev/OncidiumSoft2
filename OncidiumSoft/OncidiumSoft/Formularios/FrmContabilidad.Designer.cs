@@ -85,7 +85,7 @@
             this.lblGananciaT.Name = "lblGananciaT";
             this.lblGananciaT.Size = new System.Drawing.Size(41, 19);
             this.lblGananciaT.TabIndex = 47;
-            this.lblGananciaT.Text = "0.00";
+            this.lblGananciaT.Text = "0,00";
             // 
             // lblInversionT
             // 
@@ -96,7 +96,7 @@
             this.lblInversionT.Name = "lblInversionT";
             this.lblInversionT.Size = new System.Drawing.Size(41, 19);
             this.lblInversionT.TabIndex = 46;
-            this.lblInversionT.Text = "0.00";
+            this.lblInversionT.Text = "0,00";
             // 
             // lblVentasT
             // 
@@ -120,6 +120,7 @@
             this.txtGastosGenerales.Name = "txtGastosGenerales";
             this.txtGastosGenerales.Size = new System.Drawing.Size(100, 23);
             this.txtGastosGenerales.TabIndex = 44;
+            this.txtGastosGenerales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGastosGenerales_KeyPress);
             // 
             // btnHistorial
             // 
