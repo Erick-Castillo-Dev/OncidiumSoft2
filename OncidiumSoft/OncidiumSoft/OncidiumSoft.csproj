@@ -76,6 +76,13 @@
     <Compile Include="Daos\Cls_DaoVentas.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmAgregarProvedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAgregarProvedor.Designer.cs">
+      <DependentUpon>FrmAgregarProvedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\Cls_Provedores.cs" />
     <Compile Include="Formularios\FrmAgregarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,12 +137,6 @@
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmMostrarReporte.Designer.cs">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmMostrarReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +185,12 @@
     <Compile Include="Formularios\FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmProvedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmProvedores.Designer.cs">
+      <DependentUpon>FrmProvedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +237,9 @@
     <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
       <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAgregarProvedor.resx">
+      <DependentUpon>FrmAgregarProvedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,9 +264,6 @@
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMostrarReporte.resx">
-      <DependentUpon>frmMostrarReporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMostrarReporteDiario.resx">
       <DependentUpon>frmMostrarReporteDiario.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProductos.resx">
       <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProvedores.resx">
+      <DependentUpon>FrmProvedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

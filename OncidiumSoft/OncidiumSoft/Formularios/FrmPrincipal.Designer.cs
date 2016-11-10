@@ -83,13 +83,13 @@
             this.Ventas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Ventas1});
             this.Ventas.Name = "Ventas";
-            this.Ventas.Size = new System.Drawing.Size(54, 20);
+            this.Ventas.Size = new System.Drawing.Size(53, 20);
             this.Ventas.Text = "Ventas";
             // 
             // Ventas1
             // 
             this.Ventas1.Name = "Ventas1";
-            this.Ventas1.Size = new System.Drawing.Size(109, 22);
+            this.Ventas1.Size = new System.Drawing.Size(108, 22);
             this.Ventas1.Text = "Ventas";
             this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click_1);
             // 
@@ -102,26 +102,28 @@
             this.Administrar.Name = "Administrar";
             this.Administrar.Size = new System.Drawing.Size(81, 20);
             this.Administrar.Text = "Administrar";
+            this.Administrar.Click += new System.EventHandler(this.Administrar_Click);
             // 
             // Usuarios
             // 
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(133, 22);
+            this.Usuarios.Size = new System.Drawing.Size(152, 22);
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
             // Productos
             // 
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(133, 22);
+            this.Productos.Size = new System.Drawing.Size(152, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 
             // Provedores
             // 
             this.Provedores.Name = "Provedores";
-            this.Provedores.Size = new System.Drawing.Size(133, 22);
+            this.Provedores.Size = new System.Drawing.Size(152, 22);
             this.Provedores.Text = "Provedores";
+            this.Provedores.Click += new System.EventHandler(this.Provedores_Click);
             // 
             // Reportes
             // 
@@ -136,21 +138,21 @@
             // VentasDia
             // 
             this.VentasDia.Name = "VentasDia";
-            this.VentasDia.Size = new System.Drawing.Size(174, 22);
+            this.VentasDia.Size = new System.Drawing.Size(173, 22);
             this.VentasDia.Text = "Ventas del dia";
             this.VentasDia.Click += new System.EventHandler(this.VentasDia_Click);
             // 
             // VentasFecha
             // 
             this.VentasFecha.Name = "VentasFecha";
-            this.VentasFecha.Size = new System.Drawing.Size(174, 22);
+            this.VentasFecha.Size = new System.Drawing.Size(173, 22);
             this.VentasFecha.Text = "Ventas por semana";
             this.VentasFecha.Click += new System.EventHandler(this.VentasFecha_Click);
             // 
             // ventasPorMesToolStripMenuItem
             // 
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
-            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
             this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 

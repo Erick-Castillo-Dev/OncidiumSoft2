@@ -161,6 +161,24 @@ namespace OncidiumSoft.Daos
             muestreo.Fill(usuarios, "usuarios");
             return usuarios;
         }
+        /// <summary>
+        /// Elimina el Usuario selecionado.
+        /// </summary>
+        /// <param name="u"></param>
+        public void EliminarUsuario(Cls_Usuarios u)
+        {
+            string sql;
+            MySqlCommand cm;
+            c.Conectar();
 
+            cm = new MySqlCommand();
+            cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
+            sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text; ;
+            cm.Connection = c.cConexion;
+            cm.ExecuteNonQuery();
+            c.Cerrar();
+        }
     }
 }

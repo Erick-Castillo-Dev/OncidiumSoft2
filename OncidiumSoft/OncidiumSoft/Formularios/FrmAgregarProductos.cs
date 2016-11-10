@@ -19,6 +19,10 @@ namespace OncidiumSoft.Formularios
             InitializeComponent();
         }
         /// <summary>
+        /// Objecto para llamar al catalogo de productos
+        /// </summary>
+        FrmProductos LlamProductos = new FrmProductos();
+        /// <summary>
         /// Guarda el nuevo producto registrado.
         /// </summary>
         /// <param name="sender"></param>
@@ -74,6 +78,7 @@ namespace OncidiumSoft.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            LlamProductos.Show();
         }
     }
 }
