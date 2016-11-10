@@ -10,6 +10,7 @@ namespace OncidiumSoft.Conexxion_Datos
 {
     class Conexion
     {
+
         /// <summary>
         /// Objeto para la conexion a la base de datos
         /// </summary>wsa
