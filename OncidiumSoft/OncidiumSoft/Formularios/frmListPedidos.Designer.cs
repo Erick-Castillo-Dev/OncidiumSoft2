@@ -75,6 +75,7 @@
             // 
             this.dgvListapedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListapedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListapedidos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListapedidos.Location = new System.Drawing.Point(24, 93);
             this.dgvListapedidos.Name = "dgvListapedidos";
             this.dgvListapedidos.ReadOnly = true;
@@ -127,7 +128,10 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvListapedidos);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListPedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListPedidos";
             this.Load += new System.EventHandler(this.frmListPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListapedidos)).EndInit();

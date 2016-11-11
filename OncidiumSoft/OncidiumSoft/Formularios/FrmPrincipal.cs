@@ -80,5 +80,18 @@ namespace OncidiumSoft
             FrmAjusteInventario objA = new FrmAjusteInventario();
             objA.Show();
         }
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListPedidos f = new frmListPedidos();
+            f.idu = int.Parse(idUsuario2.Text.ToString());
+            f.Show();
+        }
+
+        private void compraDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCompras f = new frmCompras();
+            f.Show();
+        }
+
     }
 }

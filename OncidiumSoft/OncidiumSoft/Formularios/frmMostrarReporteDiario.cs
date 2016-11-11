@@ -19,9 +19,10 @@ namespace OncidiumSoft.Formularios
 
         private void frmMostrarReporteDiario_Load(object sender, EventArgs e)
         {
+            this.reportViewer1.RefreshReport();
             // Esta línea de código carga datos en la tabla 'dataSetPrincipal.DataTable' Puede moverla o quitarla según sea necesario.
             this.dataTableTableAdapter.Fill(this.dataSetPrincipal.DataTable, Fecha);
-            this.reportViewer1.RefreshReport();
+            
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)

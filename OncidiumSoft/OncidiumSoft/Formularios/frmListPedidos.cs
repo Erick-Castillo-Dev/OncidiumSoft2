@@ -48,6 +48,7 @@ namespace OncidiumSoft.Formularios
             f.id = -1;
             f.idu = idu;
             f.Show();
+            this.Hide();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace OncidiumSoft.Formularios
                         frmPedidos f = new frmPedidos();
                         f.editar = true;
                         f.id = int.Parse(dgvListapedidos.Rows[dgvListapedidos.CurrentCellAddress.Y].Cells["ID"].Value.ToString());
+                        this.Hide();
                         f.Show();
                     }
                     else
