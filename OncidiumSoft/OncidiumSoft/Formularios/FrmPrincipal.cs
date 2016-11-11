@@ -89,5 +89,10 @@ namespace OncidiumSoft
             frmCompras f = new frmCompras();
             f.Show();
         }
+
+        private void Administrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
