@@ -53,6 +53,8 @@
             // 
             // menuPrincipal
             // 
+            this.menuPrincipal.BackColor = System.Drawing.Color.ForestGreen;
+            this.menuPrincipal.Font = new System.Drawing.Font("Monotype Corsiva", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Archivo,
             this.Ventas,
@@ -62,7 +64,8 @@
             this.inventarioToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(995, 24);
+            this.menuPrincipal.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuPrincipal.Size = new System.Drawing.Size(1161, 25);
             this.menuPrincipal.TabIndex = 4;
             this.menuPrincipal.Text = "menuStrip1";
             // 
@@ -71,11 +74,13 @@
             this.Archivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Salir});
             this.Archivo.Name = "Archivo";
-            this.Archivo.Size = new System.Drawing.Size(60, 20);
+            this.Archivo.Size = new System.Drawing.Size(69, 21);
             this.Archivo.Text = "Archivo";
             // 
             // Salir
             // 
+            this.Salir.BackColor = System.Drawing.Color.ForestGreen;
+            this.Salir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Salir.Name = "Salir";
             this.Salir.Size = new System.Drawing.Size(152, 22);
             this.Salir.Text = "Salir";
@@ -87,27 +92,33 @@
             this.pedidosToolStripMenuItem,
             this.compraDeProductosToolStripMenuItem});
             this.Ventas.Name = "Ventas";
-            this.Ventas.Size = new System.Drawing.Size(54, 20);
+            this.Ventas.Size = new System.Drawing.Size(53, 20);
             this.Ventas.Text = "Ventas";
             // 
             // Ventas1
             // 
+            this.Ventas1.BackColor = System.Drawing.Color.ForestGreen;
+            this.Ventas1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Ventas1.Name = "Ventas1";
-            this.Ventas1.Size = new System.Drawing.Size(190, 22);
+            this.Ventas1.Size = new System.Drawing.Size(208, 22);
             this.Ventas1.Text = "Ventas";
             this.Ventas1.Click += new System.EventHandler(this.Ventas1_Click_1);
             // 
             // pedidosToolStripMenuItem
             // 
+            this.pedidosToolStripMenuItem.BackColor = System.Drawing.Color.ForestGreen;
+            this.pedidosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
             this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // compraDeProductosToolStripMenuItem
             // 
+            this.compraDeProductosToolStripMenuItem.BackColor = System.Drawing.Color.ForestGreen;
+            this.compraDeProductosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.compraDeProductosToolStripMenuItem.Name = "compraDeProductosToolStripMenuItem";
-            this.compraDeProductosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.compraDeProductosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.compraDeProductosToolStripMenuItem.Text = "Compra de productos";
             this.compraDeProductosToolStripMenuItem.Click += new System.EventHandler(this.compraDeProductosToolStripMenuItem_Click);
             // 
@@ -118,11 +129,13 @@
             this.Productos,
             this.Provedores});
             this.Administrar.Name = "Administrar";
-            this.Administrar.Size = new System.Drawing.Size(81, 20);
+            this.Administrar.Size = new System.Drawing.Size(97, 21);
             this.Administrar.Text = "Administrar";
             // 
             // Usuarios
             // 
+            this.Usuarios.BackColor = System.Drawing.Color.ForestGreen;
+            this.Usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Usuarios.Name = "Usuarios";
             this.Usuarios.Size = new System.Drawing.Size(133, 22);
             this.Usuarios.Text = "Usuarios";
@@ -130,6 +143,8 @@
             // 
             // Productos
             // 
+            this.Productos.BackColor = System.Drawing.Color.ForestGreen;
+            this.Productos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Productos.Name = "Productos";
             this.Productos.Size = new System.Drawing.Size(133, 22);
             this.Productos.Text = "Productos";
@@ -137,6 +152,8 @@
             // 
             // Provedores
             // 
+            this.Provedores.BackColor = System.Drawing.Color.ForestGreen;
+            this.Provedores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Provedores.Name = "Provedores";
             this.Provedores.Size = new System.Drawing.Size(152, 22);
             this.Provedores.Text = "Provedores";
@@ -148,27 +165,33 @@
             this.VentasFecha,
             this.ventasPorMesToolStripMenuItem});
             this.Reportes.Name = "Reportes";
-            this.Reportes.Size = new System.Drawing.Size(65, 20);
+            this.Reportes.Size = new System.Drawing.Size(77, 21);
             this.Reportes.Text = "Reportes";
             // 
             // VentasDia
             // 
+            this.VentasDia.BackColor = System.Drawing.Color.ForestGreen;
+            this.VentasDia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.VentasDia.Name = "VentasDia";
-            this.VentasDia.Size = new System.Drawing.Size(174, 22);
+            this.VentasDia.Size = new System.Drawing.Size(173, 22);
             this.VentasDia.Text = "Ventas del dia";
             this.VentasDia.Click += new System.EventHandler(this.VentasDia_Click);
             // 
             // VentasFecha
             // 
+            this.VentasFecha.BackColor = System.Drawing.Color.ForestGreen;
+            this.VentasFecha.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.VentasFecha.Name = "VentasFecha";
-            this.VentasFecha.Size = new System.Drawing.Size(174, 22);
+            this.VentasFecha.Size = new System.Drawing.Size(195, 22);
             this.VentasFecha.Text = "Ventas por semana";
             this.VentasFecha.Click += new System.EventHandler(this.VentasFecha_Click);
             // 
             // ventasPorMesToolStripMenuItem
             // 
+            this.ventasPorMesToolStripMenuItem.BackColor = System.Drawing.Color.ForestGreen;
+            this.ventasPorMesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
-            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas por mes";
             this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
             // 
@@ -177,13 +200,15 @@
             this.contabilidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarContabilidad});
             this.contabilidadToolStripMenuItem.Name = "contabilidadToolStripMenuItem";
-            this.contabilidadToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.contabilidadToolStripMenuItem.Size = new System.Drawing.Size(102, 21);
             this.contabilidadToolStripMenuItem.Text = "Contabilidad";
             // 
             // realizarContabilidad
             // 
+            this.realizarContabilidad.BackColor = System.Drawing.Color.ForestGreen;
+            this.realizarContabilidad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.realizarContabilidad.Name = "realizarContabilidad";
-            this.realizarContabilidad.Size = new System.Drawing.Size(183, 22);
+            this.realizarContabilidad.Size = new System.Drawing.Size(214, 22);
             this.realizarContabilidad.Text = "Realizar contabilidad";
             this.realizarContabilidad.Click += new System.EventHandler(this.realizarContabilidad_Click);
             // 
@@ -191,34 +216,40 @@
             // 
             this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarAjuste});
+            this.inventarioToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
-            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(88, 21);
             this.inventarioToolStripMenuItem.Text = "Inventario";
             // 
             // realizarAjuste
             // 
+            this.realizarAjuste.BackColor = System.Drawing.Color.ForestGreen;
+            this.realizarAjuste.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.realizarAjuste.Name = "realizarAjuste";
-            this.realizarAjuste.Size = new System.Drawing.Size(148, 22);
+            this.realizarAjuste.Size = new System.Drawing.Size(173, 22);
             this.realizarAjuste.Text = "Realizar ajuste";
             this.realizarAjuste.Click += new System.EventHandler(this.realizarAjuste_Click);
             // 
             // idUsuario2
             // 
             this.idUsuario2.AutoSize = true;
-            this.idUsuario2.Location = new System.Drawing.Point(402, 214);
+            this.idUsuario2.Location = new System.Drawing.Point(469, 247);
             this.idUsuario2.Name = "idUsuario2";
-            this.idUsuario2.Size = new System.Drawing.Size(0, 13);
+            this.idUsuario2.Size = new System.Drawing.Size(0, 15);
             this.idUsuario2.TabIndex = 5;
             this.idUsuario2.Visible = false;
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImage = global::OncidiumSoft.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(995, 347);
+            this.ClientSize = new System.Drawing.Size(1161, 474);
             this.Controls.Add(this.idUsuario2);
             this.Controls.Add(this.menuPrincipal);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPrincipal";

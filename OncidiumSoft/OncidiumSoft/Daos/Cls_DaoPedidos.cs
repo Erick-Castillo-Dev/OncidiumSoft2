@@ -68,6 +68,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
+        /// <summary>
+        /// Metodo para obtener los datos de los productos 
+        /// </summary>
+         /// <param name="id"></param>
+        /// <returns></returns>
 
         public List<Cls_DatosVenta> buscarPro(int id)
         {
@@ -106,7 +111,12 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo para obtener los pedidos.
+        
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Cls_Ventas obtenerPedido(int id)
         {
             try
@@ -153,7 +163,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo para buscar los datos de un pedido por cliente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<Cls_DatosPedidos> buscar(string cliente)
         {
             try
@@ -182,7 +196,7 @@ namespace OncidiumSoft.Daos
                     {
                         cls.Entrega_a_Domicilio = "NO";
                     }
-                    if ((dr.GetDouble("Anticipo") - dr.GetDouble("Total")) == 0)
+                    if ((dr.GetDouble("Anticipo") - dr.GetDouble("Total")) == 0)// se hace la evaluacion si esta pagado o no
                     {
                         cls.Pagado = "SI";
                     }
@@ -204,7 +218,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo para eliminar un pedido de la lista
+        /// </summary>
+        /// <param name="idVenta"></param>
+        /// <returns></returns>
         public bool eliminarPedido(int idVenta)
         {
             MySqlTransaction tr = null;
@@ -234,7 +252,13 @@ namespace OncidiumSoft.Daos
             }
             return q;
         }
-
+        /// <summary>
+        /// Metodo para insertar el pedido en la base de datos 
+        /// </summary>
+        
+        ///  <param name="lis"></param>
+        ///  <param name="v"></param>
+        /// <returns></returns>
         public bool Pedido(List<Cls_DatosVenta> lis, Cls_Ventas v)
         {
             v.idVenta = new Cls_DaoVentas().folio();
@@ -293,6 +317,13 @@ namespace OncidiumSoft.Daos
             return q;
         }
 
+        /// <summary>
+        /// Metodo para la actualizacion de un pedido
+        /// </summary>
+
+        ///  <param name="lis"></param>
+        ///  <param name="v"></param>
+        /// <returns></returns>
         public bool ActualizarPedido(List<Cls_DatosVenta> lis, Cls_Ventas v)
         {
             List<Cls_DatosVenta> l = buscarPro(v.idVenta);
@@ -325,7 +356,7 @@ namespace OncidiumSoft.Daos
                 cmd.ExecuteNonQuery();
 
 
-                if(l.Count == lis.Count){
+                if(l.Count == lis.Count){// aqui se actualiza la parte en  la tabal detalles de venta
                     for (int i = 0; i < lis.Count;i++ )
                     {
                         cmd.Parameters.Clear();

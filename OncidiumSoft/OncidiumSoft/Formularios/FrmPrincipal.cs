@@ -24,11 +24,7 @@ namespace OncidiumSoft
             obj.Show();
 
         }
-        /// <summary>
-        /// Llamada al formulario de administracion de productos
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void Productos_Click(object sender, EventArgs e)
         {
             FrmProductos llamProductos = new FrmProductos();
@@ -80,6 +76,7 @@ namespace OncidiumSoft
             FrmAjusteInventario objA = new FrmAjusteInventario();
             objA.Show();
         }
+
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListPedidos f = new frmListPedidos();
@@ -93,5 +90,9 @@ namespace OncidiumSoft
             f.Show();
         }
 
+        private void Administrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

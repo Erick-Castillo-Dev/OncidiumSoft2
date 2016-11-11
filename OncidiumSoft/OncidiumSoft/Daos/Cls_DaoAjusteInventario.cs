@@ -141,8 +141,8 @@ namespace OncidiumSoft.Daos
 
                 objA.Nombre = dr.GetString(0);
                 objA.Cantidad = dr.GetInt32(1);
-                objA.PrecioCosto = dr.GetDecimal(2);
-                objA.PrecioCliente = dr.GetDecimal(3);
+                objA.PrecioCosto = dr.GetDouble(2);
+                objA.PrecioCliente = dr.GetDouble(3);
                 objA.Estado = dr.GetBoolean(4);
                 objA.TipoAjuste = dr.GetBoolean(5);
 

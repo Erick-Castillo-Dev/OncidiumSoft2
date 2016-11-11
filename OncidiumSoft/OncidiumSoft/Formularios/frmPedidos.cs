@@ -19,15 +19,29 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// variables
+        /// </summary>
         public bool editar = false;
         public int id = -1;
         public int idu = -1;
+        /// <summary>
+        /// objetos de pedidos
+        /// </summary>
         Cls_DaoPedidos pDao = new Cls_DaoPedidos();
+        /// <summary>
+        /// objetos de datos ventas
+        /// </summary>
         Cls_Ventas v = new Cls_Ventas();
         List<Cls_DatosVenta> dV = new List<Cls_DatosVenta>();
+        /// <summary>
+        /// objetos de Dao productos y de datos del producto
+        /// </summary>
         Cls_Productos pro = new Cls_Productos();
         Cls_DaoProductos proDao = new Cls_DaoProductos();
+        /// <summary>
+        /// Metodo para indicar lo que debe tener las cajas al cargar
+        /// </summary>
 
         private void frmPedidos_Load(object sender, EventArgs e)
         {
@@ -54,7 +68,9 @@ namespace OncidiumSoft.Formularios
                 dgvPedidos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
             }
         }
-
+        /// <summary>
+        ///limpiar cajas de texto para ingresar nuevo de la parte de productos
+        /// </summary>
         public void limpiar()
         {
             txtTipo.Text = "";
@@ -62,6 +78,9 @@ namespace OncidiumSoft.Formularios
             txtIdProducto.Text = "";
             txtCantidaP.Text = "1";
         }
+        /// <summary>
+        /// Metodo para limpiar la parte del pedido
+        /// </summary>
 
         public void limpiarTodo()
         {
@@ -154,7 +173,9 @@ namespace OncidiumSoft.Formularios
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Metodo para realizar el pedido
+        /// </summary>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
             bool z = false;
@@ -200,7 +221,9 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Metodo del boton eliminar que permite eliminar un pedido
+        /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -229,7 +252,9 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error consulta al Administrador");
             }
         }
-
+        /// <summary>
+        /// Metodopara validaciones
+        /// </summary>
         private void txtAnticipo_TextChanged(object sender, EventArgs e)
         {
             if(txtAnticipo.Text != ""){

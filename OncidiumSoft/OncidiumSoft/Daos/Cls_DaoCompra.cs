@@ -12,8 +12,14 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoCompra
     {
+        /// <summary>
+        /// Objeto de la conexion a la base de datos
+        /// </summary>
         Conexion c = new Conexion();
-
+        /// <summary>
+        /// Obtener datos del proveedor
+        /// </summary>
+        /// <returns></returns>
         public string Provedor(int r)
         {
             try
@@ -50,6 +56,12 @@ namespace OncidiumSoft.Daos
             }
             return "";
         }
+        /// <summary>
+        /// metodo que actualiza la cantidad de productos del stock
+        /// </summary>
+        /// /// <param name="ID"></param>
+        /// <param name="cantidad"></param>
+        /// <returns></returns>
 
         public bool compra(List<Cls_DatosCompra> l)
         {

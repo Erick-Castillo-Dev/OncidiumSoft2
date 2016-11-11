@@ -242,9 +242,6 @@
     <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
       <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmAgregarProvedor.resx">
-      <DependentUpon>FrmAgregarProvedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
     </EmbeddedResource>
