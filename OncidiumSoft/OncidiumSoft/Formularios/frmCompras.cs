@@ -40,6 +40,7 @@ namespace OncidiumSoft.Formularios
         /// </summary>
         double total = 0;
         Cls_DaoCompra cDao = new Cls_DaoCompra();
+       
 
         private void btnRealizar_Click(object sender, EventArgs e)
         {
@@ -47,6 +48,10 @@ namespace OncidiumSoft.Formularios
             conect.Conectar();
             MessageBox.Show("si se conecto");
         }
+        /// <summary>
+        /// Metodo para el lector de codigo de barras para agregar los productos a la compra
+        /// </summary>
+       
 
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
         {
@@ -107,6 +112,9 @@ namespace OncidiumSoft.Formularios
             }
 
         }
+        /// <summary>
+        ///limpiar datos de las cajas de texto.
+        /// </summary>
 
         public void limpiar()
         {
@@ -116,6 +124,9 @@ namespace OncidiumSoft.Formularios
             txtProducto.Text = "";
             txtTipo.Text = "";
         }
+        /// <summary>
+        /// Metodo para realizar la compra 
+        /// </summary>
 
         private void btnRealizar_Click_1(object sender, EventArgs e)
         {
@@ -129,14 +140,18 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error no se pudo hacer la compra");
             }
         }
-
+        /// <summary>
+        /// Cancelar la compra y dejar todo limpio para una nueva
+        /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpiar();
             lista.Clear();
             MessageBox.Show("Compra cancelada");
         }
-
+        /// <summary>
+        /// Metodo para eliminar los productos 
+        /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -163,7 +178,9 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error consulta al Administrador");
             }
         }
-
+        /// <summary>
+        /// Metodo para validar solo numeros 
+        /// </summary>
         private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar !=(char)Keys.Enter ))
@@ -183,6 +200,9 @@ namespace OncidiumSoft.Formularios
                 return;
             }*/
         }
+        /// <summary>
+        /// Metodo para que  al cargar se limipie todo
+        /// </summary>
 
         private void frmCompras_Load(object sender, EventArgs e)
         {
