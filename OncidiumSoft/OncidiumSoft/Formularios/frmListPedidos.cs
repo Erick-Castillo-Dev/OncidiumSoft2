@@ -19,16 +19,23 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// objetos de Dao pedidos
+        /// </summary>
         List<Cls_DatosPedidos> lista = new List<Cls_DatosPedidos>();
         Cls_DaoPedidos pDao = new Cls_DaoPedidos();
         public int idu;
-
+        /// <summary>
+        /// cargar pedidos al cargar la ventana
+        /// </summary>
         private void frmListPedidos_Load(object sender, EventArgs e)
         {
             lista = pDao.cargardatos();
             dgvListapedidos.DataSource = lista;
         }
-
+        /// <summary>
+        /// Metodo para buscar un pedido por nombre y filtrar
+        /// </summary>
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if(txtBuscar.Text == ""){
@@ -40,6 +47,9 @@ namespace OncidiumSoft.Formularios
                 dgvListapedidos.DataSource = pDao.buscar(txtBuscar.Text.ToString());
             }
         }
+        /// <summary>
+        /// permite hacer un nuevo pedido
+        /// </summary>
 
         private void btnRealizar_Click(object sender, EventArgs e)
         {
@@ -50,7 +60,9 @@ namespace OncidiumSoft.Formularios
             f.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// Metodo para eliminar los pedidos
+        /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
