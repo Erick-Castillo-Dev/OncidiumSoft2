@@ -73,7 +73,7 @@
             // txtEmpleado
             // 
             this.txtEmpleado.Enabled = false;
-            this.txtEmpleado.Location = new System.Drawing.Point(104, 222);
+            this.txtEmpleado.Location = new System.Drawing.Point(192, 218);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(142, 20);
             this.txtEmpleado.TabIndex = 59;
@@ -81,14 +81,14 @@
             // txtTipo
             // 
             this.txtTipo.Enabled = false;
-            this.txtTipo.Location = new System.Drawing.Point(382, 226);
+            this.txtTipo.Location = new System.Drawing.Point(463, 182);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(99, 20);
             this.txtTipo.TabIndex = 58;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(403, 176);
+            this.txtCantidad.Location = new System.Drawing.Point(463, 141);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(51, 20);
             this.txtCantidad.TabIndex = 57;
@@ -96,7 +96,7 @@
             // txtProducto
             // 
             this.txtProducto.Enabled = false;
-            this.txtProducto.Location = new System.Drawing.Point(140, 179);
+            this.txtProducto.Location = new System.Drawing.Point(192, 175);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(106, 20);
             this.txtProducto.TabIndex = 56;
@@ -104,7 +104,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Enabled = false;
-            this.txtPrecio.Location = new System.Drawing.Point(400, 110);
+            this.txtPrecio.Location = new System.Drawing.Point(463, 106);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(64, 20);
             this.txtPrecio.TabIndex = 55;
@@ -112,25 +112,26 @@
             // txtIdVenta
             // 
             this.txtIdVenta.Enabled = false;
-            this.txtIdVenta.Location = new System.Drawing.Point(202, 110);
+            this.txtIdVenta.Location = new System.Drawing.Point(192, 106);
             this.txtIdVenta.Name = "txtIdVenta";
             this.txtIdVenta.Size = new System.Drawing.Size(44, 20);
             this.txtIdVenta.TabIndex = 54;
             // 
             // txtIdProducto
             // 
-            this.txtIdProducto.Location = new System.Drawing.Point(114, 135);
+            this.txtIdProducto.Location = new System.Drawing.Point(192, 138);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(44, 20);
+            this.txtIdProducto.Size = new System.Drawing.Size(54, 20);
             this.txtIdProducto.TabIndex = 53;
             this.txtIdProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdProducto_KeyUp);
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(796, 471);
+            this.lblFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(652, 471);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(88, 13);
+            this.lblFecha.Size = new System.Drawing.Size(123, 17);
             this.lblFecha.TabIndex = 52;
             this.lblFecha.Text = "Fecha de venta: ";
             // 
@@ -178,72 +179,80 @@
             // lblDescuento
             // 
             this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescuento.Location = new System.Drawing.Point(12, 490);
             this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(150, 13);
+            this.lblDescuento.Size = new System.Drawing.Size(220, 17);
             this.lblDescuento.TabIndex = 47;
             this.lblDescuento.Text = "Descuento Aplicado al Total $";
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(348, 229);
+            this.lblTipo.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(398, 182);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(28, 13);
+            this.lblTipo.Size = new System.Drawing.Size(40, 17);
             this.lblTipo.TabIndex = 46;
             this.lblTipo.Text = "Tipo";
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(348, 179);
+            this.lblCantidad.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(379, 141);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(49, 13);
+            this.lblCantidad.Size = new System.Drawing.Size(72, 17);
             this.lblCantidad.TabIndex = 45;
             this.lblCantidad.Text = "Cantidad";
             // 
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Location = new System.Drawing.Point(44, 225);
+            this.lblEmpleado.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.Location = new System.Drawing.Point(55, 221);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(54, 13);
+            this.lblEmpleado.Size = new System.Drawing.Size(79, 17);
             this.lblEmpleado.TabIndex = 44;
             this.lblEmpleado.Text = "Empleado";
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(44, 182);
+            this.lblProducto.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducto.Location = new System.Drawing.Point(28, 175);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(90, 13);
+            this.lblProducto.Size = new System.Drawing.Size(134, 17);
             this.lblProducto.TabIndex = 43;
             this.lblProducto.Text = "Nombre Producto";
             // 
             // lblIdProducto
             // 
             this.lblIdProducto.AutoSize = true;
-            this.lblIdProducto.Location = new System.Drawing.Point(44, 138);
+            this.lblIdProducto.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdProducto.Location = new System.Drawing.Point(70, 138);
             this.lblIdProducto.Name = "lblIdProducto";
-            this.lblIdProducto.Size = new System.Drawing.Size(64, 13);
+            this.lblIdProducto.Size = new System.Drawing.Size(92, 17);
             this.lblIdProducto.TabIndex = 42;
             this.lblIdProducto.Text = "ID Producto";
             // 
             // lblIdVenta
             // 
             this.lblIdVenta.AutoSize = true;
-            this.lblIdVenta.Location = new System.Drawing.Point(147, 113);
+            this.lblIdVenta.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdVenta.Location = new System.Drawing.Point(77, 109);
             this.lblIdVenta.Name = "lblIdVenta";
-            this.lblIdVenta.Size = new System.Drawing.Size(49, 13);
+            this.lblIdVenta.Size = new System.Drawing.Size(70, 17);
             this.lblIdVenta.TabIndex = 41;
             this.lblIdVenta.Text = "ID Venta";
             // 
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(348, 113);
+            this.lblPrecio.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(379, 106);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(46, 13);
+            this.lblPrecio.Size = new System.Drawing.Size(66, 17);
             this.lblPrecio.TabIndex = 40;
             this.lblPrecio.Text = "Precio $";
             // 
@@ -253,6 +262,7 @@
             this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProductos.Location = new System.Drawing.Point(12, 261);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
@@ -336,7 +346,7 @@
             // 
             // txtDescuento
             // 
-            this.txtDescuento.Location = new System.Drawing.Point(163, 487);
+            this.txtDescuento.Location = new System.Drawing.Point(247, 487);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(51, 20);
             this.txtDescuento.TabIndex = 94;
@@ -466,8 +476,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.ptProducto);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmVenta";
-            this.Text = "FrmVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Venta";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptProducto)).EndInit();
