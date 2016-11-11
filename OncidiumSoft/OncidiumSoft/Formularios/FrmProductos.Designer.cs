@@ -92,7 +92,7 @@
             this.btnPrincipal.Name = "btnPrincipal";
             this.btnPrincipal.Size = new System.Drawing.Size(123, 23);
             this.btnPrincipal.TabIndex = 5;
-            this.btnPrincipal.Text = "Menú Principal";
+            this.btnPrincipal.Text = "Cancelar";
             this.btnPrincipal.UseVisualStyleBackColor = true;
             this.btnPrincipal.Click += new System.EventHandler(this.btnPrincipal_Click);
             // 

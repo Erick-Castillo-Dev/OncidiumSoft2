@@ -32,16 +32,21 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnPrincipal = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblUsuarios = new System.Windows.Forms.Label();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuarios.Location = new System.Drawing.Point(22, 77);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(743, 250);
             this.dgvUsuarios.TabIndex = 0;
             // 
@@ -72,16 +77,17 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnPrincipal
+            // btnCancelar
             // 
-            this.btnPrincipal.Location = new System.Drawing.Point(796, 297);
-            this.btnPrincipal.Name = "btnPrincipal";
-            this.btnPrincipal.Size = new System.Drawing.Size(91, 23);
-            this.btnPrincipal.TabIndex = 4;
-            this.btnPrincipal.Text = "Menú Principal";
-            this.btnPrincipal.UseVisualStyleBackColor = true;
-            this.btnPrincipal.Click += new System.EventHandler(this.btnPrincipal_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(796, 297);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnPrincipal_Click);
             // 
             // lblUsuarios
             // 
@@ -93,13 +99,32 @@
             this.lblUsuarios.TabIndex = 5;
             this.lblUsuarios.Text = "Administración de Usuarios.";
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(60, 9);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(40, 13);
+            this.lblBuscar.TabIndex = 6;
+            this.lblBuscar.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(63, 34);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(109, 20);
+            this.txtBuscar.TabIndex = 7;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 339);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.lblUsuarios);
-            this.Controls.Add(this.btnPrincipal);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -120,7 +145,9 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnPrincipal;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblUsuarios;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }
