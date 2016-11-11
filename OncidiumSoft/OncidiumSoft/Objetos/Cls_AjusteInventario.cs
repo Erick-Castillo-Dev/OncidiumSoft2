@@ -13,8 +13,8 @@ namespace OncidiumSoft.Objetos
         /// </summary>
         private string pNombre;
         private int pCantidad;
-        private decimal pPrecioCosto;
-        private decimal pPrecioCliente;
+        private double pPrecioCosto;
+        private double pPrecioCliente;
         private bool pEstado;
         private bool pTipoAjuste;
 
@@ -43,7 +43,7 @@ namespace OncidiumSoft.Objetos
                 pCantidad = value;
             }
         }
-        public decimal PrecioCosto
+        public double PrecioCosto
         {
             get
             {
@@ -54,7 +54,7 @@ namespace OncidiumSoft.Objetos
                 pPrecioCosto = value;
             }
         }
-        public decimal PrecioCliente
+        public double PrecioCliente
         {
             get
             {

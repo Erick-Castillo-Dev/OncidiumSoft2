@@ -53,10 +53,25 @@ namespace OncidiumSoft.Formularios
                 {
                     obj.Nombre = cboProducto.Text;
                     obj.Cantidad = Convert.ToInt32(txtCantidad.Text);
-                    obj.PrecioCosto = Convert.ToDecimal(txtPrecioCosto.Text);
-                    obj.PrecioCliente = Convert.ToDecimal(txtPrecioCliente.Text);
-                    obj.Estado = Convert.ToBoolean(cboEstado.DataSource);
-                    obj.TipoAjuste = Convert.ToBoolean(cboAjuste.DataSource);
+                    obj.PrecioCosto = double.Parse(txtPrecioCosto.Text);
+                    obj.PrecioCliente = double.Parse(txtPrecioCliente.Text);
+
+                    if(cboEstado.Text == "Disponible"){
+                        obj.Estado = true;
+                    }
+                    else
+                    {
+                        obj.Estado = false;
+                    }
+
+                    if (cboAjuste.Text == "Alta")
+                    {
+                        obj.TipoAjuste = true;
+                    }
+                    else
+                    {
+                        obj.TipoAjuste = false;
+                    }
 
                     if (MessageBox.Show("¿Estas seguro que deseas modificar el producto?", "*** AVISO ***", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
