@@ -89,14 +89,14 @@
             this.txtTelefono.Location = new System.Drawing.Point(141, 204);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(155, 20);
-            this.txtTelefono.TabIndex = 7;
+            this.txtTelefono.TabIndex = 8;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(141, 154);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(155, 20);
-            this.txtDireccion.TabIndex = 8;
+            this.txtDireccion.TabIndex = 7;
             // 
             // txtEmpresa
             // 

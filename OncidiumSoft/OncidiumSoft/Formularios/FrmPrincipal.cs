@@ -94,5 +94,16 @@ namespace OncidiumSoft
         {
 
         }
+        /// <summary>
+        /// Llamada al formulario de administrador de provedores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Provedores_Click(object sender, EventArgs e)
+        {
+            //Objeto para acceder a la clase del formulario
+            FrmProvedores LLamaProvedores = new FrmProvedores();
+            LLamaProvedores.Show();
+        }
     }
 }

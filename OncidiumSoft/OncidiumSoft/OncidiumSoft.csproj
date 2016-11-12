@@ -90,6 +90,12 @@
     <Compile Include="Formularios\FrmAgregarProvedor.Designer.cs">
       <DependentUpon>FrmAgregarProvedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAgregarUsuario.Designer.cs">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmAjusteInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmAgregarProductos.resx">
       <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAgregarProvedor.resx">
+      <DependentUpon>FrmAgregarProvedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAgregarUsuario.resx">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAjusteInventario.resx">
       <DependentUpon>FrmAjusteInventario.cs</DependentUpon>
