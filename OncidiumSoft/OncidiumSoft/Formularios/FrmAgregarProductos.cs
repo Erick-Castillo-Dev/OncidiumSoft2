@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,67 +20,83 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Objecto para llamar al catalogo de productos
-        /// </summary>
-        FrmProductos LlamProductos = new FrmProductos();
-        /// <summary>
-        /// Guarda el nuevo producto registrado.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+        public bool editar = false;
+        public int id;
+        Cls_Productos p = new Cls_Productos();
+        Cls_DaoProductos pDao = new Cls_DaoProductos();
+        Cls_DaoVentas vDao = new Cls_DaoVentas();
+        Image m;
+
+        private void btnImg_Click(object sender, EventArgs e)
         {
-            //Objecto de ubicacion de getters y Setters
-            Cls_Productos objProductos = new Cls_Productos();
-            
 
-            // lectura de datos y captura de los mismos.
-            objProductos.idProductoss = Convert.ToInt32(txtid.Text);
-            objProductos.NombreProducto = txtNombre.Text;
-            objProductos.PrecioalCliente = Convert.ToDouble(txtpreciocliente.Text);
-            objProductos.TipoProducto = cboxTipo.Text;
-            objProductos.CantidadProducto = Convert.ToInt32(txtCantidad.Text);
-            //objProductos.imgenProducto = txtImagen.Text;
-            objProductos.iddeProvedores = Convert.ToInt32(txtidProvedor.Text);
-            objProductos.Precio_costo = Convert.ToDouble(txtpreciocliente.Text);
-            //objProductos.Disponibilidad = cBoxDiponible.Text;//checar este
-            //objProductos.AjusteProducto = cBoxAjuste.Text;
+            OpenFileDialog BuscarImagen = new OpenFileDialog(); 
+            BuscarImagen.Filter = "Archivos de Imagen|*.png";
+            BuscarImagen.FileName = "";
+            BuscarImagen.Title = "Titulo del Dialogo";
+            BuscarImagen.InitialDirectory = "C:\\"; 
+            if (BuscarImagen.ShowDialog() == DialogResult.OK)
+            {
+                String Direccion = BuscarImagen.FileName;
 
-            //agregacion con el objecto
-            Cls_DaoProductos datosProductos = new Cls_DaoProductos();
-            //envio al objecto que agrega
-            datosProductos.AgregarProducto(objProductos);
-            //mensaje de confirmacion.
-            MessageBox.Show("Producto registrado", "Informacion");
-            
+                m = Image.FromFile(Direccion);
+                ptImg.Image = m;
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            MessageBox.Show("Producto registrado","CONFIRMACION!!");
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            LlamProductos.Show();
+            if(editar){
+                Cls_Productos c = new Cls_Productos();
+                c.idProductoss = id;
+                c.NombreProducto = txtNombre.Text.ToString();
+                c.PrecioalCliente = double.Parse(txtpreciocliente.ToString());
+                c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
+                c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
+                c.AjusteProducto = false;
+                c.Disponibilidad = true;
+                c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
+                c.TipoProducto = cboxTipo.Text.ToString();
+                MemoryStream ms = new MemoryStream();
+                m.Save(ms, ImageFormat.Png);
+                byte[] imgArr = ms.ToArray();
+                c.imgenProducto = imgArr;
+            }
+            else
+            {
+                Cls_Productos c = new Cls_Productos();
+                c.NombreProducto = txtNombre.Text.ToString();
+                c.PrecioalCliente = double.Parse(txtpreciocliente.ToString());
+                c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
+                c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
+                c.AjusteProducto = false;
+                c.Disponibilidad = true;
+                c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
+                c.TipoProducto = cboxTipo.Text.ToString();
+                MemoryStream ms = new MemoryStream();
+                m.Save(ms, ImageFormat.Png);
+                byte[] imgArr = ms.ToArray();
+                c.imgenProducto = imgArr;
+            }
+        }
+
+        private void FrmAgregarProductos_Load(object sender, EventArgs e)
+        {
+            cobProvedor.DataSource = pDao.listaProvedores();
+            Cls_Productos cp = new Cls_Productos();
+            if(editar){
+                cp.idProductoss = id;
+                p = pDao.BuscarProducto(cp);
+                txtNombre.Text = p.NombreProducto;
+                txtpreciocliente.Text = p.PrecioalCliente.ToString();
+                txtPrecioCosto.Text = p.Precio_costo.ToString();
+                txtCantidad.Text = p.CantidadProducto.ToString();
+                cboxTipo.Text = p.TipoProducto;
+                cobProvedor.Text = pDao.nombreProvedor(p.iddeProvedores);
+                ptImg.Image = vDao.cargarimagen(p.imgenProducto);
+            }
         }
     }
 }

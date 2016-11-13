@@ -92,9 +92,9 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-           /* FrmAgregarProvedor AgreProve = new FrmAgregarProvedor();
+            FrmAgregarProvedor AgreProve = new FrmAgregarProvedor();
             this.Close();
-            AgreProve.Show();*/
+            AgreProve.Show();
         }
         }
     }

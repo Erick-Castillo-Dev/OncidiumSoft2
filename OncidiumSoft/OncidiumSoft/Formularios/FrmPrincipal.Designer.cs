@@ -82,7 +82,7 @@
             this.Salir.BackColor = System.Drawing.Color.ForestGreen;
             this.Salir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(152, 22);
+            this.Salir.Size = new System.Drawing.Size(107, 22);
             this.Salir.Text = "Salir";
             // 
             // Ventas
@@ -92,7 +92,7 @@
             this.pedidosToolStripMenuItem,
             this.compraDeProductosToolStripMenuItem});
             this.Ventas.Name = "Ventas";
-            this.Ventas.Size = new System.Drawing.Size(53, 20);
+            this.Ventas.Size = new System.Drawing.Size(65, 21);
             this.Ventas.Text = "Ventas";
             // 
             // Ventas1
@@ -137,7 +137,7 @@
             this.Usuarios.BackColor = System.Drawing.Color.ForestGreen;
             this.Usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(133, 22);
+            this.Usuarios.Size = new System.Drawing.Size(146, 22);
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
@@ -146,7 +146,7 @@
             this.Productos.BackColor = System.Drawing.Color.ForestGreen;
             this.Productos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(133, 22);
+            this.Productos.Size = new System.Drawing.Size(146, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 
@@ -155,8 +155,9 @@
             this.Provedores.BackColor = System.Drawing.Color.ForestGreen;
             this.Provedores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Provedores.Name = "Provedores";
-            this.Provedores.Size = new System.Drawing.Size(152, 22);
+            this.Provedores.Size = new System.Drawing.Size(146, 22);
             this.Provedores.Text = "Provedores";
+            this.Provedores.Click += new System.EventHandler(this.Provedores_Click);
             // 
             // Reportes
             // 
@@ -173,7 +174,7 @@
             this.VentasDia.BackColor = System.Drawing.Color.ForestGreen;
             this.VentasDia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.VentasDia.Name = "VentasDia";
-            this.VentasDia.Size = new System.Drawing.Size(173, 22);
+            this.VentasDia.Size = new System.Drawing.Size(195, 22);
             this.VentasDia.Text = "Ventas del dia";
             this.VentasDia.Click += new System.EventHandler(this.VentasDia_Click);
             // 
@@ -255,6 +256,7 @@
             this.Name = "FrmPrincipal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.ResumeLayout(false);

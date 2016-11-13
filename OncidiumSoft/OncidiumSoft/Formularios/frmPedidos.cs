@@ -67,6 +67,7 @@ namespace OncidiumSoft.Formularios
                 dgvPedidos.Columns["Precio_Unitario"].DefaultCellStyle.Format = "$ #,##0.00";
                 dgvPedidos.Columns["Sub_Total"].DefaultCellStyle.Format = "$ #,##0.00";
             }
+            btnRealizar.Text = "Agregar";
         }
         /// <summary>
         ///limpiar cajas de texto para ingresar nuevo de la parte de productos

@@ -107,6 +107,48 @@ namespace OncidiumSoft.Daos
             return false;
         }
 
+        public string administrador(Cls_Usuarios clsU)
+        {
+            string s;
+            try
+            {
+
+                string sql;
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                cm.Parameters.AddWithValue("@id", clsU.idUsuario);
+                sql = "select Puesto from usuarios where idUsuarios = @id";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    s = dr.GetString("Puesto");
+                    c.Cerrar();
+                }
+                else
+                {
+                    c.Cerrar();
+                    s = "";
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                s = "";
+                c.Cerrar();
+            }
+            return s;
+        }
+
+        /// <summary>
+        /// Metodo para obtener el nombre del usuario de la base de datos 
+        /// </summary>
+        /// <param name="clsU"></param>
+        /// <returns></returns>
         public string NombreUsuario(Cls_Usuarios clsU)
         {
             try
@@ -144,41 +186,51 @@ namespace OncidiumSoft.Daos
             return "";
         }
 
-
-        /// <summary>
-        /// Objecto para acceder a la conexion de la db.
-        /// </summary>
-        Conexion conexionDB = new Conexion();
         /// <summary>
         /// Metodo de llenado de usuarios que contiene la base de datos.
         /// </summary>
         /// <returns></returns>
         public DataSet llenar()
         {
-            conexionDB.Conectar();
-            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from usuarios", conexionDB.cConexion);
             DataSet usuarios = new DataSet();
-            muestreo.Fill(usuarios, "usuarios");
+            try
+            {
+                c.Conectar();
+                MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from usuarios", c.cConexion);
+                muestreo.Fill(usuarios, "usuarios");
+            }catch(MySqlException e){
+                c.Cerrar();
+                return null;
+            }
             return usuarios;
         }
         /// <summary>
         /// Elimina el Usuario selecionado.
         /// </summary>
         /// <param name="u"></param>
-        public void EliminarUsuario(Cls_Usuarios u)
+        public bool EliminarUsuario(Cls_Usuarios u)
         {
-            string sql;
-            MySqlCommand cm;
-            c.Conectar();
+            bool s;
+            try
+            {
+                string sql;
+                MySqlCommand cm;
+                c.Conectar();
 
-            cm = new MySqlCommand();
-            cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
-            sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
-            cm.CommandText = sql;
-            cm.CommandType = CommandType.Text; ;
-            cm.Connection = c.cConexion;
-            cm.ExecuteNonQuery();
-            c.Cerrar();
+                cm = new MySqlCommand();
+                cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
+                sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text; ;
+                cm.Connection = c.cConexion;
+                cm.ExecuteNonQuery();
+                c.Cerrar();
+                s = true;
+            }catch(MySqlException e){
+                c.Cerrar();
+                s = false;
+            }
+            return s;
         }
     }
 }

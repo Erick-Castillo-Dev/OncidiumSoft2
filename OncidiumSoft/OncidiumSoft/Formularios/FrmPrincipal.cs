@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OncidiumSoft.Daos;
+using OncidiumSoft.Objetos;
 
 namespace OncidiumSoft
 {
@@ -90,9 +92,26 @@ namespace OncidiumSoft
             f.Show();
         }
 
-        private void Administrar_Click(object sender, EventArgs e)
+        private void Provedores_Click(object sender, EventArgs e)
         {
+            FrmProvedores p = new FrmProvedores();
+            p.Show();
+        }
 
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            Cls_DaoUsuarios s = new Cls_DaoUsuarios();
+            Cls_Usuarios u = new Cls_Usuarios();
+            u.idUsuario = int.Parse(idUsuario2.Text.ToString());
+            string d = s.administrador(u);
+            if (d != "Administrador")
+            {
+                Administrar.Visible = false;
+                Reportes.Visible = false;
+                contabilidadToolStripMenuItem.Visible = false;
+                inventarioToolStripMenuItem.Visible = false;
+            }
+                
         }
     }
 }

@@ -50,16 +50,18 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-           /* FrmAgregarProductos agregar = new FrmAgregarProductos();
+           FrmAgregarProductos agregar = new FrmAgregarProductos();
             this.Hide();
-            agregar.Show();*/
-
+            agregar.Show();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-          
+            FrmAgregarProductos agregar = new FrmAgregarProductos();
+            this.Hide();
+            agregar.id = 1;
+            agregar.editar = true;
+            agregar.Show();
         }
 
        
