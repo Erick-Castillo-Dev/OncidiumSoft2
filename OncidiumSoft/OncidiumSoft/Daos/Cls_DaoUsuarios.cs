@@ -13,10 +13,7 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoUsuarios
     {
-        /// <summary>
-        /// Objeto para hacer la conexion a la base de datos
-        /// </summary>
-        Conexion c = new Conexion();
+       
         /// <summary>
         /// Metodo para obtener el id del usuario para su uso posterio
         /// </summary>
@@ -30,24 +27,24 @@ namespace OncidiumSoft.Daos
                 string sql;
                 MySqlCommand cm = new MySqlCommand();
                 MySqlDataReader dr;
-                c.Conectar();
+                conexionDB.Conectar();
                 cm.Parameters.AddWithValue("@Usuario", clsU.usuario);
                 cm.Parameters.AddWithValue("@Contrasena", clsU.contrasena);
                 sql = "select idUsuarios from usuarios where usuario = @Usuario and Contrasena = sha1(md5(@Contrasena))";
                 cm.CommandText = sql;
                 cm.CommandType = CommandType.Text;
-                cm.Connection = c.cConexion;
+                cm.Connection = conexionDB.cConexion;
                 dr = cm.ExecuteReader();
                 if (dr.HasRows)
                 {
                     dr.Read();
                     int s = dr.GetInt32("idUsuarios");
-                    c.Cerrar();
+                    conexionDB.Cerrar();
                     return s;
                 }
                 else
                 {
-                    c.Cerrar();
+                    conexionDB.Cerrar();
                     return 0;
                 }
                 
@@ -55,7 +52,7 @@ namespace OncidiumSoft.Daos
             catch (MySqlException e)
             {
                 return -1;
-                c.Cerrar();
+                conexionDB.Cerrar();
             }
             return -1;
         }
@@ -73,36 +70,36 @@ namespace OncidiumSoft.Daos
                 string sql;
                 MySqlCommand cm = new MySqlCommand();
                 MySqlDataReader dr;
-                c.Conectar();
+                conexionDB.Conectar();
                 cm.Parameters.AddWithValue("@Usuario", clsU.usuario);
                 cm.Parameters.AddWithValue("@Contrasena", clsU.contrasena);
                 sql = "select count(*) from usuarios where usuario = @Usuario and Contrasena = sha1(md5(@Contrasena))";
                 cm.CommandText = sql;
                 cm.CommandType = CommandType.Text;
-                cm.Connection = c.cConexion;
+                cm.Connection = conexionDB.cConexion;
                 dr = cm.ExecuteReader();
                 if (dr.HasRows)
                 {
                     dr.Read();
                     if (dr.GetInt32("count(*)")!=0)
                     {
-                        c.Cerrar();
+                        conexionDB.Cerrar();
                         return true;
                     }
                     else
                     {
-                        c.Cerrar();
+                        conexionDB.Cerrar();
                         return false;
                     }
                 }
                 else
                 {
-                    c.Cerrar();
+                    conexionDB.Cerrar();
                     return false;
                 }
             }catch(MySqlException e){
                 return false;
-                c.Cerrar();
+                conexionDB.Cerrar();
             }
             return false;
         }
@@ -157,23 +154,23 @@ namespace OncidiumSoft.Daos
                 string sql;
                 MySqlCommand cm = new MySqlCommand();
                 MySqlDataReader dr;
-                c.Conectar();
+                conexionDB.Conectar();
                 cm.Parameters.AddWithValue("@id", clsU.idUsuario);
                 sql = "select Nombre from usuarios where idUsuarios = @id";
                 cm.CommandText = sql;
                 cm.CommandType = CommandType.Text;
-                cm.Connection = c.cConexion;
+                cm.Connection = conexionDB.cConexion;
                 dr = cm.ExecuteReader();
                 if (dr.HasRows)
                 {
                     dr.Read();
                     string s = dr.GetString("Nombre");
-                    c.Cerrar();
+                    conexionDB.Cerrar();
                     return s;
                 }
                 else
                 {
-                    c.Cerrar();
+                    conexionDB.Cerrar();
                     return "";
                 }
 
@@ -181,7 +178,7 @@ namespace OncidiumSoft.Daos
             catch (MySqlException e)
             {
                 return "";
-                c.Cerrar();
+                conexionDB.Cerrar();
             }
             return "";
         }
@@ -197,7 +194,7 @@ namespace OncidiumSoft.Daos
             {
                 c.Conectar();
                 MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from usuarios", c.cConexion);
-                muestreo.Fill(usuarios, "usuarios");
+            muestreo.Fill(usuarios, "usuarios");
             }catch(MySqlException e){
                 c.Cerrar();
                 return null;
@@ -212,25 +209,50 @@ namespace OncidiumSoft.Daos
         {
             bool s;
             try
-            {
-                string sql;
-                MySqlCommand cm;
-                c.Conectar();
+        {
+            string sql;
+            MySqlCommand cm;
+            conexionDB.Conectar();
 
-                cm = new MySqlCommand();
-                cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
-                sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
-                cm.CommandText = sql;
-                cm.CommandType = CommandType.Text; ;
-                cm.Connection = c.cConexion;
-                cm.ExecuteNonQuery();
-                c.Cerrar();
-                s = true;
-            }catch(MySqlException e){
-                c.Cerrar();
-                s = false;
-            }
-            return s;
+            cm = new MySqlCommand();
+            cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
+            sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text; ;
+            cm.Connection = conexionDB.cConexion;
+            cm.ExecuteNonQuery();
+            conexionDB.Cerrar();
         }
+        /// <summary>
+        /// Agrega usuarios a la tabla de la db
+        /// </summary>
+        /// <param name="usuario"></param>
+        public void AgregarUsuario(Cls_Usuarios usuario)
+        {
+            string sql;
+            MySqlCommand cm;
+            conexionDB.Conectar();
+            cm = new MySqlCommand();
+
+            cm.Parameters.AddWithValue("@Nombre", usuario.nombre);
+            cm.Parameters.AddWithValue("@Direccion", usuario.direccion);
+            cm.Parameters.AddWithValue("@Telefono", usuario.telefono);
+            cm.Parameters.AddWithValue("@Usuario", usuario.usuario);
+            cm.Parameters.AddWithValue("@Contrasena", usuario.contrasena);
+            cm.Parameters.AddWithValue("@Puesto", usuario.puesto);
+
+            sql = "INSERT INTO usuarios (Nombre,Direccion,Telefono,Usuario,Contrasena,Puesto)  VALUES (@Nombre,@Direccion,@Telefono,@Usuario,sha1(md5(@Contrasena)),@Puesto)";
+            
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conexionDB.cConexion;
+            cm.ExecuteNonQuery();
+            conexionDB.Cerrar();
+        }
+
+
+        
+    
+    
     }
 }

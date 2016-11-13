@@ -137,7 +137,7 @@
             this.Usuarios.BackColor = System.Drawing.Color.ForestGreen;
             this.Usuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(146, 22);
+            this.Usuarios.Size = new System.Drawing.Size(133, 22);
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
@@ -146,7 +146,7 @@
             this.Productos.BackColor = System.Drawing.Color.ForestGreen;
             this.Productos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Productos.Name = "Productos";
-            this.Productos.Size = new System.Drawing.Size(146, 22);
+            this.Productos.Size = new System.Drawing.Size(152, 22);
             this.Productos.Text = "Productos";
             this.Productos.Click += new System.EventHandler(this.Productos_Click);
             // 

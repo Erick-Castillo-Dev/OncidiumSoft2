@@ -58,7 +58,7 @@ namespace OncidiumSoft.Daos
             MySqlCommand cm;
             conexionDB.Conectar();
             cm = new MySqlCommand();
-            //cm.Parameters.AddWithValue("@idProvedores", p.iddeProvedores);
+           
             cm.Parameters.AddWithValue("@Nombre", p.NombreProvedor);
             cm.Parameters.AddWithValue("@Direccion", p.DireccionProvedor);
             cm.Parameters.AddWithValue("@Telefono", p.TelefonoProvedor);

@@ -50,13 +50,18 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-
-            cargarUsuarios();
+             cargarUsuarios();
 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            //Objecto de los getter y setters            ObjUsuarios
+
+            //Objecto para los metodos              DaoUsuario
+            //seleccion del reglon a modificar
+            ObjUsuarios.idUsuario = Convert.ToInt32(this.dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+
 
         }
         /// <summary>
@@ -77,12 +82,16 @@ namespace OncidiumSoft.Formularios
         {
            
         }
-
+        /// <summary>
+        /// Elimina un usuario selecionado en el View.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+
             try
-           {
+            {
                 ObjUsuarios.idUsuario = int.Parse(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString());
                 if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -94,6 +103,18 @@ namespace OncidiumSoft.Formularios
           {
             MessageBox.Show("Seleciona un registro completo");
             }
+        }
+        /// <summary>
+        /// Llamada al formulario de agregar usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            
+            FrmAgregarUsuario LlamUsuarios = new FrmAgregarUsuario();
+            this.Close();
+            LlamUsuarios.Show();
         }
     }
 }
