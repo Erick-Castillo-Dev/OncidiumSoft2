@@ -122,27 +122,34 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(152, 89);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 10;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(152, 122);
+            this.txtDireccion.MaxLength = 50;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(100, 20);
             this.txtDireccion.TabIndex = 11;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(152, 169);
+            this.txtTel.MaxLength = 10;
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(100, 20);
             this.txtTel.TabIndex = 12;
+            this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(152, 209);
+            this.txtUsuario.MaxLength = 15;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 13;
@@ -200,6 +207,7 @@
             this.Name = "FrmAgregarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Usuario.";
+            this.Load += new System.EventHandler(this.FrmAgregarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,12 +223,12 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblcontrasena;
         private System.Windows.Forms.Label lblPuesto;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtTel;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cboxPuesto;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtDireccion;
+        public System.Windows.Forms.TextBox txtTel;
+        public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtContrasena;
+        public System.Windows.Forms.ComboBox cboxPuesto;
     }
 }

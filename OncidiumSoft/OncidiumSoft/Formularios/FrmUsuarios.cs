@@ -19,8 +19,11 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
-
+        /// <summary>
+        /// Lista para la busqueda
+        /// </summary>
+        List<Cls_Usuarios> listaUsuarios = new List<Cls_Usuarios>();
+        
         /// <summary>
         /// Objecto para acceder a la conexion de la clase conexion
         /// </summary>
@@ -61,8 +64,19 @@ namespace OncidiumSoft.Formularios
             //Objecto para los metodos              DaoUsuario
             //seleccion del reglon a modificar
             ObjUsuarios.idUsuario = Convert.ToInt32(this.dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+            DaoUsuario.buscarUsuario(ref ObjUsuarios);
 
+            FrmAgregarUsuario LlamadaUsuarios = new FrmAgregarUsuario();
 
+            LlamadaUsuarios.txtNombre.Text = Convert.ToString(ObjUsuarios.nombre);
+            LlamadaUsuarios.txtDireccion.Text = Convert.ToString(ObjUsuarios.direccion);
+            LlamadaUsuarios.txtTel.Text = Convert.ToString(ObjUsuarios.telefono);
+           // LlamadaUsuarios.txtUsuario = Convert.ToString(ObjUsuarios.usuario);
+            //LlamadaUsuarios.txtContrasena = ObjUsuarios.contrasena;
+            //LlamadaUsuarios.cboxPuesto = ObjUsuarios.puesto;
+
+            LlamadaUsuarios.Show();
+            this.Close();
         }
         /// <summary>
         /// Cierre del formulario de Usuarios.
@@ -74,13 +88,14 @@ namespace OncidiumSoft.Formularios
             this.Close();
         }
         /// <summary>
-        /// Evento que realizara la buqueda medianye filtrado
+        /// Evento que realizara la buqueda mediante filtrado
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-           
+            dgvUsuarios.DataSource = Cls_DaoUsuarios.Buscar(txtBuscar.Text);
+            
         }
         /// <summary>
         /// Elimina un usuario selecionado en el View.
@@ -116,5 +131,7 @@ namespace OncidiumSoft.Formularios
             this.Close();
             LlamUsuarios.Show();
         }
+
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using OncidiumSoft.Conexxion_Datos;
 using OncidiumSoft.Daos;
+using OncidiumSoft.Objetos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +96,38 @@ namespace OncidiumSoft.Formularios
             FrmAgregarProvedor AgreProve = new FrmAgregarProvedor();
             this.Close();
             AgreProve.Show();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            dgvProvedores.DataSource = Cls_DaoProvedores.Buscar(txtBuscar.Text);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //getter y setters
+            Cls_Provedores objProvedores = new Cls_Provedores();
+            //metodos
+            Cls_DaoProvedores DaoProvedores = new Cls_DaoProvedores();
+
+            objProvedores.iddeProvedores = Convert.ToInt32(this.dgvProvedores.CurrentRow.Cells[0].Value.ToString());
+        
+            DaoProvedores.buscarProvedor(ref objProvedores);
+
+            FrmAgregarProvedor LlamaProvedores = new FrmAgregarProvedor();
+
+            LlamaProvedores.txtNombre.Text = objProvedores.NombreProvedor;
+            LlamaProvedores.txtDireccion.Text = objProvedores.DireccionProvedor;
+            LlamaProvedores.txtTelefono.Text = objProvedores.TelefonoProvedor;
+            LlamaProvedores.txtEmpresa.Text = objProvedores.EmpresadeProvedor;
+
+
+
+
+
+            LlamaProvedores.Show();
+            this.Close();
+
         }
         }
     }

@@ -12,7 +12,10 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoProvedores
     {
-
+        /// <summary>
+        /// conexion con mysql
+        /// </summary>
+        private MySqlConnection cnConexion = new MySqlConnection();
         /// <summary>
         /// Objecto para acceder a la conexion de la db.
         /// </summary>
@@ -70,5 +73,69 @@ namespace OncidiumSoft.Daos
             cm.ExecuteNonQuery();
             conexionDB.Cerrar();
         }
+
+        /// <summary>
+        /// Busca un provedor por id
+        /// </summary>
+        /// <param name="IdProvedores"></param>
+        /// <returns></returns>
+        public static List<Objetos.> Buscar(string IdProvedores)
+        {
+            List<Objetos.Cls_Provedores> _lista = new List<Objetos.Cls_Usuarios>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT idProvedores, Nombre, Direccion, Telefono, Empresa FROM provedores where idProvedores ='{0};'", IdProvedores), Objetos.Cls_Provedores.Conexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                Cls_Provedores ObjProvedoress = new Cls_Provedores();
+
+                ObjProvedoress.iddeProvedores = _reader.GetInt32(0);
+                ObjProvedoress.NombreProvedor = _reader.GetString(1);
+                ObjProvedoress.DireccionProvedor = _reader.GetString(2);
+                ObjProvedoress.TelefonoProvedor = _reader.GetString(3);
+                ObjProvedoress.EmpresadeProvedor = _reader.GetString(4);
+
+
+
+                _lista.Add(ObjProvedoress);
+            }
+            return _lista;
+
+
+
+        }
+
+
+         public Objetos.Cls_Provedores buscarProvedor(ref Objetos.Cls_Provedores cli)
+        {
+            conexionDB.Conectar();
+            string consulta = "Select * from Provedores where idProvedores= " + cli.iddeProvedores;
+            MySqlCommand miCom = new MySqlCommand(consulta, cnConexion);
+            MySqlDataReader midataReader = miCom.ExecuteReader();
+            midataReader.Read();
+            if (midataReader.HasRows)
+            {
+                cli.iddeProvedores = Convert.ToInt32(midataReader["idProvedor"].ToString());
+                cli.NombreProvedor = midataReader["Nombre"].ToString();
+                cli.DireccionProvedor = midataReader["Direccion"].ToString();
+                cli.TelefonoProvedor = midataReader["Telefono"].ToString();
+                cli.EmpresadeProvedor = midataReader["Empresa"].ToString();
+          
+
+            }
+            else
+            {
+                return null;
+            }
+            midataReader.Close();
+            miCom.Dispose();
+            cnConexion.Close();
+            return cli;
+        }
+
+
+
     }
+
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,14 @@ namespace OncidiumSoft.Objetos
         private string _usuario;
         private string _contrasena;
         private string _puesto;
+        public static MySqlConnection Conexion()
+        {
+            //conexion para que funcione checar con erik por que no me acepta la principal
+            MySqlConnection conectar = new MySqlConnection("SERVER=" + "localhost" + ";PORT=3306" + ";DATABASE=" + "vivero" + ";UID=" + "root" + ";PWD=" + "root");
 
+            conectar.Open();
+            return conectar;
+        }
         public int idUsuario
         {
             get { return _idUsuario; }

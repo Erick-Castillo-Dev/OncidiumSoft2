@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OncidiumSoft.Formularios
+namespace OncidiumSoft.Objetos
 {
     class Cls_Provedores
     {
@@ -16,7 +17,14 @@ namespace OncidiumSoft.Formularios
         private string Telefono;
         private string Empresa;
 
+        public static MySqlConnection Conexion()
+        {
 
+            MySqlConnection conectar = new MySqlConnection("SERVER=" + "localhost" + ";PORT=3307" + ";DATABASE=" + "vivero" + ";UID=" + "root" + ";PWD=" + "");
+
+            conectar.Open();
+            return conectar;
+        }
 
         public int iddeProvedores
         {
@@ -48,5 +56,6 @@ namespace OncidiumSoft.Formularios
             get { return Empresa; }
             set { Empresa = value; }
         }
+    }
     }
 }

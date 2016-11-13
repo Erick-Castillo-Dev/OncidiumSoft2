@@ -13,7 +13,14 @@ namespace OncidiumSoft.Daos
 {
     class Cls_DaoUsuarios
     {
-       
+        /// <summary>
+        /// Objeto para la conexion a la base de datos
+        /// </summary>wsa
+        public MySqlConnection cConexion = new MySqlConnection();
+        /// <summary>
+        /// Objecto para acceder a la conexion de la db.
+        /// </summary>
+        Conexion conexionDB = new Conexion();
         /// <summary>
         /// Metodo para obtener el id del usuario para su uso posterio
         /// </summary>
@@ -142,10 +149,7 @@ namespace OncidiumSoft.Daos
         }
 
 
-        /// <summary>
-        /// Objecto para acceder a la conexion de la db.
-        /// </summary>
-        Conexion conexionDB = new Conexion();
+
         /// <summary>
         /// Metodo de llenado de usuarios que contiene la base de datos.
         /// </summary>
@@ -205,8 +209,76 @@ namespace OncidiumSoft.Daos
         }
 
 
-        
-    
+        /// <summary>
+        /// Realiza la carga de los datos
+        /// </summary>
+        /// <param name="cli"></param>
+        /// <returns></returns>
+
+        public Objetos.Cls_Usuarios buscarUsuario(ref Objetos.Cls_Usuarios cli)
+        {
+            string sql;
+         
+            conexionDB.Conectar();
+            
+         sql = "Select * from usuarios where idUsuarios=" + cli.idUsuario;
+            MySqlCommand miCom = new MySqlCommand(sql, cConexion);
+            MySqlDataReader midataReader = miCom.ExecuteReader();
+            midataReader.Read();
+            if (midataReader.HasRows)
+            {
+                cli.idUsuario = Convert.ToInt32(midataReader["idUsuarios"].ToString());
+                cli.nombre = midataReader["Nombre"].ToString();
+                cli.direccion = midataReader["Direccion"].ToString();
+                cli.telefono = midataReader["Telefono"].ToString();
+                cli.usuario = midataReader["Categoria"].ToString();
+                cli.contrasena =midataReader["Contrasena"].ToString();
+                cli.puesto =midataReader["Puesto"].ToString();
+              
+
+            }
+            else
+            {
+                return null;
+            }
+            midataReader.Close();
+            miCom.Dispose();
+            cConexion.Close();
+            return cli;
+        }
+
+        /// <summary>
+        /// Busca usuarios por id
+        /// </summary>
+        /// <param name="IdUsuarios"></param>
+        /// <returns></returns>
+        public static List<Objetos.Cls_Usuarios> Buscar(string IdUsuarios)
+        {
+            List<Objetos.Cls_Usuarios> _lista = new List<Objetos.Cls_Usuarios>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT idUsuarios, Nombre, Direccion, Telefono, Usuario, Contrasena, Puesto FROM usuarios where idUsuarios ='{0};'", IdUsuarios), Objetos.Cls_Usuarios.Conexion());
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                Cls_Usuarios ObjUsuarios = new Cls_Usuarios();
+
+                ObjUsuarios.idUsuario = _reader.GetInt32(0);
+                ObjUsuarios.nombre = _reader.GetString(1);
+                ObjUsuarios.direccion = _reader.GetString(2);
+                ObjUsuarios.telefono = _reader.GetString(3);
+                ObjUsuarios.usuario = _reader.GetString(4);
+                ObjUsuarios.contrasena = _reader.GetString(5);
+                ObjUsuarios.puesto = _reader.GetString(6);
+
+
+
+                _lista.Add(ObjUsuarios);
+            }
+            return _lista;
+
+
+        }
     
     }
 }
