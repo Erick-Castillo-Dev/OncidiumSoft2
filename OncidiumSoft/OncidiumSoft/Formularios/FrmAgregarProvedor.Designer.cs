@@ -84,7 +84,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(155, 20);
             this.txtNombre.TabIndex = 6;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtTelefono
             // 
@@ -93,7 +92,6 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(155, 20);
             this.txtTelefono.TabIndex = 8;
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
@@ -110,7 +108,6 @@
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(155, 20);
             this.txtEmpresa.TabIndex = 9;
-            this.txtEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpresa_KeyPress);
             // 
             // btnAceptar
             // 
@@ -118,7 +115,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 10;
-            this.btnAceptar.Text = "Guardar";
+            this.btnAceptar.Text = "Agregar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -161,6 +158,7 @@
             this.Name = "FrmAgregarProvedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Provedor";
+            this.Load += new System.EventHandler(this.FrmAgregarProvedor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

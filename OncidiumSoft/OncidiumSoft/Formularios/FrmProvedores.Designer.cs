@@ -49,7 +49,6 @@
             this.dgvProvedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProvedores.Size = new System.Drawing.Size(545, 280);
             this.dgvProvedores.TabIndex = 0;
-            this.dgvProvedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvedores_CellContentClick);
             // 
             // btnAgregar
             // 
@@ -117,7 +116,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(100, 20);
             this.txtBuscar.TabIndex = 8;
-            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // FrmProvedores
             // 

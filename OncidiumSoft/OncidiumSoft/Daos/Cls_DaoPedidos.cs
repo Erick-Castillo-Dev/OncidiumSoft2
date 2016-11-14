@@ -187,6 +187,7 @@ namespace OncidiumSoft.Daos
                 while (dr.Read())
                 {
                     Cls_DatosPedidos cls = new Cls_DatosPedidos();
+                    cls.ID = dr.GetInt32("idVentas");
                     cls.Cliente = dr.GetString("Cliente");
                     if (dr.GetBoolean("Entrega_Domicilio"))
                     {

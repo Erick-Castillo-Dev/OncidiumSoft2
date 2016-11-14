@@ -25,18 +25,6 @@ namespace OncidiumSoft.Formularios
             InitializeComponent();
         }
 
-
-
-        /// <summary>
-        /// Objecto para acceder a la conexion de la clase conexion
-        /// </summary>
-          Conexion conexionDB = new Conexion();
-       /// <summary>
-       /// Cargamos los datos de la tabla productos en el datagridView.
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
-
           Cls_DaoProductos pDao = new Cls_DaoProductos();
           Cls_Productos p = new Cls_Productos();
           List<Cls_Productos> lista = new List<Cls_Productos>(); 
@@ -81,7 +69,7 @@ namespace OncidiumSoft.Formularios
                     {
                         if (selectedRowCount == 1)
                         {
-                            bool m = pDao.eliminarProducto(int.Parse(dgVProductos.Rows[dgVProductos.CurrentCellAddress.Y].Cells["ID"].Value.ToString()));
+                            bool m = pDao.eliminarProducto(int.Parse(dgVProductos.Rows[dgVProductos.CurrentCellAddress.Y].Cells["idProductoss"].Value.ToString()));
                             if (m)
                             {
                                 MessageBox.Show("Pedido eliminado");

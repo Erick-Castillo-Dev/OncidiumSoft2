@@ -18,75 +18,77 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-        Cls_DaoProvedores DAoProvedor = new Cls_DaoProvedores();
-        /// <summary>
-        /// Objecto delos getters y setter de la clase provedores
-        /// </summary>
-        Cls_Provedores ObjProvedores = new Cls_Provedores();
-        /// <summary>
-        /// Objecto para acceder al catalogo de provedores
-        /// </summary>
-        FrmProvedores LlamProvedores = new FrmProvedores();
-        /// <summary>
-        /// Cierra la ventana actual y nos regresa a el catalogo de provedores
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCancelar_Click(object sender, EventArgs e)
+
+        public bool editar = false;
+        public int id;
+
+        Cls_Provedores p = new Cls_Provedores();
+        Cls_DaoProvedores pDao = new Cls_DaoProvedores();
+
+        private void FrmAgregarProvedor_Load(object sender, EventArgs e)
         {
-            this.Close();
-            LlamProvedores.Show();
+            p = pDao.obtenerProvedor(id);
+            if(editar){
+                txtNombre.Text = p.NombreProvedor;
+                txtDireccion.Text = p.DireccionProvedor;
+                txtEmpresa.Text = p.EmpresadeProvedor;
+                txtTelefono.Text = p.TelefonoProvedor;
+                btnAceptar.Text = "Actualizar";
+            }
         }
-        /// <summary>
-        /// Agraga Provedores a la tabla
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        public void limpiar()
+        {
+            txtNombre.Text = "";
+            txtDireccion.Text = "";
+            txtEmpresa.Text = "";
+            txtTelefono.Text = "";
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (editar)
+            {
+               p.NombreProvedor = txtNombre.Text;
+               p.DireccionProvedor = txtDireccion.Text;
+               p.EmpresadeProvedor = txtEmpresa.Text;
+               p.TelefonoProvedor = txtTelefono.Text;
+               bool s = pDao.editar(p);
+                if(s){
+                    MessageBox.Show("Se actualizo el provedor");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar");
+                }
+            }
+            else
+            {
+                p.NombreProvedor = txtNombre.Text.ToString();
+                p.DireccionProvedor = txtDireccion.Text.ToString();
+                p.EmpresadeProvedor = txtEmpresa.Text.ToString();
+                p.TelefonoProvedor = txtTelefono.Text.ToString();
+                bool s = pDao.agregar(p);
+                if (s)
+                {
+                    MessageBox.Show("Se agrego el provedor");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar");
+                }
+            }
+        }
 
-            //ObjProvedores.iddeProvedores = Convert.ToInt32(txtId.Text);
-            ObjProvedores.NombreProvedor = txtNombre.Text;
-            ObjProvedores.DireccionProvedor = txtDireccion.Text;
-            ObjProvedores.TelefonoProvedor = txtTelefono.Text;
-            ObjProvedores.EmpresadeProvedor = txtEmpresa.Text;
-            DAoProvedor.AgregarProvedor(ObjProvedores);
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            FrmProvedores f = new FrmProvedores();
+            f.Show();
             this.Close();
-           
-            new FrmProvedores().Show();
-
-
-            
         }
-
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txtEmpresa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
+        
+        
     }
 }

@@ -19,116 +19,106 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Objecto para acceder a la conexion de la clase conexion
-        /// </summary>
-        Conexion conexionDB = new Conexion();
-        /// <summary>
-        /// objecto para acceder a los metodos de los provedores
-        /// </summary>
-        Cls_DaoProvedores DaoProvedores = new Cls_DaoProvedores();
-        /// <summary>
-        /// Objecto para acceder a los getters y setters de la clase provedores
-        /// </summary>
-        Cls_Provedores  ObjProvedores= new Cls_Provedores();
-       
-        /// <summary>
-        /// Metodo que carga la lista de Provedores el en datagridView
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FrmProvedores_Load(object sender, EventArgs e)
-        {
-           
-            cargarprovedores();
 
-        }
-        /// <summary>
-        /// Carga los datos en el gridview
-        /// </summary>
-        public void cargarprovedores(){
-            
-            dgvProvedores.DataSource = DaoProvedores.llenar();
-            dgvProvedores.DataMember = "provedores";
-            conexionDB.Cerrar();
-        }
-        private void dgvProvedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        Cls_Provedores p = new Cls_Provedores();
+        Cls_DaoProvedores pDao = new Cls_DaoProvedores();
+        List<Cls_Provedores> lista = new List<Cls_Provedores>();
 
-        }
-        /// <summary>
-        /// Cierra el formulario.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        /// <summary>
-        /// ELimina un provedor por id
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-          try
-           {
-                ObjProvedores.iddeProvedores = int.Parse(dgvProvedores.Rows[dgvProvedores.SelectedRows[0].Index].Cells[0].Value.ToString());
-                if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
                 {
-                    DaoProvedores.EliminarProvedor(ObjProvedores);
-                    cargarprovedores();
+                    Int32 selectedRowCount = dgvProvedores.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    if (selectedRowCount > 0)
+                    {
+                        if (selectedRowCount == 1)
+                        {
+                            bool m = pDao.eliminarProvedor(int.Parse(dgvProvedores.Rows[dgvProvedores.CurrentCellAddress.Y].Cells["iddeProvedores"].Value.ToString()));
+                            if (m)
+                            {
+                                MessageBox.Show("Provedor eliminado eliminado");
+                                lista = pDao.llenar();
+                                dgvProvedores.DataSource = lista;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo eliminar el provedor");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecione solo un registro para editar");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error consulta al Administrador");
                 }
             }
-            catch (Exception ex)
-          {
-            MessageBox.Show("Seleciona un registro completo");
-            }
-        }
-        /// <summary>
-        /// Llama al formulario para agreagr un nuevo provedor
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            FrmAgregarProvedor AgreProve = new FrmAgregarProvedor();
-            this.Close();
-            AgreProve.Show();
         }
 
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-           // dgvProvedores.DataSource = Cls_DaoProvedores.Buscar(txtBuscar.Text);
+            FrmAgregarProvedor a = new FrmAgregarProvedor();
+            this.Close();
+            a.Show();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //getter y setters
-            Cls_Provedores objProvedores = new Cls_Provedores();
-            //metodos
-            Cls_DaoProvedores DaoProvedores = new Cls_DaoProvedores();
+            try
+            {
+                Int32 selectedRowCount = dgvProvedores.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    if (selectedRowCount == 1)
+                    {
+                        FrmAgregarProvedor f = new FrmAgregarProvedor();
+                        f.editar = true;
+                        f.id = int.Parse(dgvProvedores.Rows[dgvProvedores.CurrentCellAddress.Y].Cells["iddeProvedores"].Value.ToString());
+                        this.Hide();
+                        f.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione solo un registro para editar");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error consulta al Administrador");
+            }
+        }
 
-            objProvedores.iddeProvedores = Convert.ToInt32(this.dgvProvedores.CurrentRow.Cells[0].Value.ToString());
-        
-            DaoProvedores.buscarProvedor(ref objProvedores);
-
-            FrmAgregarProvedor LlamaProvedores = new FrmAgregarProvedor();
-
-            LlamaProvedores.txtNombre.Text = objProvedores.NombreProvedor;
-            LlamaProvedores.txtDireccion.Text = objProvedores.DireccionProvedor;
-            LlamaProvedores.txtTelefono.Text = objProvedores.TelefonoProvedor;
-            LlamaProvedores.txtEmpresa.Text = objProvedores.EmpresadeProvedor;
-
-
-
-
-
-            LlamaProvedores.Show();
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
 
+        private void FrmProvedores_Load(object sender, EventArgs e)
+        {
+            lista = pDao.llenar();
+            dgvProvedores.DataSource = lista;
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+                lista = pDao.llenar();
+                dgvProvedores.DataSource = lista;
+            }
+            else
+            {
+                dgvProvedores.DataSource = pDao.buscar(txtBuscar.Text.ToString());
+            }
         }
+
+
+    }
     }
 

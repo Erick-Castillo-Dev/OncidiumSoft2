@@ -41,9 +41,12 @@
             // 
             // dgVProductos
             // 
+            this.dgVProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgVProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgVProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgVProductos.Location = new System.Drawing.Point(37, 127);
             this.dgVProductos.Name = "dgVProductos";
+            this.dgVProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgVProductos.Size = new System.Drawing.Size(757, 265);
             this.dgVProductos.TabIndex = 0;
             // 
