@@ -112,6 +112,7 @@
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(63, 34);
+            this.txtBuscar.MaxLength = 5;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(109, 20);
             this.txtBuscar.TabIndex = 7;

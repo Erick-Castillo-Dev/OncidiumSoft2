@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OncidiumSoft.Formularios
+namespace OncidiumSoft.Objetos
 {
     class Cls_Provedores
     {
@@ -15,8 +16,6 @@ namespace OncidiumSoft.Formularios
         private string Direccion;
         private string Telefono;
         private string Empresa;
-
-
 
         public int iddeProvedores
         {

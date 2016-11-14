@@ -23,7 +23,6 @@ namespace OncidiumSoft.Conexxion_Datos
         /// 
         public void Conectar()
         {
-            Cerrar();//cierra una Conexion para No causar conflictos
             string strCadenaConexion;//CHECAR ESTA PARTE POR EL PUERTO USUARIO Y CONTRASENA
             strCadenaConexion = "SERVER=" + "localhost" + ";PORT=3306" + ";DATABASE=" + "vivero" + ";UID=" + "root" + ";PWD=" + "root";
             cConexion.ConnectionString = strCadenaConexion;

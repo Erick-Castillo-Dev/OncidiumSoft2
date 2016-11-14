@@ -182,50 +182,175 @@ namespace OncidiumSoft.Daos
             }
         }
 
-        public DataSet llenar()
+        public bool eliminarProducto(int id)
         {
-            c.Conectar();
-            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from productos", c.cConexion);
-            DataSet productos = new DataSet();
-            muestreo.Fill(productos, "productos");
-            return productos;
-        }
-
-
-        /// <summary>
-        /// Agrega el nuevo producto a la db.
-        /// </summary>
-        /// <param name="objProductos"></param>
-        public void AgregarProducto(Objetos.Cls_Productos objProductos)
-        {
+            bool q = false;
             try
             {
-                string sql;
-                MySqlCommand cm;
                 c.Conectar();
-
-                cm = new MySqlCommand();
-                cm.Parameters.AddWithValue("@idProductos", objProductos.idProductoss);
-                cm.Parameters.AddWithValue("@Nombre", objProductos.NombreProducto);
-                cm.Parameters.AddWithValue("@Precio_Cliente", objProductos.PrecioalCliente);
-                cm.Parameters.AddWithValue("@Tipo", objProductos.TipoProducto);
-                cm.Parameters.AddWithValue("@Cantidad", objProductos.CantidadProducto);
-                cm.Parameters.AddWithValue("@img", objProductos.imgenProducto);
-                cm.Parameters.AddWithValue("@idProvedores", objProductos.iddeProvedores);
-                cm.Parameters.AddWithValue("@Precio_Costo", objProductos.Precio_costo);
-                cm.Parameters.AddWithValue("@Disponible", objProductos.Disponibilidad);
-                cm.Parameters.AddWithValue("@Ajuste", objProductos.AjusteProducto);
-
-
-                sql = "INSERT INTO productos(idProductoss, NombreProducto, PrecioalCliente, TipoProducto, CantidadProducto, imgenProducto, iddeProvedores, Precio_costo, Disponibilidad,AjusteProducto) VALUES (@idProductos, @Nombre, @Precio_Cliente, @Tipo, @Cantidad, @img, @idProvedores, @Precio_Costo, @Disponible, @Ajuste)";
-                cm.CommandText = sql;
-                cm.CommandType = System.Data.CommandType.Text;
-                cm.Connection = c.cConexion;
-                cm.ExecuteNonQuery();
-                c.Cerrar();
-            }catch(MySqlException e){
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "DELETE FROM productos WHERE idProductos = @id";
+                cmd.ExecuteNonQuery();
+                q = true;
                 c.Cerrar();
             }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return q;
+            }
+            return q;
+        }
+
+        public List<Cls_Productos> llenar()
+        {
+            List<Cls_Productos> list = new List<Cls_Productos>();
+            try
+            {
+                string sql = "";
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                sql = "select * from productos";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                while (dr.Read()) {
+                    Cls_Productos p = new Cls_Productos();
+                    p.idProductoss = dr.GetInt32("idProductos");
+                    p.NombreProducto = dr.GetString("Nombre");
+                    p.PrecioalCliente = dr.GetDouble("Precio_Cliente");
+                    p.TipoProducto = dr.GetString("Tipo");
+                    p.CantidadProducto = dr.GetInt32("Cantidad");
+                    p.iddeProvedores = dr.GetInt32("idProvedores");
+                    p.Precio_costo = dr.GetDouble("Precio_Costo");
+                    p.Disponibilidad = dr.GetBoolean("Disponible");
+                    p.AjusteProducto = dr.GetBoolean("Ajuste");
+                    list.Add(p);
+                }
+                c.Cerrar();
+                for (int i = 0; i < list.Count;i++ )
+                {
+                    list.ElementAt(i).imgenProducto = buscarimg(list.ElementAt(i).idProductoss);
+                }
+                return list;
+
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return null;
+            }
+            return null;
+        }
+
+        public List<Cls_Productos> buscar(string producto)
+        {
+            List<Cls_Productos> list = new List<Cls_Productos>();
+            try
+            {
+                string sql = "";
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                sql = "select * from productos where Nombre LIKE '"+producto+"%'";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    Cls_Productos p = new Cls_Productos();
+                    p.idProductoss = dr.GetInt32("idProductos");
+                    p.NombreProducto = dr.GetString("Nombre");
+                    p.PrecioalCliente = dr.GetDouble("Precio_Cliente");
+                    p.TipoProducto = dr.GetString("Tipo");
+                    p.CantidadProducto = dr.GetInt32("Cantidad");
+                    p.iddeProvedores = dr.GetInt32("idProvedores");
+                    p.Precio_costo = dr.GetDouble("Precio_Costo");
+                    p.Disponibilidad = dr.GetBoolean("Disponible");
+                    p.AjusteProducto = dr.GetBoolean("Ajuste");
+                    list.Add(p);
+                }
+                c.Cerrar();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    list.ElementAt(i).imgenProducto = buscarimg(list.ElementAt(i).idProductoss);
+                }
+                return list;
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return null;
+            }
+            return null;
+        }
+
+        public bool editar(Cls_Productos p)
+        {
+            bool q = false;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                c.Conectar();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@id", p.idProductoss);
+                cmd.Parameters.AddWithValue("@Nombre", p.NombreProducto);
+                cmd.Parameters.AddWithValue("@Precio_Cliente", p.PrecioalCliente);
+                cmd.Parameters.AddWithValue("@Tipo", p.TipoProducto);
+                cmd.Parameters.AddWithValue("@Cantidad", p.CantidadProducto);
+                cmd.Parameters.AddWithValue("@img", p.imgenProducto);
+                cmd.Parameters.AddWithValue("@idProvedores", p.iddeProvedores);
+                cmd.Parameters.AddWithValue("@Precio_Costo", p.Precio_costo);
+                cmd.Parameters.AddWithValue("@Disponible", p.Disponibilidad);
+                cmd.Parameters.AddWithValue("@Ajuste", p.AjusteProducto);
+                cmd.CommandText = "UPDATE productos SET Nombre = @Nombre,Precio_Cliente = @Precio_Cliente,Tipo = @Tipo,Cantidad = @Cantidad,img = @img,"+
+                                    "idProvedores = @idProvedores,Precio_Costo = @Precio_Costo,Disponible = @Disponible,Ajuste = @Ajuste where idProductos = @id ";
+                cmd.ExecuteNonQuery();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                q = false;
+            }
+            return q;
+        }
+        
+        public bool AgregarProducto(Cls_Productos p)
+        {
+            bool q = false;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                c.Conectar();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@Nombre", p.NombreProducto);
+                cmd.Parameters.AddWithValue("@Precio_Cliente", p.PrecioalCliente);
+                cmd.Parameters.AddWithValue("@Tipo", p.TipoProducto);
+                cmd.Parameters.AddWithValue("@Cantidad", p.CantidadProducto);
+                cmd.Parameters.AddWithValue("@img", p.imgenProducto);
+                cmd.Parameters.AddWithValue("@idProvedores", p.iddeProvedores);
+                cmd.Parameters.AddWithValue("@Precio_Costo", p.Precio_costo);
+                cmd.Parameters.AddWithValue("@Disponible", p.Disponibilidad);
+                cmd.Parameters.AddWithValue("@Ajuste", p.AjusteProducto);
+                cmd.CommandText = "INSERT INTO productos(Nombre,Precio_Cliente,Tipo,Cantidad,img,idProvedores,Precio_Costo,Disponible,Ajuste)"
+                                    + "VALUES(@Nombre,@Precio_Cliente,@Tipo,@Cantidad,@img,@idProvedores,@Precio_Costo,@Disponible,@Ajuste)";
+                cmd.ExecuteNonQuery();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                q = false;
+            }
+            return q;
         }
 
     }

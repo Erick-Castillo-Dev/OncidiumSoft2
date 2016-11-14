@@ -94,33 +94,37 @@ namespace OncidiumSoft.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Int32 selectedRowCount = dgvListapedidos.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                if (selectedRowCount > 0)
+                try
                 {
-                    if (selectedRowCount == 1)
+                    Int32 selectedRowCount = dgvListapedidos.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    if (selectedRowCount > 0)
                     {
-                        bool m = pDao.eliminarPedido(int.Parse(dgvListapedidos.Rows[dgvListapedidos.CurrentCellAddress.Y].Cells["ID"].Value.ToString()));
-                        if(m){
-                            MessageBox.Show("Pedido eliminado");
-                            lista = pDao.cargardatos();
-                            dgvListapedidos.DataSource = lista;
+                        if (selectedRowCount == 1)
+                        {
+                            bool m = pDao.eliminarPedido(int.Parse(dgvListapedidos.Rows[dgvListapedidos.CurrentCellAddress.Y].Cells["ID"].Value.ToString()));
+                            if (m)
+                            {
+                                MessageBox.Show("Pedido eliminado");
+                                lista = pDao.cargardatos();
+                                dgvListapedidos.DataSource = lista;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo eliminar el pedido");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo eliminar el pedido");
+                            MessageBox.Show("Selecione solo un registro para editar");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Selecione solo un registro para editar");
-                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error consulta al Administrador");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error consulta al Administrador");
+                }
             }
         }
 

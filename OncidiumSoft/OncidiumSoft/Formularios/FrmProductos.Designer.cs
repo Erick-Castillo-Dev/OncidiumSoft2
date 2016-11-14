@@ -34,6 +34,8 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnPrincipal = new System.Windows.Forms.Button();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgVProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +46,6 @@
             this.dgVProductos.Name = "dgVProductos";
             this.dgVProductos.Size = new System.Drawing.Size(757, 265);
             this.dgVProductos.TabIndex = 0;
-            this.dgVProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVProductos_CellContentClick);
             // 
             // lblProductos
             // 
@@ -96,11 +97,32 @@
             this.btnPrincipal.UseVisualStyleBackColor = true;
             this.btnPrincipal.Click += new System.EventHandler(this.btnPrincipal_Click);
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblBuscar.Location = new System.Drawing.Point(43, 38);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(255, 22);
+            this.lblBuscar.TabIndex = 35;
+            this.lblBuscar.Text = "Buscar por nombre del producto";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtBuscar.Location = new System.Drawing.Point(47, 75);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(220, 29);
+            this.txtBuscar.TabIndex = 34;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 453);
+            this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnPrincipal);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -125,5 +147,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnPrincipal;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

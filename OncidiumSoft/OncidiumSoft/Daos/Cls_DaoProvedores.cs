@@ -7,24 +7,24 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OncidiumSoft.Objetos;
 
 namespace OncidiumSoft.Daos
 {
     class Cls_DaoProvedores
     {
-
         /// <summary>
         /// Objecto para acceder a la conexion de la db.
         /// </summary>
-        Conexion conexionDB = new Conexion();
+        Conexion c = new Conexion();
         /// <summary>
         /// Metodo de llenado de provedores que contiene la base de datos.
         /// </summary>
         /// <returns></returns>
         public DataSet llenar()
         {
-            conexionDB.Conectar();
-            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from provedores", conexionDB.cConexion);
+            c.Conectar();
+            MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from provedores", c.cConexion);
             DataSet provedores = new DataSet();
             muestreo.Fill(provedores, "provedores");
             return provedores;
@@ -37,16 +37,16 @@ namespace OncidiumSoft.Daos
         {
             string sql;
             MySqlCommand cm;
-            conexionDB.Conectar();
+            c.Conectar();
 
             cm = new MySqlCommand();
             cm.Parameters.AddWithValue("@idProvedores", u.iddeProvedores);
             sql = "DELETE FROM provedores WHERE idProvedores = @idProvedores";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text; ;
-            cm.Connection = conexionDB.cConexion;
+            cm.Connection = c.cConexion;
             cm.ExecuteNonQuery();
-            conexionDB.Cerrar();
+            c.Cerrar();
         }
         /// <summary>
         /// Agrega provedores a la db
@@ -56,7 +56,7 @@ namespace OncidiumSoft.Daos
         {
             string sql;
             MySqlCommand cm;
-            conexionDB.Conectar();
+            c.Conectar();
             cm = new MySqlCommand();
            
             cm.Parameters.AddWithValue("@Nombre", p.NombreProvedor);
@@ -66,9 +66,72 @@ namespace OncidiumSoft.Daos
             sql = "INSERT INTO provedores (Nombre,Direccion,Telefono,Empresa)  VALUES (@Nombre,@Direccion,@Telefono,@Empresa)";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text;
-            cm.Connection = conexionDB.cConexion;
+            cm.Connection = c.cConexion;
             cm.ExecuteNonQuery();
-            conexionDB.Cerrar();
+            c.Cerrar();
         }
+
+        /// <summary>
+        /// Busca un provedor por id
+        /// </summary>
+        /// <param name="IdProvedores"></param>
+        /// <returns></returns>
+      /*  public static List<Cls_Provedores> Buscar(string IdProvedores)
+        {
+            List<Cls_Provedores> _lista = new List<Cls_Provedores>();
+
+            MySqlCommand _comando = new MySqlCommand(String.Format(
+           "SELECT idProvedores, Nombre, Direccion, Telefono, Empresa FROM provedores where idProvedores ='{0};'", IdProvedores), c.cConexion);
+            MySqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read())
+            {
+                Cls_Provedores ObjProvedoress = new Cls_Provedores();
+
+                ObjProvedoress.iddeProvedores = _reader.GetInt32(0);
+                ObjProvedoress.NombreProvedor = _reader.GetString(1);
+                ObjProvedoress.DireccionProvedor = _reader.GetString(2);
+                ObjProvedoress.TelefonoProvedor = _reader.GetString(3);
+                ObjProvedoress.EmpresadeProvedor = _reader.GetString(4);
+
+
+
+                _lista.Add(ObjProvedoress);
+            }
+            return _lista;
+
+
+
+        }*/
+
+
+         public Objetos.Cls_Provedores buscarProvedor(ref Objetos.Cls_Provedores cli)
+        {
+            c.Conectar();
+            string consulta = "Select * from Provedores where idProvedores= " + cli.iddeProvedores;
+            MySqlCommand miCom = new MySqlCommand(consulta, c.cConexion);
+            MySqlDataReader midataReader = miCom.ExecuteReader();
+            midataReader.Read();
+            if (midataReader.HasRows)
+            {
+                cli.iddeProvedores = Convert.ToInt32(midataReader["idProvedor"].ToString());
+                cli.NombreProvedor = midataReader["Nombre"].ToString();
+                cli.DireccionProvedor = midataReader["Direccion"].ToString();
+                cli.TelefonoProvedor = midataReader["Telefono"].ToString();
+                cli.EmpresadeProvedor = midataReader["Empresa"].ToString();
+          
+
+            }
+            else
+            {
+                return null;
+            }
+            midataReader.Close();
+            c.Cerrar();
+            return cli;
+        }
+
+
+
     }
+
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OncidiumSoft.Formularios;
 
 namespace OncidiumSoft.Formularios
 {
@@ -52,7 +53,7 @@ namespace OncidiumSoft.Formularios
                 Cls_Productos c = new Cls_Productos();
                 c.idProductoss = id;
                 c.NombreProducto = txtNombre.Text.ToString();
-                c.PrecioalCliente = double.Parse(txtpreciocliente.ToString());
+                c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
                 c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
                 c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
                 c.AjusteProducto = false;
@@ -63,12 +64,13 @@ namespace OncidiumSoft.Formularios
                 m.Save(ms, ImageFormat.Png);
                 byte[] imgArr = ms.ToArray();
                 c.imgenProducto = imgArr;
+                pDao.editar(c);
             }
             else
             {
                 Cls_Productos c = new Cls_Productos();
                 c.NombreProducto = txtNombre.Text.ToString();
-                c.PrecioalCliente = double.Parse(txtpreciocliente.ToString());
+                c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
                 c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
                 c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
                 c.AjusteProducto = false;
@@ -79,6 +81,7 @@ namespace OncidiumSoft.Formularios
                 m.Save(ms, ImageFormat.Png);
                 byte[] imgArr = ms.ToArray();
                 c.imgenProducto = imgArr;
+                pDao.AgregarProducto(c);
             }
         }
 
@@ -96,7 +99,15 @@ namespace OncidiumSoft.Formularios
                 cboxTipo.Text = p.TipoProducto;
                 cobProvedor.Text = pDao.nombreProvedor(p.iddeProvedores);
                 ptImg.Image = vDao.cargarimagen(p.imgenProducto);
+                btnGuardar.Text = "Actualizar";
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmProductos f = new FrmProductos();
+            f.Show();
         }
     }
 }
