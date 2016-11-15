@@ -27,8 +27,8 @@ namespace OncidiumSoft.Formularios
 
         private void FrmAgregarProvedor_Load(object sender, EventArgs e)
         {
-            p = pDao.obtenerProvedor(id);
             if(editar){
+                p = pDao.obtenerProvedor(id);
                 txtNombre.Text = p.NombreProvedor;
                 txtDireccion.Text = p.DireccionProvedor;
                 txtEmpresa.Text = p.EmpresadeProvedor;
@@ -77,7 +77,7 @@ namespace OncidiumSoft.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar");
+                    MessageBox.Show("Error al guardar");
                 }
             }
         }

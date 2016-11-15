@@ -18,88 +18,76 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Llamada al formulario de usuarios
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            FrmUsuarios LlamUsuarios = new FrmUsuarios();
-            this.Close();
-            LlamUsuarios.Show();
 
-        }
-        /// <summary>
-        /// Objeto pra Acceder a los getter y setter de los usuarios
-        /// </summary>
-        Cls_Usuarios ObjUsuarios = new Cls_Usuarios();
+        bool editar = false;
+        int id;
 
-        /// <summary>
-        /// Objecto para acceder a los metodos de la clase usuarios.
-        /// </summary>
-        Cls_DaoUsuarios DaosUsuario = new Cls_DaoUsuarios();
-        /// <summary>
-        /// Guarda un nuevo usuario en la tabla
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            ObjUsuarios.nombre = txtNombre.Text;
-            ObjUsuarios.direccion = txtDireccion.Text;
-            ObjUsuarios.telefono = txtTel.Text;
-            ObjUsuarios.usuario = txtUsuario.Text;
-            ObjUsuarios.contrasena= txtContrasena.Text;
-            ObjUsuarios.puesto = cboxPuesto.Text;
-            DaosUsuario.AgregarUsuario(ObjUsuarios);
-            FrmUsuarios LlamUsuarios = new FrmUsuarios();
-            this.Close();
-            LlamUsuarios.Show();
-
-        }
-        /// <summary>
-        /// Validar solo letras
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-        /// <summary>
-        /// Valida solo numeros
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
+        Cls_Usuarios u = new Cls_Usuarios();
+        Cls_DaoUsuarios uDao = new Cls_DaoUsuarios();
 
         private void FrmAgregarUsuario_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
+            if(editar){
+                u = uDao.obtenerUsuario(id);
+                txtNombre.Text = u.nombre;
+                txtDireccion.Text = u.direccion;
+                txtUsuario.Text = u.usuario;
+                txtTel.Text = u.telefono;
+                cboxPuesto.Text = u.puesto;
+                btnAceptar.Text = "Actualizar";
             }
         }
+
+        public void limpiar()
+        {
+            txtNombre.Text = "";
+            txtDireccion.Text = "";
+            txtUsuario.Text = "";
+            txtTel.Text = "";
+            cboxPuesto.Text = "";
+            txtContrasena.Text = "";
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if(editar){
+                u.nombre = txtNombre.Text;
+                u.direccion = txtDireccion.Text;
+                u.usuario = txtUsuario.Text;
+                u.telefono = txtTel.Text;
+                u.contrasena = txtContrasena.Text;
+                u.puesto = cboxPuesto.Text;
+                bool s = uDao.editar(u);
+                if (s)
+                {
+                    MessageBox.Show("Se actualizo el Usuario");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar");
+                }
+            }
+            else
+            {
+                u.nombre = txtNombre.Text;
+                u.direccion = txtDireccion.Text;
+                u.usuario = txtUsuario.Text;
+                u.telefono = txtTel.Text;
+                u.contrasena = txtContrasena.Text;
+                u.puesto = cboxPuesto.Text;
+                bool s = uDao.agregar(u);
+                if (s)
+                {
+                    MessageBox.Show("Se agrego el Usuario");
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar");
+                }
+            }
+        }
+        
     }
 }

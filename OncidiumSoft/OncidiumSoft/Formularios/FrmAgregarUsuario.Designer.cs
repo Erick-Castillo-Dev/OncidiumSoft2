@@ -61,7 +61,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
-            this.btnAceptar.Text = "Guardar";
+            this.btnAceptar.Text = "Agregar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -126,7 +126,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 10;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDireccion
             // 
@@ -135,7 +134,6 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(100, 20);
             this.txtDireccion.TabIndex = 11;
-            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtTel
             // 
@@ -144,7 +142,6 @@
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(100, 20);
             this.txtTel.TabIndex = 12;
-            this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // txtUsuario
             // 
@@ -170,10 +167,10 @@
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cboxPuesto
             // 
+            this.cboxPuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxPuesto.FormattingEnabled = true;
             this.cboxPuesto.Items.AddRange(new object[] {
             "Administrador",
@@ -182,7 +179,6 @@
             this.cboxPuesto.Name = "cboxPuesto";
             this.cboxPuesto.Size = new System.Drawing.Size(112, 21);
             this.cboxPuesto.TabIndex = 15;
-            this.cboxPuesto.Text = "Cajero";
             // 
             // FrmAgregarUsuario
             // 

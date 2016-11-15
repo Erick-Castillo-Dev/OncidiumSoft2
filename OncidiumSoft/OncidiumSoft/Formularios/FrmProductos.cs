@@ -49,11 +49,29 @@ namespace OncidiumSoft.Formularios
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmAgregarProductos agregar = new FrmAgregarProductos();
-            this.Hide();
-            agregar.id = 1;
-            agregar.editar = true;
-            agregar.Show();
+            try
+            {
+                Int32 selectedRowCount = dgVProductos.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    if (selectedRowCount == 1)
+                    {
+                        FrmAgregarProductos f = new FrmAgregarProductos();
+                        f.editar = true;
+                        f.id = int.Parse(dgVProductos.Rows[dgVProductos.CurrentCellAddress.Y].Cells["idProductoss"].Value.ToString());
+                        this.Hide();
+                        f.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione solo un registro para editar");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error consulta al Administrador");
+            }
         }
 
        
@@ -72,13 +90,13 @@ namespace OncidiumSoft.Formularios
                             bool m = pDao.eliminarProducto(int.Parse(dgVProductos.Rows[dgVProductos.CurrentCellAddress.Y].Cells["idProductoss"].Value.ToString()));
                             if (m)
                             {
-                                MessageBox.Show("Pedido eliminado");
+                                MessageBox.Show("Producto eliminado");
                                 lista = pDao.llenar();
                                 dgVProductos.DataSource = lista;
                             }
                             else
                             {
-                                MessageBox.Show("No se pudo eliminar el pedido");
+                                MessageBox.Show("No se pudo eliminar el producto");
                             }
                         }
                         else

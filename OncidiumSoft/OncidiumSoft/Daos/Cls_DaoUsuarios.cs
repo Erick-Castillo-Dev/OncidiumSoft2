@@ -185,149 +185,193 @@ namespace OncidiumSoft.Daos
             return "";
         }
 
-        /// <summary>
-        /// Metodo de llenado de usuarios que contiene la base de datos.
-        /// </summary>
-        /// <returns></returns>
-        public DataSet llenar()
+        public Cls_Usuarios obtenerUsuario(int id)
         {
-            DataSet usuarios = new DataSet();
             try
             {
+                string sql = "";
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
                 c.Conectar();
-                MySqlDataAdapter muestreo = new MySqlDataAdapter("select*from usuarios", c.cConexion);
-            muestreo.Fill(usuarios, "usuarios");
-            }catch(MySqlException e){
-                c.Cerrar();
-                return null;
-            }
-            return usuarios;
-        }
-        /// <summary>
-        /// Elimina el Usuario selecionado.
-        /// </summary>
-        /// <param name="u"></param>
-        public bool EliminarUsuario(Cls_Usuarios u)
-        {
-            bool s;
-            try
-        {
-            string sql;
-            MySqlCommand cm;
-                c.Conectar();
-
-            cm = new MySqlCommand();
-            cm.Parameters.AddWithValue("@idUsuario", u.idUsuario);
-            sql = "DELETE FROM usuarios WHERE idUsuarios = @idUsuario";
-            cm.CommandText = sql;
-            cm.CommandType = CommandType.Text; ;
+                cm.Parameters.AddWithValue("@id", id);
+                sql = "select * from usuarios where idUsuarios = @id";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
                 cm.Connection = c.cConexion;
-            cm.ExecuteNonQuery();
-                c.Cerrar();
-                s = true;
-            }catch(MySqlException e){
-                c.Cerrar();
-                s = false;
+                dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    Cls_Usuarios u = new Cls_Usuarios();
+                    u.idUsuario = dr.GetInt32("idUsuarios");
+                    u.nombre = dr.GetString("Nombre");
+                    u.direccion = dr.GetString("Direccion");
+                    u.telefono = dr.GetString("Telefono");
+                    u.usuario = dr.GetString("Usuario");
+                    u.contrasena = dr.GetString("Contrasena");
+                    u.puesto = dr.GetString("Puesto");
+                    c.Cerrar();
+                    return u;
+                }
+                
             }
-            return s;
-        }
-        /// <summary>
-        /// Agrega usuarios a la tabla de la db
-        /// </summary>
-        /// <param name="usuario"></param>
-        public void AgregarUsuario(Cls_Usuarios usuario)
-        {
-            string sql;
-            MySqlCommand cm;
-            c.Conectar();
-            cm = new MySqlCommand();
-
-            cm.Parameters.AddWithValue("@Nombre", usuario.nombre);
-            cm.Parameters.AddWithValue("@Direccion", usuario.direccion);
-            cm.Parameters.AddWithValue("@Telefono", usuario.telefono);
-            cm.Parameters.AddWithValue("@Usuario", usuario.usuario);
-            cm.Parameters.AddWithValue("@Contrasena", usuario.contrasena);
-            cm.Parameters.AddWithValue("@Puesto", usuario.puesto);
-
-            sql = "INSERT INTO usuarios (Nombre,Direccion,Telefono,Usuario,Contrasena,Puesto)  VALUES (@Nombre,@Direccion,@Telefono,@Usuario,sha1(md5(@Contrasena)),@Puesto)";
-            
-            cm.CommandText = sql;
-            cm.CommandType = CommandType.Text;
-            cm.Connection = c.cConexion;
-            cm.ExecuteNonQuery();
-            c.Cerrar();
-        }
-
-
-        /// <summary>
-        /// Realiza la carga de los datos
-        /// </summary>
-        /// <param name="cli"></param>
-        /// <returns></returns>
-
-        public Objetos.Cls_Usuarios buscarUsuario(ref Objetos.Cls_Usuarios cli)
-        {
-            string sql;
-         
-            c.Conectar();
-            
-         sql = "Select * from usuarios where idUsuarios=" + cli.idUsuario;
-            MySqlCommand miCom = new MySqlCommand(sql, c.cConexion);
-            MySqlDataReader midataReader = miCom.ExecuteReader();
-            midataReader.Read();
-            if (midataReader.HasRows)
+            catch (MySqlException e)
             {
-                cli.idUsuario = Convert.ToInt32(midataReader["idUsuarios"].ToString());
-                cli.nombre = midataReader["Nombre"].ToString();
-                cli.direccion = midataReader["Direccion"].ToString();
-                cli.telefono = midataReader["Telefono"].ToString();
-                cli.usuario = midataReader["Categoria"].ToString();
-                cli.contrasena =midataReader["Contrasena"].ToString();
-                cli.puesto =midataReader["Puesto"].ToString();
-              
-
-            }
-            else
-            {
+                c.Cerrar();
                 return null;
             }
-            midataReader.Close();
-            miCom.Dispose();
-            c.Cerrar();
-            return cli;
+            return null;
         }
 
-        /// <summary>
-        /// Busca usuarios por id
-        /// </summary>
-        /// <param name="IdUsuarios"></param>
-        /// <returns></returns>
-        public static List<Objetos.Cls_Usuarios> Buscar(string IdUsuarios)
+        public List<Cls_Usuarios> llenar()
         {
-            List<Objetos.Cls_Usuarios> _lista = new List<Objetos.Cls_Usuarios>();
-
-            MySqlCommand _comando = new MySqlCommand(String.Format(
-           "SELECT idUsuarios, Nombre, Direccion, Telefono, Usuario, Contrasena, Puesto FROM usuarios where idUsuarios ='{0};'", IdUsuarios), Objetos.Cls_Usuarios.Conexion());
-            MySqlDataReader _reader = _comando.ExecuteReader();
-            while (_reader.Read())
+            List<Cls_Usuarios> list = new List<Cls_Usuarios>();
+            try
             {
-                Cls_Usuarios ObjUsuarios = new Cls_Usuarios();
-
-                ObjUsuarios.idUsuario = _reader.GetInt32(0);
-                ObjUsuarios.nombre = _reader.GetString(1);
-                ObjUsuarios.direccion = _reader.GetString(2);
-                ObjUsuarios.telefono = _reader.GetString(3);
-                ObjUsuarios.usuario = _reader.GetString(4);
-                ObjUsuarios.contrasena = _reader.GetString(5);
-                ObjUsuarios.puesto = _reader.GetString(6);
-
-
-        
-                _lista.Add(ObjUsuarios);
+                string sql = "";
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                sql = "select * from usuarios";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    Cls_Usuarios u = new Cls_Usuarios();
+                    u.idUsuario = dr.GetInt32("idUsuarios");
+                    u.nombre = dr.GetString("Nombre");
+                    u.direccion = dr.GetString("Direccion");
+                    u.telefono = dr.GetString("Telefono");
+                    u.usuario = dr.GetString("Usuario");
+                    u.contrasena = dr.GetString("Contrasena");
+                    u.puesto = dr.GetString("Puesto");
+                    list.Add(u);
+                }
+                c.Cerrar();
+                return list;
             }
-            return _lista;
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return null;
+            }
+            return null;
+        }
 
-    
+        public bool eliminar(int id)
+        {
+            bool q = false;
+            try
+            {
+                c.Conectar();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "DELETE FROM usuarios WHERE idUsuarios = @id";
+                cmd.ExecuteNonQuery();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return q;
+            }
+            return q;
+        }
+
+        public bool agregar(Cls_Usuarios u)
+        {
+            bool q = false;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                c.Conectar();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@Nombre", u.nombre);
+                cmd.Parameters.AddWithValue("@Direccion", u.direccion);
+                cmd.Parameters.AddWithValue("@Telefono", u.telefono);
+                cmd.Parameters.AddWithValue("@Usuario", u.usuario);
+                cmd.Parameters.AddWithValue("@Contrasena", u.contrasena);
+                cmd.Parameters.AddWithValue("@Puesto", u.puesto);
+                cmd.CommandText = "INSERT INTO usuarios(Nombre,Direccion,Telefono,Usuario,Contrasena,Puesto)VALUES("+
+                    "@Nombre,@Direccion,@Telefono,@Usuario,sha1(md5(@Contrasena)),@Puesto);";
+                cmd.ExecuteNonQuery();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException ex)
+            {
+                q = false;
+                c.Cerrar();
+            }
+            return q;
+        }
+
+        public List<Cls_Usuarios> buscar(string usuario)
+        {
+            List<Cls_Usuarios> list = new List<Cls_Usuarios>();
+            try
+            {
+                string sql = "";
+                MySqlCommand cm = new MySqlCommand();
+                MySqlDataReader dr;
+                c.Conectar();
+                sql = "select * from usuarios where Nombre LIKE '" + usuario + "%'";
+                cm.CommandText = sql;
+                cm.CommandType = CommandType.Text;
+                cm.Connection = c.cConexion;
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    Cls_Usuarios u = new Cls_Usuarios();
+                    u.idUsuario = dr.GetInt32("idUsuarios");
+                    u.nombre = dr.GetString("Nombre");
+                    u.direccion = dr.GetString("Direccion");
+                    u.telefono = dr.GetString("Telefono");
+                    u.usuario = dr.GetString("Usuario");
+                    u.contrasena = dr.GetString("Contrasena");
+                    u.puesto = dr.GetString("Puesto");
+                    list.Add(u);
+                }
+                c.Cerrar();
+                return list;
+            }
+            catch (MySqlException e)
+            {
+                c.Cerrar();
+                return null;
+            }
+            return null;
+        }
+
+        public bool editar(Cls_Usuarios u)
+        {
+            bool q = false;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                c.Conectar();
+                cmd.Connection = c.cConexion;
+                cmd.Parameters.AddWithValue("@id", u.idUsuario);
+                cmd.Parameters.AddWithValue("@Nombre",u.nombre);
+                cmd.Parameters.AddWithValue("@Direccion", u.direccion);
+                cmd.Parameters.AddWithValue("@Telefono", u.telefono);
+                cmd.Parameters.AddWithValue("@Usuario", u.usuario);
+                cmd.Parameters.AddWithValue("@Contrasena", u.contrasena);
+                cmd.Parameters.AddWithValue("@Puesto", u.puesto);
+                cmd.CommandText = "UPDATE usuarios SET Nombre = @Nombre ,Direccion = @Direccion ,Telefono = @Telefono ,Usuario = @Usuario ,Contrasena = @Contrasena sha1(md5('@Contrasena'),Puesto = @Puesto WHERE idUsuarios = @id";
+                cmd.ExecuteNonQuery();
+                q = true;
+                c.Cerrar();
+            }
+            catch (MySqlException ex)
+            {
+                q = false;
+                c.Cerrar();
+            }
+            return q;
         }
     
     }
