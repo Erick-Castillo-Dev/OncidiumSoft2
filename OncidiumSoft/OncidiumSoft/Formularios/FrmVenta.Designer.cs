@@ -89,9 +89,11 @@
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(463, 141);
+            this.txtCantidad.MaxLength = 5;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(51, 20);
             this.txtCantidad.TabIndex = 57;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtProducto
             // 
@@ -120,9 +122,11 @@
             // txtIdProducto
             // 
             this.txtIdProducto.Location = new System.Drawing.Point(192, 138);
+            this.txtIdProducto.MaxLength = 5;
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(54, 20);
             this.txtIdProducto.TabIndex = 53;
+            this.txtIdProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProducto_KeyPress);
             this.txtIdProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdProducto_KeyUp);
             // 
             // lblFecha
@@ -339,18 +343,22 @@
             // txtPago
             // 
             this.txtPago.Location = new System.Drawing.Point(450, 487);
+            this.txtPago.MaxLength = 3;
             this.txtPago.Name = "txtPago";
             this.txtPago.Size = new System.Drawing.Size(51, 20);
             this.txtPago.TabIndex = 93;
             this.txtPago.Text = "0";
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
             // 
             // txtDescuento
             // 
             this.txtDescuento.Location = new System.Drawing.Point(247, 487);
+            this.txtDescuento.MaxLength = 2;
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(51, 20);
             this.txtDescuento.TabIndex = 94;
             this.txtDescuento.Text = "0";
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // pictureBox2
             // 

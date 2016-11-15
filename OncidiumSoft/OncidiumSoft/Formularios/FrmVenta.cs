@@ -196,15 +196,100 @@ namespace OncidiumSoft.Formularios
             bool s = vDao.venta(lista, total, int.Parse(txtDescuento.Text.ToString()), id);
             if (s)
             {
+                if (MessageBox.Show("¿Quiere imprimir el ticket?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int f = 0;
+                    //Creamos una instancia d ela clase CrearTicket
+                    Cls_CrearTicket ticket = new Cls_CrearTicket();
+
+                    ticket.TextoCentro("Rustico´s Vivero");
+                    ticket.TextoCentro("Carretera Puruandiro-Janamuato");
+                    ticket.TextoCentro("Abasolo No. 388");
+                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+                    ticket.textoDerecha("No. Ticket: " + txtIdVenta.Text.ToString());
+                    ticket.lineasGuion();
+                    ticket.TextoIzquierda("");
+                    //Articulos a vender.
+                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                    //agregar los productos
+                    for (int i = 0; i < lista.Count;i++ )
+                    {
+                        f += lista.ElementAt(i).Cantidad; 
+                        ticket.AgregarArticulo(lista.ElementAt(i).Producto, lista.ElementAt(i).Cantidad, decimal.Parse(lista.ElementAt(i).Precio_Unitario.ToString()), decimal.Parse(lista.ElementAt(i).Sub_Total.ToString()));
+                    }
+                    ticket.lineasGuion();
+                    // Totales 
+                    ticket.AgregarTotales("         SUBTOTAL......$", decimal.Parse(total.ToString()));
+                    ticket.AgregarTotales("         TOTAL.........$", decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString()) );
+                    ticket.TextoIzquierda("");
+                    ticket.AgregarTotales("         EFECTIVO......$", decimal.Parse(txtPago.Text.ToString()));
+                    ticket.AgregarTotales("         CAMBIO........$", (decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString())) - decimal.Parse(txtPago.Text.ToString()) );
+                    ticket.lineasGuion();
+
+                    //Texto final del Ticket.
+                    ticket.TextoIzquierda("");
+                    ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: "+f);
+                    ticket.TextoIzquierda("Lo atendio: "+txtEmpleado.Text.ToString());
+                    ticket.TextoIzquierda("");
+                    ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                    ticket.CargarTicket();
+                    ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Venta realizada");
+                }
+
                 reiniciar();
                 limpiar();
                 lista.Clear();
                 dgvProductos.DataSource = null;
-                MessageBox.Show("Venta realizada");
+
             }
             else
             {
                 MessageBox.Show("Error al hacer la venta");
+            }
+        }
+
+        private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
         }
 

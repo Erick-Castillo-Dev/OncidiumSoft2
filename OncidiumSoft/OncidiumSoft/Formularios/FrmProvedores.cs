@@ -118,6 +118,11 @@ namespace OncidiumSoft.Formularios
             }
         }
 
+        private void dgvProvedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
     }
     }

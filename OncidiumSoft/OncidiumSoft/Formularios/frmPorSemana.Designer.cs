@@ -31,13 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Semana = new System.Windows.Forms.Label();
             this.De = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,16 +68,6 @@
             this.De.Name = "De";
             this.De.Size = new System.Drawing.Size(0, 13);
             this.De.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label4.Location = new System.Drawing.Point(349, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 22);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Hasta";
             // 
             // btnGenerar
             // 
@@ -145,6 +135,16 @@
             this.pictureBox2.TabIndex = 62;
             this.pictureBox2.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label4.Location = new System.Drawing.Point(349, 119);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 22);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Hasta";
+            // 
             // frmPorSemana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,12 +176,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Semana;
         private System.Windows.Forms.Label De;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -113,6 +113,11 @@ namespace OncidiumSoft
             }
                 
         }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         /// <summary>
         /// Llamada al formulario de administrador de provedores
         /// </summary>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContabilidad));
             this.GastosGenerales = new System.Windows.Forms.Button();
             this.lblFechaA = new System.Windows.Forms.Label();
             this.lblGananciaT = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             // 
             this.GastosGenerales.AccessibleName = "btnGastosGenerales";
             this.GastosGenerales.BackColor = System.Drawing.Color.Transparent;
+            this.GastosGenerales.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GastosGenerales.BackgroundImage")));
+            this.GastosGenerales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.GastosGenerales.Location = new System.Drawing.Point(292, 163);
             this.GastosGenerales.Name = "GastosGenerales";
             this.GastosGenerales.Size = new System.Drawing.Size(22, 25);
