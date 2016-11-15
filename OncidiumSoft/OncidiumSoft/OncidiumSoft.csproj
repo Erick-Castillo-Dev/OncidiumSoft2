@@ -54,6 +54,7 @@
     <Compile Include="Conexion_Datos\Conexion.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Daos\Cls_CrearTicket.cs" />
     <Compile Include="Daos\Cls_DaoAjusteInventario.cs">
       <SubType>Code</SubType>
     </Compile>
