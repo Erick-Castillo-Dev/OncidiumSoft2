@@ -13,8 +13,10 @@ using System.Data;
 namespace OncidiumSoft.Daos
 {
     class Cls_DaoUsuarios
-    {
-
+    {    
+        /// <summary>
+        /// Objecto para acceder a la conexion de db.
+        /// </summary>
         Conexion c = new Conexion();
         /// <summary>
         /// Metodo para obtener el id del usuario para su uso posterio
@@ -105,7 +107,11 @@ namespace OncidiumSoft.Daos
             }
             return false;
         }
-
+        /// <summary>
+        /// Metodo para selecionar el puesto de los usuarios con el id
+        /// </summary>
+        /// <param name="clsU"></param>
+        /// <returns></returns>
         public string administrador(Cls_Usuarios clsU)
         {
             string s;
@@ -144,7 +150,7 @@ namespace OncidiumSoft.Daos
         }
 
         /// <summary>
-        /// Metodo para obtener el nombre del usuario de la base de datos 
+        /// Metodo para obtener el nombre del usuario por id de la db
         /// </summary>
         /// <param name="clsU"></param>
         /// <returns></returns>
@@ -184,7 +190,11 @@ namespace OncidiumSoft.Daos
             }
             return "";
         }
-
+        /// <summary>
+        /// Metodo para seleccionar los usuarios por id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Cls_Usuarios obtenerUsuario(int id)
         {
             try
@@ -221,7 +231,10 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo para mostrar los usuarios en el FormUsuarios
+        /// </summary>
+        /// <returns></returns>
         public List<Cls_Usuarios> llenar()
         {
             List<Cls_Usuarios> list = new List<Cls_Usuarios>();
@@ -258,7 +271,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo que que elimina los usuarios de la db por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool eliminar(int id)
         {
             bool q = false;
@@ -280,7 +297,11 @@ namespace OncidiumSoft.Daos
             }
             return q;
         }
-
+        /// <summary>
+        /// Metodo que agrega usuarios a la tabla de la db 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
         public bool agregar(Cls_Usuarios u)
         {
             bool q = false;
@@ -308,7 +329,11 @@ namespace OncidiumSoft.Daos
             }
             return q;
         }
-
+        /// <summary>
+        /// Metodo para buscar usuarios por filtrado de nombre.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public List<Cls_Usuarios> buscar(string usuario)
         {
             List<Cls_Usuarios> list = new List<Cls_Usuarios>();
@@ -345,7 +370,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo para editar los usuarios registrados en la db.
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
         public bool editar(Cls_Usuarios u)
         {
             bool q = false;

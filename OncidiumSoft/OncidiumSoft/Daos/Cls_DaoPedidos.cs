@@ -113,7 +113,6 @@ namespace OncidiumSoft.Daos
         }
         /// <summary>
         /// Metodo para obtener los pedidos.
-        
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -321,7 +320,6 @@ namespace OncidiumSoft.Daos
         /// <summary>
         /// Metodo para la actualizacion de un pedido
         /// </summary>
-
         ///  <param name="lis"></param>
         ///  <param name="v"></param>
         /// <returns></returns>
@@ -375,7 +373,7 @@ namespace OncidiumSoft.Daos
                     for (int i = 0; i < lis.Count; i++)
                     {
                         x = false;
-                        for (int j = 0; j < l.Count; j++)
+                        for (int j = 0; j < l.Count; j++)//se realiza el ciclo para enlistar los elementos
                         {
                             if (lis.ElementAt(i).ID == l.ElementAt(i).ID)
                             {

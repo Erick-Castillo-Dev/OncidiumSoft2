@@ -74,7 +74,11 @@ namespace OncidiumSoft.Daos
             return null;
 
         }
-
+        /// <summary>
+        /// Metodo para selecionar el id de los provedores por el nombre
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
         public int idProvedores(string nom)
         {
             int list = 0;
@@ -104,7 +108,11 @@ namespace OncidiumSoft.Daos
 
             return list;
         }
-
+        /// <summary>
+        /// Metodo para selecionar el nombre de los provedores por id del provedor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public string nombreProvedor(int id)
         {
             string list= "";
@@ -134,7 +142,10 @@ namespace OncidiumSoft.Daos
 
             return list;
         }
-
+        /// <summary>
+        /// Metodo para selecionar el nombre de los provedores de la db 
+        /// </summary>
+        /// <returns></returns>
         public List<string> listaProvedores()
         {
             List<string> list = new List<string>();
@@ -163,7 +174,11 @@ namespace OncidiumSoft.Daos
 
             return list;
         }
-
+        /// <summary>
+        /// Metodo para buscar la imagen del producto por id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public byte[] buscarimg(int id)
         {
             try
@@ -181,7 +196,11 @@ namespace OncidiumSoft.Daos
                 return null;
             }
         }
-
+        /// <summary>
+        /// Metodo para eliminar productos por id en la db
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool eliminarProducto(int id)
         {
             bool q = false;
@@ -203,7 +222,10 @@ namespace OncidiumSoft.Daos
             }
             return q;
         }
-
+        /// <summary>
+        /// Metodo para enlistar los productos de la db
+        /// </summary>
+        /// <returns></returns>
         public List<Cls_Productos> llenar()
         {
             List<Cls_Productos> list = new List<Cls_Productos>();
@@ -246,7 +268,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo que enlista los productos por el nombre de la db
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns></returns>
         public List<Cls_Productos> buscar(string producto)
         {
             List<Cls_Productos> list = new List<Cls_Productos>();
@@ -289,7 +315,11 @@ namespace OncidiumSoft.Daos
             }
             return null;
         }
-
+        /// <summary>
+        /// Metodo que actualiza los productos
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool editar(Cls_Productos p)
         {
             bool q = false;
@@ -321,7 +351,11 @@ namespace OncidiumSoft.Daos
             }
             return q;
         }
-        
+        /// <summary>
+        /// Metodo que agregar productos a la db
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool AgregarProducto(Cls_Productos p)
         {
             bool q = false;

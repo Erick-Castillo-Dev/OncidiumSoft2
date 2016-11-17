@@ -378,7 +378,10 @@ namespace OncidiumSoft.Daos
 
     }
 
-    //Clase para mandara a imprimir texto plano a la impresora
+    
+    /// <summary>
+    /// Clase para mandara a imprimir texto plano a la impresora
+    /// </summary>
     public class RawPrinterHelper
     {
         // Structure and API declarions:
