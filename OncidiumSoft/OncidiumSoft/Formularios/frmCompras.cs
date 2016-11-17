@@ -20,7 +20,9 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Objeto de la clase DaoVentas
+        /// </summary>
         Cls_DaoVentas vDao = new Cls_DaoVentas();
         /// <summary>
         /// Objeto de la clase productos
@@ -39,9 +41,16 @@ namespace OncidiumSoft.Formularios
         /// Variable global para el total
         /// </summary>
         double total = 0;
+        /// <summary>
+        /// Objeto para la clase DaoCompra
+        /// </summary>
         Cls_DaoCompra cDao = new Cls_DaoCompra();
        
-
+        /// <summary>
+        /// Evento que realiza la conexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
             Conexion conect = new Conexion();
@@ -51,8 +60,6 @@ namespace OncidiumSoft.Formularios
         /// <summary>
         /// Metodo para el lector de codigo de barras para agregar los productos a la compra
         /// </summary>
-       
-
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
         {
 

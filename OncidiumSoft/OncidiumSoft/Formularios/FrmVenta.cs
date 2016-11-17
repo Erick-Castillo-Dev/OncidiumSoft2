@@ -252,7 +252,11 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error al hacer la venta");
             }
         }
-
+        /// <summary>
+        /// Evento que valida que la entrada sea solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -262,7 +266,11 @@ namespace OncidiumSoft.Formularios
                 return;
             }
         }
-
+        /// <summary>
+        /// Eventos que valida que la entrada solo sea numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -272,7 +280,11 @@ namespace OncidiumSoft.Formularios
                 return;
             }
         }
-
+        /// <summary>
+        /// Evento que valida que la entrada sean solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -282,7 +294,11 @@ namespace OncidiumSoft.Formularios
                 return;
             }
         }
-
+        /// <summary>
+        /// Evento que valida que solo acepte numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))

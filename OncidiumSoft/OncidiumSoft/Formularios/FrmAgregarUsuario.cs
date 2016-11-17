@@ -18,13 +18,27 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Variable booleana para editar usuarios
+        /// </summary>
         bool editar = false;
+        /// <summary>
+        /// Variable entera para el id del usuario
+        /// </summary>
         int id;
-
+        /// <summary>
+        /// Objeto para acceder a los getter y setters de la clase CLs_Usuarios
+        /// </summary>
         Cls_Usuarios u = new Cls_Usuarios();
+        /// <summary>
+        /// Objeto para acceder a los metodos de la clase CLS_DaoUsuarios
+        /// </summary>
         Cls_DaoUsuarios uDao = new Cls_DaoUsuarios();
-
+        /// <summary>
+        /// Evento que carga el formulario al inicialo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAgregarUsuario_Load(object sender, EventArgs e)
         {
             if(editar){
@@ -37,7 +51,9 @@ namespace OncidiumSoft.Formularios
                 btnAceptar.Text = "Actualizar";
             }
         }
-
+        /// <summary>
+        /// Evento que limpia los componentes de FRM
+        /// </summary>
         public void limpiar()
         {
             txtNombre.Text = "";
@@ -47,7 +63,11 @@ namespace OncidiumSoft.Formularios
             cboxPuesto.Text = "";
             txtContrasena.Text = "";
         }
-
+        /// <summary>
+        /// Evento que confirma la actualizacion y agregacion de un usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if(editar){
@@ -88,7 +108,11 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Evento que valida que solo ingresen numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))

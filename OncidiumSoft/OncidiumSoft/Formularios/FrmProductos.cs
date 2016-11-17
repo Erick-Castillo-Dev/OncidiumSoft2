@@ -24,12 +24,24 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Objeto de la clase Cls_DaoProductos
+        /// </summary>
           Cls_DaoProductos pDao = new Cls_DaoProductos();
+        /// <summary>
+          /// Objeto de la clase Cls_Productos
+        /// </summary>
           Cls_Productos p = new Cls_Productos();
+        /// <summary>
+        /// Objeto de la lista de productos
+        /// </summary>
           List<Cls_Productos> lista = new List<Cls_Productos>(); 
 
-
+        /// <summary>
+        /// Evento que carga  la lista al inicioar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             lista = pDao.llenar();
@@ -46,7 +58,11 @@ namespace OncidiumSoft.Formularios
             this.Hide();
             agregar.Show();
         }
-
+        /// <summary>
+        /// Evento que modifica los productos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -75,7 +91,11 @@ namespace OncidiumSoft.Formularios
         }
 
        
-
+        /// <summary>
+        /// Evento que elimina algun producto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -113,7 +133,7 @@ namespace OncidiumSoft.Formularios
         }
 
         /// <summary>
-        /// Cierra el formulario actual y nos envia al principal.
+        /// Evento ques cierra el formulario actual y nos envia al principal.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -121,7 +141,11 @@ namespace OncidiumSoft.Formularios
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Evento que busca el produto con un filtrado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (txtBuscar.Text == "")

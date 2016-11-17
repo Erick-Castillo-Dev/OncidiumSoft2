@@ -16,7 +16,11 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Evento que carga el reporte al iniciar el Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMostrarReporteSemana_Load(object sender, EventArgs e)
         {
 

@@ -18,10 +18,13 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
+      /// <summary>
+      /// Variable intera Global para el id
+      /// </summary>
+        int con;
         /// <summary>
         /// Variables que manejaran la inversion y la ganancia calculada
         /// </summary>
-        int con;
         double Inversion, ganancia;
 
         /// <summary>

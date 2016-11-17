@@ -19,11 +19,23 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Objeto de la clase Cls_Provedores
+        /// </summary>
         Cls_Provedores p = new Cls_Provedores();
+        /// <summary>
+        /// Objeto de la clase Cls_DaoProvedores
+        /// </summary>
         Cls_DaoProvedores pDao = new Cls_DaoProvedores();
+        /// <summary>
+        /// Objeto de la lista de provedores
+        /// </summary>
         List<Cls_Provedores> lista = new List<Cls_Provedores>();
-
+        /// <summary>
+        /// Evento que elimina profedores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -59,14 +71,22 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Evento que manda Llamar a FrmAgregarProvedor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmAgregarProvedor a = new FrmAgregarProvedor();
             this.Close();
             a.Show();
         }
-
+        /// <summary>
+        /// Evento que modifica  el provedor selecionado en la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -93,18 +113,30 @@ namespace OncidiumSoft.Formularios
                 MessageBox.Show("Error consulta al Administrador");
             }
         }
-
+        /// <summary>
+        /// Evento que ciera la ventana de provedores 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Evento que carga los dato de la tabla al inicio de la ejecucion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmProvedores_Load(object sender, EventArgs e)
         {
             lista = pDao.llenar();
             dgvProvedores.DataSource = lista;
         }
-
+        /// <summary>
+        /// Evento que busca los provedores por filtrado 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (txtBuscar.Text == "")

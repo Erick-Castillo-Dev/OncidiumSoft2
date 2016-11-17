@@ -19,11 +19,17 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
+      /// <summary>
+      /// Objeto de la lista de pedidos
+      /// </summary>
+        List<Cls_DatosPedidos> lista = new List<Cls_DatosPedidos>();
         /// <summary>
         /// objetos de Dao pedidos
         /// </summary>
-        List<Cls_DatosPedidos> lista = new List<Cls_DatosPedidos>();
         Cls_DaoPedidos pDao = new Cls_DaoPedidos();
+        /// <summary>
+        /// Variable entera global para los pedidos
+        /// </summary>
         public int idu;
         /// <summary>
         /// cargar pedidos al cargar la ventana
@@ -91,7 +97,11 @@ namespace OncidiumSoft.Formularios
 
             
         }
-
+        /// <summary>
+        /// Evento para eliminar un pedido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -127,7 +137,11 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Evento que cierra la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

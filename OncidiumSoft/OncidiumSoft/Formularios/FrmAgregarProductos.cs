@@ -21,14 +21,35 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Variable boolean para editar productos
+        /// </summary>
         public bool editar = false;
+        /// <summary>
+        /// Variable entera para el id del producto
+        /// </summary>
         public int id;
+        /// <summary>
+        /// Objecto de la clase CLSProductos para acceder a los getters y setter de ella.
+        /// </summary>
         Cls_Productos p = new Cls_Productos();
+        /// <summary>
+        /// Objecto para acceder a los metodos de la clase Cls_DaoProductos
+        /// </summary>
         Cls_DaoProductos pDao = new Cls_DaoProductos();
+        /// <summary>
+        /// Objecto para la clase CLs_DaoVentas para acceder a sus metodos
+        /// </summary>
         Cls_DaoVentas vDao = new Cls_DaoVentas();
+        /// <summary>
+        /// Tipo imagen para almacenar la del producto
+        /// </summary>
         Image m;
-
+        /// <summary>
+        /// Evento para La busqueda de la imagen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImg_Click(object sender, EventArgs e)
         {
 
@@ -46,7 +67,11 @@ namespace OncidiumSoft.Formularios
             }
 
         }
-
+        /// <summary>
+        /// Evento para guardar el producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if(editar){
@@ -84,7 +109,11 @@ namespace OncidiumSoft.Formularios
                 pDao.AgregarProducto(c);
             }
         }
-
+        /// <summary>
+        /// Evento que carga los componentes en el formulario al iniciar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAgregarProductos_Load(object sender, EventArgs e)
         {
             cobProvedor.DataSource = pDao.listaProvedores();
@@ -102,14 +131,22 @@ namespace OncidiumSoft.Formularios
                 btnGuardar.Text = "Actualizar";
             }
         }
-
+        /// <summary>
+        /// Evento que cancela la operacion en este formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmProductos f = new FrmProductos();
             f.Show();
         }
-
+        /// <summary>
+        /// Evento para validar la longitud y el tipo de entrada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtpreciocliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -140,7 +177,11 @@ namespace OncidiumSoft.Formularios
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// evento para validar la longitud y el tipo de dato de entrada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPrecioCosto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -171,7 +212,11 @@ namespace OncidiumSoft.Formularios
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento para valida que solo acepte numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))

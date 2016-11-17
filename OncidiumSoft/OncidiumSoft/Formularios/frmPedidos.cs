@@ -20,27 +20,39 @@ namespace OncidiumSoft.Formularios
             InitializeComponent();
         }
         /// <summary>
-        /// variables
+        /// variable global para editar el pedido
         /// </summary>
         public bool editar = false;
+        /// <summary>
+        /// Variable global para el id
+        /// </summary>
         public int id = -1;
+        /// <summary>
+        /// Variable Global para el id del usario
+        /// </summary>
         public int idu = -1;
         /// <summary>
-        /// objetos de pedidos
+        /// objetos de la clase pedidos
         /// </summary>
         Cls_DaoPedidos pDao = new Cls_DaoPedidos();
         /// <summary>
-        /// objetos de datos ventas
+        /// objetos de  la clase de ventas
         /// </summary>
         Cls_Ventas v = new Cls_Ventas();
+        /// <summary>
+        /// Objeto para la lista de pedidos
+        /// </summary>
         List<Cls_DatosVenta> dV = new List<Cls_DatosVenta>();
         /// <summary>
-        /// objetos de Dao productos y de datos del producto
+        /// objetos getters y setter de  productos 
         /// </summary>
         Cls_Productos pro = new Cls_Productos();
+        /// <summary>
+        /// objeto para dao de Productos
+        /// </summary>
         Cls_DaoProductos proDao = new Cls_DaoProductos();
         /// <summary>
-        /// Metodo para indicar lo que debe tener las cajas al cargar
+        /// Metodo para indicar lo que debe tener las cajas al cargar el form
         /// </summary>
 
         private void frmPedidos_Load(object sender, EventArgs e)
@@ -97,6 +109,11 @@ namespace OncidiumSoft.Formularios
             dgvPedidos.DataSource = dV;
         }
 
+        /// <summary>
+        /// Evento para validar el id del producto 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtIdProducto_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Enter)
@@ -153,7 +170,10 @@ namespace OncidiumSoft.Formularios
                 }
             }
         }
-
+        /// <summary>
+        /// Metodo para validar el contenido de los componentes del Form
+        /// </summary>
+        /// <returns></returns>
         public bool validar()
         {
             if(
@@ -169,7 +189,11 @@ namespace OncidiumSoft.Formularios
             }
             return false;
         }
-
+        /// <summary>
+        /// Evento para cancelar la ejecucion de la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -223,7 +247,7 @@ namespace OncidiumSoft.Formularios
             }
         }
         /// <summary>
-        /// Metodo del boton eliminar que permite eliminar un pedido
+        /// Evento del boton eliminar que permite eliminar un pedido
         /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -254,7 +278,7 @@ namespace OncidiumSoft.Formularios
             }
         }
         /// <summary>
-        /// Metodopara validaciones
+        /// Evento para validaciones
         /// </summary>
         private void txtAnticipo_TextChanged(object sender, EventArgs e)
         {
@@ -262,7 +286,11 @@ namespace OncidiumSoft.Formularios
             txtTotal.Text = (double.Parse(txtSubtotal.Text.ToString()) - double.Parse(txtAnticipo.Text.ToString())).ToString();
             }
         }
-
+        /// <summary>
+        /// Evento que comprueba el tipo de dato en anticipo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAnticipo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -293,7 +321,11 @@ namespace OncidiumSoft.Formularios
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento para el ingreso de solo numeros en el id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -303,7 +335,11 @@ namespace OncidiumSoft.Formularios
                 return;
             }
         }
-
+        /// <summary>
+        /// Eventos para el ingreso de solo numeros en la cantidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCantidaP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -313,7 +349,11 @@ namespace OncidiumSoft.Formularios
                 return;
             }
         }
-
+        /// <summary>
+        /// Evento para el ingreso de solo numeros en el telefono
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txttelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))

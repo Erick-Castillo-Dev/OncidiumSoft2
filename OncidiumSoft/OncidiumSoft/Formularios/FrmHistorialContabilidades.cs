@@ -23,6 +23,7 @@ namespace OncidiumSoft.Formularios
         /// </summary>
         public void VerContabilidad()
         {
+            //Objeto de la clase Cls_DaoContabilidad
             Cls_DaoContabilidad objDCont = new Cls_DaoContabilidad();
             dgvContabilidad.DataSource = objDCont.getContabilidad();
         }

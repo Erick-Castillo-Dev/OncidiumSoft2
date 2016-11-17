@@ -23,9 +23,14 @@ namespace OncidiumSoft.Formularios
         }
 
     
-
+        /// <summary>
+        /// Evento que muestra el reporte en un nuevo form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            //Objeto del formulario frmMostrarReporteSemana
             frmMostrarReporteSemana jiji = new frmMostrarReporteSemana();
             jiji.Show();
         }
@@ -35,7 +40,11 @@ namespace OncidiumSoft.Formularios
            
         
         }
-
+        /// <summary>
+        /// Evento que carga la fecha en el componente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
             //Se obtiene la fecha del DateTimePicker
@@ -43,7 +52,11 @@ namespace OncidiumSoft.Formularios
             //Aqui se hace la resta de los 7 dias de una semana
             Semana.Text = dtpFecha.Value.AddDays(-7).ToShortDateString();
         }
-
+        /// <summary>
+        /// Evento para validar la semana selecionada de reporte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerar_Click_1(object sender, EventArgs e)
         {
             frmMostrarReporteSemana mostrar = new frmMostrarReporteSemana();

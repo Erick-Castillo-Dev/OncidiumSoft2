@@ -16,7 +16,11 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Evento que caraga el reporte al iniciar el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMostrarReporteMes_Load(object sender, EventArgs e)
         {
             // Esta línea de código carga datos en la tabla 'dataSetPrincipal.DataTable1' Puede moverla o quitarla según sea necesario.

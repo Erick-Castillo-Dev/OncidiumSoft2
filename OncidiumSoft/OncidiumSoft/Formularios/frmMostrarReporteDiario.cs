@@ -16,7 +16,11 @@ namespace OncidiumSoft.Formularios
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Evento que carga el reporte al iniciar el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMostrarReporteDiario_Load(object sender, EventArgs e)
         {
             this.reportViewer1.RefreshReport();

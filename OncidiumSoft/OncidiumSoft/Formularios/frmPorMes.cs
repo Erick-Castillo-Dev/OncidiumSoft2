@@ -23,7 +23,11 @@ namespace OncidiumSoft.Formularios
             String[] Meses = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames;
             comboBox1.Items.AddRange(Meses);
         }
-
+        /// <summary>
+        /// Evento para selecionar el mes del reporte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             frmMostrarReporteMes mostrar = new frmMostrarReporteMes();
