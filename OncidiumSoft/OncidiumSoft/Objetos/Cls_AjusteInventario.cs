@@ -19,8 +19,10 @@ namespace OncidiumSoft.Objetos
         private bool pTipoAjuste;
 
         /// <summary>
-        /// Getters y setters del ajuste de inventario
+        /// Getters y setters del nombre
         /// </summary>
+        /// 
+        
         public string Nombre
         {
             get
@@ -32,6 +34,11 @@ namespace OncidiumSoft.Objetos
                 pNombre = value;
             }
         }
+
+
+        /// <summary>
+        /// getter y setter de la cantidad
+        /// </summary>
         public int Cantidad
         {
             get
@@ -43,6 +50,9 @@ namespace OncidiumSoft.Objetos
                 pCantidad = value;
             }
         }
+        /// <summary>
+        /// Getter y setter del precio costo
+        /// </summary>
         public double PrecioCosto
         {
             get
@@ -54,6 +64,9 @@ namespace OncidiumSoft.Objetos
                 pPrecioCosto = value;
             }
         }
+        /// <summary>
+        /// Getter y setter del precio cliente
+        /// </summary>
         public double PrecioCliente
         {
             get
@@ -65,6 +78,9 @@ namespace OncidiumSoft.Objetos
                 pPrecioCliente = value;
             }
         }
+        /// <summary>
+        /// Getter y setter del estado
+        /// </summary>
         public bool Estado
         {
             get
@@ -76,6 +92,9 @@ namespace OncidiumSoft.Objetos
                 pEstado = value;
             }
         }
+        /// <summary>
+        /// Getter y setter del tipo ajuste
+        /// </summary>
         public bool TipoAjuste
         {
             get

@@ -17,7 +17,7 @@ namespace OncidiumSoft.Objetos
         private double pGanancia_Perdida;
 
         /// <summary>
-        /// Getters y setters de contabilidad
+        /// Getters y setters del idcontabilidad
         /// </summary>
         public int idContabilidad
         {
@@ -30,6 +30,9 @@ namespace OncidiumSoft.Objetos
                 pidContabilidad = value;
             }
         }
+        /// <summary>
+        /// Getter y setter de la fecha inicio
+        /// </summary>
         public DateTime FechaInicio
         {
             get
@@ -41,6 +44,9 @@ namespace OncidiumSoft.Objetos
                 pFechaInicio = value;
             }
         }
+        /// <summary>
+        /// Gettter y setter de la Fecha inicial
+        /// </summary>
         public DateTime FechaFin
         {
             get
@@ -52,6 +58,9 @@ namespace OncidiumSoft.Objetos
                 pFechaFin = value;
             }
         }
+        /// <summary>
+        /// Getter y setter de la ganacioa perdida
+        /// </summary>
         public double Ganancia_Perdida
         {
             get
