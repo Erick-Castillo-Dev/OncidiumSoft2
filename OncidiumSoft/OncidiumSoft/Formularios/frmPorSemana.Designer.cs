@@ -84,7 +84,7 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(35, 143);
+            this.dtpFecha.Location = new System.Drawing.Point(42, 143);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(240, 20);
             this.dtpFecha.TabIndex = 11;
