@@ -176,12 +176,13 @@
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelar.Location = new System.Drawing.Point(237, 364);
+            this.btnCancelar.Location = new System.Drawing.Point(238, 364);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(151, 40);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "  Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cboxPuesto
             // 
@@ -216,9 +217,9 @@
             this.label1.Location = new System.Drawing.Point(29, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 29);
+            this.label1.Size = new System.Drawing.Size(203, 29);
             this.label1.TabIndex = 65;
-            this.label1.Text = "Agregar Proveedor";
+            this.label1.Text = "Agregar Usuario";
             // 
             // pictureBox1
             // 
