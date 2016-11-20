@@ -101,12 +101,12 @@ namespace OncidiumSoft.Daos
                 cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.CommandText = "INSERT INTO ventas (SubTotal,Total,Fecha_Realizar,Fecha_Entregar,Tipo,Descuento,idUsuarios,Entregado)VALUES(@subtotal,@total,@fecha,@fecha,'Venta',@descuento,@id,1)";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "select idVenta from ventas order by idVenta desc";
+                cmd.CommandText = "select idVentas from ventas order by idVentas desc";
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     dr.Read();
-                    s = dr.GetInt32("idVenta");
+                    s = dr.GetInt32("idVentas");
                 }
                 dr.Close();
                 for (int i = 0; i < lis.Count; i++)
