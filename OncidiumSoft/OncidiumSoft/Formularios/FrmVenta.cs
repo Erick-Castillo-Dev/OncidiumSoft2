@@ -55,6 +55,7 @@ namespace OncidiumSoft.Formularios
             lblTotal.Text = "Total:  $ " + 0;
             txtDescuento.Text = "0";
             lblCambio.Text = "Cambio: $ " + 0;
+            lblSubtotal.Text = "SubTotal : $ ";
             lblFecha.Text = "Fecha de venta: " + DateTime.Now.ToString("yyyy/MM/dd");
             txtCantidad.Text = "1";
             txtDescuento.Text = "0";
@@ -113,6 +114,7 @@ namespace OncidiumSoft.Formularios
                     v.Tipo = pro.TipoProducto;
                     total += v.Sub_Total;
                     lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
+                    lblSubtotal.Text = "SubTotal : $ " + total;
                     if(lista == null){
                         lista.Add(v);
                     }
@@ -149,10 +151,13 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            reiniciar();
-            limpiar();
-            lista.Clear();
-            MessageBox.Show("Venta cancelada");
+            if (MessageBox.Show("¿Deseas cancelar la venta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                reiniciar();
+                limpiar();
+                lista.Clear();
+                MessageBox.Show("Venta cancelada");
+            }
         }
         /// <summary>
         /// Metodo para eliminar los productois eliminados del datagridview
@@ -161,28 +166,33 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("¿Deseas eliminar el producto?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Int32 selectedRowCount = dgvProductos.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                if (selectedRowCount > 0)
+                try
                 {
-                    for (int i = 0; i < selectedRowCount; i++)
+                    Int32 selectedRowCount = dgvProductos.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    if (selectedRowCount > 0)
                     {
-                        for (int j = 0; j < lista.Count; j++)
+                        for (int i = 0; i < selectedRowCount; i++)
                         {
-                            if (dgvProductos.Rows[dgvProductos.SelectedRows[i].Index].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                            for (int j = 0; j < lista.Count; j++)
                             {
-                                total -= lista.ElementAt(j).Sub_Total;
-                                lista.RemoveAt(j);
+                                if (dgvProductos.Rows[dgvProductos.SelectedRows[i].Index].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                                {
+                                    total -= lista.ElementAt(j).Sub_Total;
+                                    lista.RemoveAt(j);
+                                }
                             }
                         }
+                        dgvProductos.DataSource = null;
+                        dgvProductos.DataSource = lista;
+                        lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
                     }
-                    dgvProductos.DataSource = null;
-                    dgvProductos.DataSource = lista;
-                    lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
                 }
-            }catch(Exception ex){
-                MessageBox.Show("Error consulta al Administrador");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error consulta al Administrador");
+                }
             }
 
         }
@@ -193,63 +203,71 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
-            bool s = vDao.venta(lista, total, int.Parse(txtDescuento.Text.ToString()), id);
-            if (s)
-            {
-                if (MessageBox.Show("¿Quiere imprimir el ticket?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if(lista != null){
+                bool s = vDao.venta(lista, total, int.Parse(txtDescuento.Text.ToString()), id);
+                if (s)
                 {
-                    int f = 0;
-                    //Creamos una instancia d ela clase CrearTicket
-                    Cls_CrearTicket ticket = new Cls_CrearTicket();
-
-                    ticket.TextoCentro("Rustico´s Vivero");
-                    ticket.TextoCentro("Carretera Puruandiro-Janamuato");
-                    ticket.TextoCentro("Abasolo No. 388");
-                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
-                    ticket.textoDerecha("No. Ticket: " + txtIdVenta.Text.ToString());
-                    ticket.lineasGuion();
-                    ticket.TextoIzquierda("");
-                    //Articulos a vender.
-                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                    //agregar los productos
-                    for (int i = 0; i < lista.Count;i++ )
+                    if (MessageBox.Show("¿Deseas realizar la venta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        f += lista.ElementAt(i).Cantidad; 
-                        ticket.AgregarArticulo(lista.ElementAt(i).Producto, lista.ElementAt(i).Cantidad, decimal.Parse(lista.ElementAt(i).Precio_Unitario.ToString()), decimal.Parse(lista.ElementAt(i).Sub_Total.ToString()));
-                    }
-                    ticket.lineasGuion();
-                    // Totales 
-                    ticket.AgregarTotales("         SUBTOTAL......$", decimal.Parse(total.ToString()));
-                    ticket.AgregarTotales("         TOTAL.........$", decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString()) );
-                    ticket.TextoIzquierda("");
-                    ticket.AgregarTotales("         EFECTIVO......$", decimal.Parse(txtPago.Text.ToString()));
-                    ticket.AgregarTotales("         CAMBIO........$", (decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString())) - decimal.Parse(txtPago.Text.ToString()) );
-                    ticket.lineasGuion();
+                        if (MessageBox.Show("¿Quiere imprimir el ticket?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int f = 0;
+                            //Creamos una instancia d ela clase CrearTicket
+                            Cls_CrearTicket ticket = new Cls_CrearTicket();
 
-                    //Texto final del Ticket.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: "+f);
-                    ticket.TextoIzquierda("Lo atendio: "+txtEmpleado.Text.ToString());
-                    ticket.TextoIzquierda("");
-                    ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                    ticket.CargarTicket();
-                    ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
-                   
+                            ticket.TextoCentro("Rustico´s Vivero");
+                            ticket.TextoCentro("Carretera Puruandiro-Janamuato");
+                            ticket.TextoCentro("Abasolo No. 388");
+                            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+                            ticket.textoDerecha("No. Ticket: " + txtIdVenta.Text.ToString());
+                            ticket.lineasGuion();
+                            ticket.TextoIzquierda("");
+                            //Articulos a vender.
+                            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                            //agregar los productos
+                            for (int i = 0; i < lista.Count; i++)
+                            {
+                                f += lista.ElementAt(i).Cantidad;
+                                ticket.AgregarArticulo(lista.ElementAt(i).Producto, lista.ElementAt(i).Cantidad, decimal.Parse(lista.ElementAt(i).Precio_Unitario.ToString()), decimal.Parse(lista.ElementAt(i).Sub_Total.ToString()));
+                            }
+                            ticket.lineasGuion();
+                            // Totales 
+                            ticket.AgregarTotales("         SUBTOTAL......$", decimal.Parse(total.ToString()));
+                            ticket.AgregarTotales("         TOTAL.........$", decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString()));
+                            ticket.TextoIzquierda("");
+                            ticket.AgregarTotales("         EFECTIVO......$", decimal.Parse(txtPago.Text.ToString()));
+                            ticket.AgregarTotales("         CAMBIO........$", (decimal.Parse(total.ToString()) - decimal.Parse(txtDescuento.Text.ToString())) - decimal.Parse(txtPago.Text.ToString()));
+                            ticket.lineasGuion();
+
+                            //Texto final del Ticket.
+                            ticket.TextoIzquierda("");
+                            ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + f);
+                            ticket.TextoIzquierda("Lo atendio: " + txtEmpleado.Text.ToString());
+                            ticket.TextoIzquierda("");
+                            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                            ticket.CargarTicket();
+                            ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Venta realizada");
+                        }
+
+                        reiniciar();
+                        limpiar();
+                        lista.Clear();
+                        dgvProductos.DataSource = null;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Venta realizada");
+                    MessageBox.Show("Error al hacer la venta");
                 }
-
-                reiniciar();
-                limpiar();
-                lista.Clear();
-                dgvProductos.DataSource = null;
-
             }
             else
             {
-                MessageBox.Show("Error al hacer la venta");
+                MessageBox.Show("Error debes llenar la venta para poderla realizar");
             }
         }
         /// <summary>
@@ -287,11 +305,16 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lblTotal.Text = "Total:  $ " + (total - double.Parse(txtDescuento.Text.ToString()));
             }
         }
         /// <summary>
@@ -301,11 +324,15 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lblCambio.Text = "Cambio: $ " + (double.Parse(txtPago.Text.ToString()) - (total - double.Parse(txtDescuento.Text.ToString())));
             }
         }
 
