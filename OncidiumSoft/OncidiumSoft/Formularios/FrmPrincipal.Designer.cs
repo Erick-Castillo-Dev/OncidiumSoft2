@@ -84,7 +84,7 @@
             this.Salir.BackColor = System.Drawing.Color.ForestGreen;
             this.Salir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(152, 30);
+            this.Salir.Size = new System.Drawing.Size(124, 30);
             this.Salir.Text = "Salir";
             this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
@@ -263,6 +263,7 @@
             this.Controls.Add(this.menuPrincipal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPrincipal";

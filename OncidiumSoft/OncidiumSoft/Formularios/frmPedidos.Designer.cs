@@ -186,9 +186,10 @@
             this.groupBox1.Controls.Add(this.lblTelefono);
             this.groupBox1.Controls.Add(this.lblcliente);
             this.groupBox1.Controls.Add(this.lblrealizacion);
-            this.groupBox1.Location = new System.Drawing.Point(34, 88);
+            this.groupBox1.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(34, 73);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(841, 229);
+            this.groupBox1.Size = new System.Drawing.Size(841, 237);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Pedido";
@@ -197,14 +198,14 @@
             // 
             this.dtEntrega.Location = new System.Drawing.Point(639, 12);
             this.dtEntrega.Name = "dtEntrega";
-            this.dtEntrega.Size = new System.Drawing.Size(200, 20);
+            this.dtEntrega.Size = new System.Drawing.Size(200, 26);
             this.dtEntrega.TabIndex = 37;
             // 
             // dtRealizar
             // 
             this.dtRealizar.Location = new System.Drawing.Point(287, 12);
             this.dtRealizar.Name = "dtRealizar";
-            this.dtRealizar.Size = new System.Drawing.Size(200, 20);
+            this.dtRealizar.Size = new System.Drawing.Size(200, 26);
             this.dtRealizar.TabIndex = 36;
             // 
             // txtDescripcion
@@ -219,7 +220,7 @@
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(273, 142);
             this.txtDomicilio.Name = "txtDomicilio";
-            this.txtDomicilio.Size = new System.Drawing.Size(236, 20);
+            this.txtDomicilio.Size = new System.Drawing.Size(236, 26);
             this.txtDomicilio.TabIndex = 34;
             // 
             // txttelefono
@@ -227,7 +228,7 @@
             this.txttelefono.Location = new System.Drawing.Point(287, 91);
             this.txttelefono.MaxLength = 10;
             this.txttelefono.Name = "txttelefono";
-            this.txttelefono.Size = new System.Drawing.Size(100, 20);
+            this.txttelefono.Size = new System.Drawing.Size(100, 26);
             this.txttelefono.TabIndex = 33;
             this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
@@ -236,7 +237,7 @@
             this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(675, 142);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.Size = new System.Drawing.Size(100, 26);
             this.txtTotal.TabIndex = 32;
             // 
             // txtSubtotal
@@ -244,14 +245,14 @@
             this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Location = new System.Drawing.Point(675, 94);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSubtotal.Size = new System.Drawing.Size(100, 26);
             this.txtSubtotal.TabIndex = 31;
             // 
             // txtAnticipo
             // 
             this.txtAnticipo.Location = new System.Drawing.Point(675, 54);
             this.txtAnticipo.Name = "txtAnticipo";
-            this.txtAnticipo.Size = new System.Drawing.Size(100, 20);
+            this.txtAnticipo.Size = new System.Drawing.Size(100, 26);
             this.txtAnticipo.TabIndex = 30;
             this.txtAnticipo.TextChanged += new System.EventHandler(this.txtAnticipo_TextChanged);
             this.txtAnticipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnticipo_KeyPress);
@@ -260,7 +261,7 @@
             // 
             this.txtNCliente.Location = new System.Drawing.Point(287, 51);
             this.txtNCliente.Name = "txtNCliente";
-            this.txtNCliente.Size = new System.Drawing.Size(172, 20);
+            this.txtNCliente.Size = new System.Drawing.Size(172, 26);
             this.txtNCliente.TabIndex = 29;
             // 
             // label9
@@ -347,7 +348,7 @@
             // 
             this.lblrealizacion.AutoSize = true;
             this.lblrealizacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrealizacion.Location = new System.Drawing.Point(19, 12);
+            this.lblrealizacion.Location = new System.Drawing.Point(12, 19);
             this.lblrealizacion.Name = "lblrealizacion";
             this.lblrealizacion.Size = new System.Drawing.Size(269, 17);
             this.lblrealizacion.TabIndex = 20;
@@ -364,7 +365,7 @@
             this.btnRealizar.Name = "btnRealizar";
             this.btnRealizar.Size = new System.Drawing.Size(157, 49);
             this.btnRealizar.TabIndex = 47;
-            this.btnRealizar.Text = "Realizar ";
+            this.btnRealizar.Text = "Actualizar";
             this.btnRealizar.UseVisualStyleBackColor = false;
             this.btnRealizar.Click += new System.EventHandler(this.btnRealizar_Click);
             // 

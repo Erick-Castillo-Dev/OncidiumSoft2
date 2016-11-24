@@ -197,6 +197,7 @@ namespace OncidiumSoft.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            new frmListPedidos().Show();
         }
         /// <summary>
         /// Metodo para realizar el pedido
@@ -204,46 +205,76 @@ namespace OncidiumSoft.Formularios
         private void btnRealizar_Click(object sender, EventArgs e)
         {
             bool z = false;
-            if(editar){
-                v.fecha_Realizar = dtRealizar.Value;
-                v.fecha_Entrega = dtEntrega.Value;
-                v.cliente = txtNCliente.Text;
-                v.telefono = txttelefono.Text;
-                v.domicilio = txtDomicilio.Text;
-                v.descripcion = txtDescripcion.Text;
-                v.anticipo = float.Parse(txtAnticipo.Text.ToString());
-                v.subTotal = float.Parse(txtSubtotal.Text.ToString());
-                v.total = float.Parse(txtTotal.Text.ToString());
-                z = pDao.ActualizarPedido(dV,v);
-                if(z){
-                    MessageBox.Show("Edicion realizada");
-                }else{
-                    MessageBox.Show("Error al editar");
+            if (txttelefono.Text.ToString().Length == 10)
+            {
+                if (editar)
+                {
+                    v.fecha_Realizar = dtRealizar.Value;
+                    v.fecha_Entrega = dtEntrega.Value;
+                    v.cliente = txtNCliente.Text;
+                    v.telefono = txttelefono.Text;
+                    v.domicilio = txtDomicilio.Text;
+                    v.descripcion = txtDescripcion.Text;
+                    v.anticipo = float.Parse(txtAnticipo.Text.ToString());
+                    v.subTotal = float.Parse(txtSubtotal.Text.ToString());
+                    v.total = float.Parse(txtTotal.Text.ToString());
+                    if (dV.Count != 0 && dV != null)
+                    {
+                        z = pDao.ActualizarPedido(dV, v);
+                        if (z)
+                        {
+                            MessageBox.Show("Edicion realizada");
+                            this.Close();
+                            new frmListPedidos().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al editar");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se tiene que llenar todos los campos");
+                    }
+
+                }
+                else
+                {
+                    v.fecha_Realizar = dtRealizar.Value;
+                    v.fecha_Entrega = dtEntrega.Value;
+                    v.cliente = txtNCliente.Text;
+                    v.telefono = txttelefono.Text;
+                    v.domicilio = txtDomicilio.Text;
+                    v.descripcion = txtDescripcion.Text;
+                    v.anticipo = float.Parse(txtAnticipo.Text.ToString());
+                    v.subTotal = float.Parse(txtSubtotal.Text.ToString());
+                    v.total = float.Parse(txtTotal.Text.ToString());
+                    v.idUsuario = idu;
+                    if (dV != null && dV.Count != 0)
+                    {
+                        z = pDao.Pedido(dV, v);
+                        if (z)
+                        {
+                            MessageBox.Show("Se agrego");
+                            limpiarTodo();
+                            limpiar();
+                            this.Close();
+                            new frmListPedidos().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al editar");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se tiene que llenar todos los campos");
+                    }
                 }
             }
             else
             {
-                v.fecha_Realizar = dtRealizar.Value;
-                v.fecha_Entrega = dtEntrega.Value;
-                v.cliente = txtNCliente.Text;
-                v.telefono = txttelefono.Text;
-                v.domicilio = txtDomicilio.Text;
-                v.descripcion = txtDescripcion.Text;
-                v.anticipo = float.Parse(txtAnticipo.Text.ToString());
-                v.subTotal = float.Parse(txtSubtotal.Text.ToString());
-                v.total = float.Parse(txtTotal.Text.ToString());
-                v.idUsuario = idu;
-                z = pDao.Pedido(dV, v);
-                if (z)
-                {
-                    MessageBox.Show("Edicion realizada");
-                    limpiarTodo();
-                    limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error al editar");
-                }
+                MessageBox.Show("El telefono debe tener 10 digitos");
             }
         }
         /// <summary>
@@ -328,7 +359,7 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar!=(char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;

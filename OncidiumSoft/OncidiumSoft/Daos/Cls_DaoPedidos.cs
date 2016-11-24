@@ -375,7 +375,7 @@ namespace OncidiumSoft.Daos
                         x = false;
                         for (int j = 0; j < l.Count; j++)//se realiza el ciclo para enlistar los elementos
                         {
-                            if (lis.ElementAt(i).ID == l.ElementAt(i).ID)
+                            if (lis.ElementAt(i).ID == l.ElementAt(j).ID)
                             {
                                 x = true;
                                 break;
@@ -410,7 +410,7 @@ namespace OncidiumSoft.Daos
                         x = false;
                         for (int j = 0; j < lis.Count; j++)
                         {
-                            if (lis.ElementAt(i).ID == l.ElementAt(i).ID)
+                            if (lis.ElementAt(j).ID == l.ElementAt(i).ID)
                             {
                                 x = true;
                                 break;
@@ -420,9 +420,9 @@ namespace OncidiumSoft.Daos
                         {
                             cmd.Parameters.Clear();
                             cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
-                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
-                            cmd.Parameters.AddWithValue("@Cantidad", lis.ElementAt(i).Cantidad);
-                            cmd.Parameters.AddWithValue("@Precio", lis.ElementAt(i).Precio_Unitario);
+                            cmd.Parameters.AddWithValue("@idProducto", l.ElementAt(i).ID);
+                            cmd.Parameters.AddWithValue("@Cantidad", l.ElementAt(i).Cantidad);
+                            cmd.Parameters.AddWithValue("@Precio", l.ElementAt(i).Precio_Unitario);
                             cmd.CommandText = "UPDATE detalles_ventas SET idProductos = @idProducto, idVentas = @idVenta, Cantidad = @Cantidad, Precio = @Precio WHERE idProductos = @idProducto AND idVentas = @idVenta";
                             cmd.ExecuteNonQuery();
                         }
@@ -430,7 +430,7 @@ namespace OncidiumSoft.Daos
                         {
                             cmd.Parameters.Clear();
                             cmd.Parameters.AddWithValue("@idVenta", v.idVenta);
-                            cmd.Parameters.AddWithValue("@idProducto", lis.ElementAt(i).ID);
+                            cmd.Parameters.AddWithValue("@idProducto", l.ElementAt(i).ID);
                             cmd.CommandText = "DELETE FROM detalles_ventas WHERE idProductos = @idProducto AND idVentas = @idVenta";
                             cmd.ExecuteNonQuery();
                         }
