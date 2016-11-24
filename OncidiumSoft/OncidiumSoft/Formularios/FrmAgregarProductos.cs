@@ -89,7 +89,15 @@ namespace OncidiumSoft.Formularios
                 m.Save(ms, ImageFormat.Png);
                 byte[] imgArr = ms.ToArray();
                 c.imgenProducto = imgArr;
-                pDao.editar(c);
+                bool ps = pDao.editar(c);
+                if(ps){
+                    new FrmAgregarProductos().Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error no se pudo editar el producto");
+                }
             }
             else
             {
@@ -106,7 +114,16 @@ namespace OncidiumSoft.Formularios
                 m.Save(ms, ImageFormat.Png);
                 byte[] imgArr = ms.ToArray();
                 c.imgenProducto = imgArr;
-                pDao.AgregarProducto(c);
+                bool ps = pDao.AgregarProducto(c);
+                if (ps)
+                {
+                    new FrmAgregarProductos().Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error no se pudo editar el producto");
+                }
             }
         }
         /// <summary>
@@ -128,6 +145,7 @@ namespace OncidiumSoft.Formularios
                 cboxTipo.Text = p.TipoProducto;
                 cobProvedor.Text = pDao.nombreProvedor(p.iddeProvedores);
                 ptImg.Image = vDao.cargarimagen(p.imgenProducto);
+                m = vDao.cargarimagen(p.imgenProducto);
                 btnGuardar.Text = "Actualizar";
             }
         }

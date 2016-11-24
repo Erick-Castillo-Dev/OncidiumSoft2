@@ -212,6 +212,7 @@
             this.Controls.Add(this.dgVProductos);
             this.MaximizeBox = false;
             this.Name = "FrmProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administración Productos.";
             this.Load += new System.EventHandler(this.FrmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVProductos)).EndInit();

@@ -306,6 +306,7 @@
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.lblNombre);
             this.Name = "FrmAgregarProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Productos.";
             this.Load += new System.EventHandler(this.FrmAgregarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptImg)).EndInit();
