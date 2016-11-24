@@ -91,7 +91,8 @@ namespace OncidiumSoft.Formularios
                 c.imgenProducto = imgArr;
                 bool ps = pDao.editar(c);
                 if(ps){
-                    new FrmAgregarProductos().Show();
+                    MessageBox.Show("Se edito el producto");
+                    new FrmProductos().Show();
                     this.Close();
                 }
                 else
@@ -117,7 +118,8 @@ namespace OncidiumSoft.Formularios
                 bool ps = pDao.AgregarProducto(c);
                 if (ps)
                 {
-                    new FrmAgregarProductos().Show();
+                    MessageBox.Show("Se agrego el producto");
+                    new FrmProductos().Show();
                     this.Close();
                 }
                 else
@@ -147,6 +149,7 @@ namespace OncidiumSoft.Formularios
                 ptImg.Image = vDao.cargarimagen(p.imgenProducto);
                 m = vDao.cargarimagen(p.imgenProducto);
                 btnGuardar.Text = "Actualizar";
+                label1.Text = "Modificar Productos";
             }
         }
         /// <summary>

@@ -390,7 +390,7 @@ namespace OncidiumSoft.Daos
                 cmd.Parameters.AddWithValue("@Usuario", u.usuario);
                 cmd.Parameters.AddWithValue("@Contrasena", u.contrasena);
                 cmd.Parameters.AddWithValue("@Puesto", u.puesto);
-                cmd.CommandText = "UPDATE usuarios SET Nombre = @Nombre ,Direccion = @Direccion ,Telefono = @Telefono ,Usuario = @Usuario ,Contrasena = @Contrasena sha1(md5('@Contrasena'),Puesto = @Puesto WHERE idUsuarios = @id";
+                cmd.CommandText = "UPDATE usuarios SET Nombre = @Nombre ,Direccion = @Direccion ,Telefono = @Telefono ,Usuario = @Usuario ,Contrasena = sha1(md5(@Contrasena)),Puesto = @Puesto WHERE idUsuarios = @id";
                 cmd.ExecuteNonQuery();
                 q = true;
                 c.Cerrar();

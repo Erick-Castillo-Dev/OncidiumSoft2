@@ -21,11 +21,11 @@ namespace OncidiumSoft.Formularios
         /// <summary>
         /// Variable booleana para editar usuarios
         /// </summary>
-        bool editar = false;
+        public bool editar = false;
         /// <summary>
         /// Variable entera para el id del usuario
         /// </summary>
-        int id;
+        public int id;
         /// <summary>
         /// Objeto para acceder a los getter y setters de la clase CLs_Usuarios
         /// </summary>
@@ -49,6 +49,7 @@ namespace OncidiumSoft.Formularios
                 txtTel.Text = u.telefono;
                 cboxPuesto.Text = u.puesto;
                 btnAceptar.Text = "Actualizar";
+                label1.Text = "Editar Usuario";
             }
         }
         /// <summary>
@@ -82,6 +83,8 @@ namespace OncidiumSoft.Formularios
                 {
                     MessageBox.Show("Se actualizo el Usuario");
                     limpiar();
+                    this.Close();
+                    new FrmUsuarios().Show();
                 }
                 else
                 {
@@ -101,6 +104,8 @@ namespace OncidiumSoft.Formularios
                 {
                     MessageBox.Show("Se agrego el Usuario");
                     limpiar();
+                    this.Close();
+                    new FrmUsuarios().Show();
                 }
                 else
                 {
@@ -126,6 +131,12 @@ namespace OncidiumSoft.Formularios
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmUsuarios().Show();
         }
         
     }

@@ -182,6 +182,7 @@
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "  Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cboxPuesto
             // 
@@ -216,9 +217,9 @@
             this.label1.Location = new System.Drawing.Point(29, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 29);
+            this.label1.Size = new System.Drawing.Size(203, 29);
             this.label1.TabIndex = 65;
-            this.label1.Text = "Agregar Proveedor";
+            this.label1.Text = "Agregar Usuario";
             // 
             // pictureBox1
             // 

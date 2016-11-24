@@ -79,10 +79,10 @@ namespace OncidiumSoft.Formularios
                 {
                     if (selectedRowCount == 1)
                     {
-                        FrmAgregarProductos f = new FrmAgregarProductos();
+                        FrmAgregarUsuario f = new FrmAgregarUsuario();
                         f.editar = true;
-                        f.id = int.Parse(dgvUsuarios.Rows[dgvUsuarios.CurrentCellAddress.Y].Cells["idUsuarios"].Value.ToString());
-                        this.Hide();
+                        f.id = int.Parse(dgvUsuarios.Rows[dgvUsuarios.CurrentCellAddress.Y].Cells["idUsuario"].Value.ToString());
+                        this.Close();
                         f.Show();
                     }
                     else
