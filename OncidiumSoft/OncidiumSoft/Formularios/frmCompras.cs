@@ -137,14 +137,26 @@ namespace OncidiumSoft.Formularios
 
         private void btnRealizar_Click_1(object sender, EventArgs e)
         {
-            bool s = cDao.compra(lista);
-            if(s){
-                limpiar();
-                dgvCompra.DataSource = null;
-                lista.Clear();
-                MessageBox.Show("Compra realizada");
-            }else{
-                MessageBox.Show("Error no se pudo hacer la compra");
+            if(lista != null && lista.Count != 0){
+                if (MessageBox.Show("¿Deseas realizar la venta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bool s = cDao.compra(lista);
+                    if (s)
+                    {
+                        limpiar();
+                        dgvCompra.DataSource = null;
+                        lista.Clear();
+                        MessageBox.Show("Compra realizada");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error no se pudo hacer la compra");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes de llenar todos los campos");
             }
         }
         /// <summary>
@@ -152,37 +164,44 @@ namespace OncidiumSoft.Formularios
         /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            limpiar();
-            lista.Clear();
-            MessageBox.Show("Compra cancelada");
+            if (MessageBox.Show("¿Deseas cancelar la compra?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                limpiar();
+                lista.Clear();
+                dgvCompra.DataSource = null;
+                MessageBox.Show("Compra cancelada");
+            }
         }
         /// <summary>
         /// Metodo para eliminar los productos 
         /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("¿Deseas eliminar el producto?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Int32 selectedRowCount = dgvCompra.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                if (selectedRowCount > 0)
+                try
                 {
-                    for (int i = 0; i < selectedRowCount; i++)
+                    Int32 selectedRowCount = dgvCompra.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    if (selectedRowCount > 0)
                     {
-                        for (int j = 0; j < lista.Count; j++)
+                        for (int i = 0; i < selectedRowCount; i++)
                         {
-                            if (dgvCompra.Rows[i].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                            for (int j = 0; j < lista.Count; j++)
                             {
-                                lista.RemoveAt(j);
+                                if (dgvCompra.Rows[i].Cells["ID"].Value.ToString() == lista[j].ID.ToString())
+                                {
+                                    lista.RemoveAt(j);
+                                }
                             }
                         }
+                        dgvCompra.DataSource = null;
+                        dgvCompra.DataSource = lista;
                     }
-                    dgvCompra.DataSource = null;
-                    dgvCompra.DataSource = lista;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error consulta al Administrador");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error consulta al Administrador");
+                }
             }
         }
         /// <summary>
