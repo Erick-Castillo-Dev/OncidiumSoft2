@@ -71,45 +71,49 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(editar){
-                u.nombre = txtNombre.Text;
-                u.direccion = txtDireccion.Text;
-                u.usuario = txtUsuario.Text;
-                u.telefono = txtTel.Text;
-                u.contrasena = txtContrasena.Text;
-                u.puesto = cboxPuesto.Text;
-                bool s = uDao.editar(u);
-                if (s)
-                {
-                    MessageBox.Show("Se actualizo el Usuario");
-                    limpiar();
-                    this.Close();
-                    new FrmUsuarios().Show();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar");
-                }
-            }
-            else
+            if (txtTel.Text.ToString().Length == 10)
             {
-                u.nombre = txtNombre.Text;
-                u.direccion = txtDireccion.Text;
-                u.usuario = txtUsuario.Text;
-                u.telefono = txtTel.Text;
-                u.contrasena = txtContrasena.Text;
-                u.puesto = cboxPuesto.Text;
-                bool s = uDao.agregar(u);
-                if (s)
+                if (editar)
                 {
-                    MessageBox.Show("Se agrego el Usuario");
-                    limpiar();
-                    this.Close();
-                    new FrmUsuarios().Show();
+                    u.nombre = txtNombre.Text;
+                    u.direccion = txtDireccion.Text;
+                    u.usuario = txtUsuario.Text;
+                    u.telefono = txtTel.Text;
+                    u.contrasena = txtContrasena.Text;
+                    u.puesto = cboxPuesto.Text;
+                    bool s = uDao.editar(u);
+                    if (s)
+                    {
+                        MessageBox.Show("Se actualizo el Usuario");
+                        limpiar();
+                        this.Close();
+                        new FrmUsuarios().Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar");
+                    u.nombre = txtNombre.Text;
+                    u.direccion = txtDireccion.Text;
+                    u.usuario = txtUsuario.Text;
+                    u.telefono = txtTel.Text;
+                    u.contrasena = txtContrasena.Text;
+                    u.puesto = cboxPuesto.Text;
+                    bool s = uDao.agregar(u);
+                    if (s)
+                    {
+                        MessageBox.Show("Se agrego el Usuario");
+                        limpiar();
+                        this.Close();
+                        new FrmUsuarios().Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar");
+                    }
                 }
             }
         }

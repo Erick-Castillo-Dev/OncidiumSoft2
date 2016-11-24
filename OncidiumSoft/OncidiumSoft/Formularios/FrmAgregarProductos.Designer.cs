@@ -219,7 +219,7 @@
             this.btnImg.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnImg.Location = new System.Drawing.Point(157, 430);
             this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(118, 24);
+            this.btnImg.Size = new System.Drawing.Size(144, 33);
             this.btnImg.TabIndex = 24;
             this.btnImg.Text = "Agregar una imagen";
             this.btnImg.UseVisualStyleBackColor = false;

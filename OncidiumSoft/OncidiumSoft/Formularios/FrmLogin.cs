@@ -58,7 +58,7 @@ namespace OncidiumSoft.Formularios
                     frm.idUsuario2.Text = "" + dao.idUsuario(obj);
                     frm.Show();
                 }else{
-                    MessageBox.Show("No entro");
+                    MessageBox.Show("Usuario y/o contraseña no son correctos");
                 }
             }else{
                 MessageBox.Show("Llena todos los campos");

@@ -203,7 +203,7 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnRealizar_Click(object sender, EventArgs e)
         {
-            if(lista != null){
+            if(lista != null && lista.Count != 0){
                 bool s = vDao.venta(lista, total, int.Parse(txtDescuento.Text.ToString()), id);
                 if (s)
                 {
