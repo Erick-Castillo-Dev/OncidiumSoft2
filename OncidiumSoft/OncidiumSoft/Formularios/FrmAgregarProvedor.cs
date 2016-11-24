@@ -77,6 +77,8 @@ namespace OncidiumSoft.Formularios
                 if(s){
                     MessageBox.Show("Se actualizo el provedor");
                     limpiar();
+                    this.Close();
+                    new FrmProvedores().Show();
                 }
                 else
                 {
@@ -94,6 +96,8 @@ namespace OncidiumSoft.Formularios
                 {
                     MessageBox.Show("Se agrego el provedor");
                     limpiar();
+                    this.Close();
+                    new FrmProvedores().Show();
                 }
                 else
                 {

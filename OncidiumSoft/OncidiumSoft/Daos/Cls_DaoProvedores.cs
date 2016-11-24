@@ -142,7 +142,7 @@ namespace OncidiumSoft.Daos
                 cmd.Parameters.AddWithValue("@Direccion", p.DireccionProvedor);
                 cmd.Parameters.AddWithValue("@Empresa", p.EmpresadeProvedor);
                 cmd.Parameters.AddWithValue("@Telefono", p.TelefonoProvedor);
-                cmd.CommandText = "INSERT INTO provedores (Nombre,Direccion,Telefono,Empresa)VALUES(@Nombre,@Direccion,@Empresa,@Telefono);";
+                cmd.CommandText = "INSERT INTO provedores (Nombre,Direccion,Telefono,Empresa)VALUES(@Nombre,@Direccion,@Telefono,@Empresa);";
                 cmd.ExecuteNonQuery();
                 q = true;
                 c.Cerrar();
