@@ -127,6 +127,17 @@ namespace OncidiumSoft.Formularios
         {
 
         }
+        /// <summary>
+        /// Cierra el Frm de agregar un nuevo Usuario y regresa al anterior
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmUsuarios objU = new FrmUsuarios();
+            objU.Show();
+        }
         
     }
 }
