@@ -27,7 +27,7 @@ namespace OncidiumSoft.Formularios
         /// Objeto para la clase ajuste de inventario
         /// </summary>
         Cls_AjusteInventario obj = new Cls_AjusteInventario();
-
+        int i = 0;
         /// <summary>
         /// Método modificar el inventario
         /// </summary>
@@ -44,6 +44,7 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            Cls_Productos datos = objA.Vaciar(cboProducto.Text);
             if(cboProducto.Text == "" || txtCantidad.Text == "" || txtPrecioCosto.Text == "" || txtPrecioCliente.Text == "" || cboEstado.Text == "" || cboAjuste.Text == "")
             {
                 MessageBox.Show("Existen campos vacios");
@@ -64,7 +65,7 @@ namespace OncidiumSoft.Formularios
                         obj.Estado = false;
                     }
 
-                    if (cboAjuste.Text == "Alta")
+                    if (cboAjuste.Text == "Con ajuste")
                     {
                         obj.TipoAjuste = true;
                     }
@@ -76,14 +77,14 @@ namespace OncidiumSoft.Formularios
                     if (MessageBox.Show("¿Estas seguro que deseas modificar el producto?", "*** AVISO ***", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         Modificar();
-
                         txtCantidad.Clear();
                         txtPrecioCosto.Clear();
                         txtPrecioCliente.Clear();
                         cboEstado.Text = "";
-                        cboAjuste.Text = "";
-
-                        cboAjuste.Focus();
+                        //cboAjuste.Text = "";
+                        cboAjuste.Text = "Con ajuste";
+                        cboAjuste.Enabled = false;
+                        //cboAjuste.Focus();
                     }
                 }catch(Exception ex)
                 {
@@ -96,8 +97,6 @@ namespace OncidiumSoft.Formularios
                         txtPrecioCliente.Clear();
                     }
                 }
-                
-                
             }
         }
 
@@ -124,6 +123,13 @@ namespace OncidiumSoft.Formularios
             }
             else
                 e.Handled = false;
+
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("La cantidad debe ser numerica", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
 
         /// <summary>
@@ -192,12 +198,28 @@ namespace OncidiumSoft.Formularios
                     }
                     if (datos.AjusteProducto)
                     {
-                        cboAjuste.Text = "Alta";
+                        //cboAjuste.Text = "Con ajuste";
+                        if(i!=0)
+                        {
+                            cboAjuste.Text = "Con ajuste";
+                        }else
+                        {
+                            cboAjuste.Text = datos.AjusteProducto.ToString();
+                        }
+                        
                     }else
                     {
-                        cboAjuste.Text = "Baja";
+                        //cboAjuste.Text = "Sin ajuste";
+                        i = 0;
+                        if (i == 0)
+                        {
+                            cboAjuste.Text = "Sin ajuste";
+                        }
+                        else
+                        {
+                            cboAjuste.Text = datos.AjusteProducto.ToString();
+                        }
                     }
-
                     cboProducto.Focus();
                 }
             }

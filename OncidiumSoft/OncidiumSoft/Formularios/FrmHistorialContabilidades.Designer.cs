@@ -46,6 +46,7 @@
             this.btnRegresar.BackColor = System.Drawing.Color.ForestGreen;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegresar.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnRegresar.Location = new System.Drawing.Point(307, 345);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(88, 33);
@@ -59,6 +60,7 @@
             this.btnAceptar.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAceptar.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAceptar.Location = new System.Drawing.Point(412, 345);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(88, 33);
@@ -124,6 +126,7 @@
             this.dgvContabilidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContabilidad.Size = new System.Drawing.Size(472, 244);
             this.dgvContabilidad.TabIndex = 57;
+            this.dgvContabilidad.Tag = "";
             // 
             // FrmHistorialContabilidades
             // 
@@ -137,7 +140,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnAceptar);
-            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "FrmHistorialContabilidades";
             this.Text = "FrmHistorialContabilidades";
             this.Load += new System.EventHandler(this.FrmHistorialContabilidades_Load);

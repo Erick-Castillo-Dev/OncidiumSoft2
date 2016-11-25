@@ -75,45 +75,45 @@ namespace OncidiumSoft.Formularios
             {
                 if (editar)
                 {
-                    u.nombre = txtNombre.Text;
-                    u.direccion = txtDireccion.Text;
-                    u.usuario = txtUsuario.Text;
-                    u.telefono = txtTel.Text;
-                    u.contrasena = txtContrasena.Text;
-                    u.puesto = cboxPuesto.Text;
-                    bool s = uDao.editar(u);
-                    if (s)
-                    {
-                        MessageBox.Show("Se actualizo el Usuario");
-                        limpiar();
+                u.nombre = txtNombre.Text;
+                u.direccion = txtDireccion.Text;
+                u.usuario = txtUsuario.Text;
+                u.telefono = txtTel.Text;
+                u.contrasena = txtContrasena.Text;
+                u.puesto = cboxPuesto.Text;
+                bool s = uDao.editar(u);
+                if (s)
+                {
+                    MessageBox.Show("Se actualizo el Usuario");
+                    limpiar();
                         this.Close();
                         new FrmUsuarios().Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al actualizar");
-                    }
                 }
                 else
                 {
-                    u.nombre = txtNombre.Text;
-                    u.direccion = txtDireccion.Text;
-                    u.usuario = txtUsuario.Text;
-                    u.telefono = txtTel.Text;
-                    u.contrasena = txtContrasena.Text;
-                    u.puesto = cboxPuesto.Text;
-                    bool s = uDao.agregar(u);
-                    if (s)
-                    {
-                        MessageBox.Show("Se agrego el Usuario");
-                        limpiar();
+                    MessageBox.Show("Error al actualizar");
+                }
+            }
+            else
+            {
+                u.nombre = txtNombre.Text;
+                u.direccion = txtDireccion.Text;
+                u.usuario = txtUsuario.Text;
+                u.telefono = txtTel.Text;
+                u.contrasena = txtContrasena.Text;
+                u.puesto = cboxPuesto.Text;
+                bool s = uDao.agregar(u);
+                if (s)
+                {
+                    MessageBox.Show("Se agrego el Usuario");
+                    limpiar();
                         this.Close();
                         new FrmUsuarios().Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al guardar");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar");
+                }
                 }
             }
             else

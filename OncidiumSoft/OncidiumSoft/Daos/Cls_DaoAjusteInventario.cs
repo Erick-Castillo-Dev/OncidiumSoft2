@@ -24,18 +24,25 @@ namespace OncidiumSoft.Daos
         public List<string> obtenerProducto()
         {
             List<string> res = new List<string>();
-            MySqlCommand cm = new MySqlCommand();
-            objC.Conectar();
-            MySqlDataReader dr;
-            cm.CommandText = "SELECT Nombre FROM productos";
-            cm.CommandType = CommandType.Text;
-            cm.Connection = objC.cConexion;
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                res.Add(dr.GetString("Nombre"));
+                MySqlCommand cm = new MySqlCommand();
+                objC.Conectar();
+                MySqlDataReader dr;
+                cm.CommandText = "SELECT Nombre FROM productos";
+                cm.CommandType = CommandType.Text;
+                cm.Connection = objC.cConexion;
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    res.Add(dr.GetString("Nombre"));
+                }
+                objC.Cerrar();
+            }catch (MySqlException e)
+            {
+                objC.Cerrar();
             }
-            objC.Cerrar();
+            
             return res;
         }
 
@@ -75,29 +82,36 @@ namespace OncidiumSoft.Daos
         public Cls_Productos Vaciar(string producto)
         {
             Cls_Productos p = new Cls_Productos();
-            MySqlCommand cm = new MySqlCommand();
-            objC.Conectar();
-            MySqlDataReader dr;
-            cm.Parameters.AddWithValue("@pro",producto);
-            cm.CommandText = "select * from productos where Nombre = @pro";
-            cm.CommandType = CommandType.Text;
-            cm.Connection = objC.cConexion;
-            dr = cm.ExecuteReader();
-
-            while (dr.Read())
+            try
             {
-                
-                p.NombreProducto = dr.GetString(1);
-                p.CantidadProducto = dr.GetInt32(4);
-                p.Precio_costo = dr.GetDouble(7);
-                p.PrecioalCliente = dr.GetDouble(2);
-                
-                //int s =
-                p.Disponibilidad = dr.GetBoolean("Disponible");
-                p.AjusteProducto = dr.GetBoolean("Ajuste");
+                MySqlCommand cm = new MySqlCommand();
+                objC.Conectar();
+                MySqlDataReader dr;
+                cm.Parameters.AddWithValue("@pro", producto);
+                cm.CommandText = "select * from productos where Nombre = @pro";
+                cm.CommandType = CommandType.Text;
+                cm.Connection = objC.cConexion;
+                dr = cm.ExecuteReader();
 
+                while (dr.Read())
+                {
+
+                    p.NombreProducto = dr.GetString(1);
+                    p.CantidadProducto = dr.GetInt32(4);
+                    p.Precio_costo = dr.GetDouble(7);
+                    p.PrecioalCliente = dr.GetDouble(2);
+
+                    //int s =
+                    p.Disponibilidad = dr.GetBoolean("Disponible");
+                    p.AjusteProducto = dr.GetBoolean("Ajuste");
+
+                }
+                objC.Cerrar();
+            }catch (MySqlException e)
+            {
+                objC.Cerrar();
             }
-            objC.Cerrar();
+            
             return p;
         }
 
@@ -127,28 +141,35 @@ namespace OncidiumSoft.Daos
         public List<Cls_AjusteInventario> Mostrar()
         {
             List<Cls_AjusteInventario> lstProductos = new List<Cls_AjusteInventario>();
-            MySqlCommand cm = new MySqlCommand();
-            objC.Conectar();
-            MySqlDataReader dr;
-            cm.CommandText = "select * from productos;";
-            cm.CommandType = CommandType.Text;
-            cm.Connection = objC.cConexion;
-            dr = cm.ExecuteReader();
-
-            while (dr.Read())
+            try
             {
-                Cls_AjusteInventario objA = new Cls_AjusteInventario();
+                MySqlCommand cm = new MySqlCommand();
+                objC.Conectar();
+                MySqlDataReader dr;
+                cm.CommandText = "select * from productos;";
+                cm.CommandType = CommandType.Text;
+                cm.Connection = objC.cConexion;
+                dr = cm.ExecuteReader();
 
-                objA.Nombre = dr.GetString(0);
-                objA.Cantidad = dr.GetInt32(1);
-                objA.PrecioCosto = dr.GetDouble(2);
-                objA.PrecioCliente = dr.GetDouble(3);
-                objA.Estado = dr.GetBoolean(4);
-                objA.TipoAjuste = dr.GetBoolean(5);
+                while (dr.Read())
+                {
+                    Cls_AjusteInventario objA = new Cls_AjusteInventario();
 
-                lstProductos.Add(objA);
+                    objA.Nombre = dr.GetString(0);
+                    objA.Cantidad = dr.GetInt32(1);
+                    objA.PrecioCosto = dr.GetDouble(2);
+                    objA.PrecioCliente = dr.GetDouble(3);
+                    objA.Estado = dr.GetBoolean(4);
+                    objA.TipoAjuste = dr.GetBoolean(5);
+
+                    lstProductos.Add(objA);
+                }
+                objC.Cerrar();
+            }catch (MySqlException e)
+            {
+                objC.Cerrar();
             }
-            objC.Cerrar();
+            
             return lstProductos;
         }
 
@@ -158,26 +179,34 @@ namespace OncidiumSoft.Daos
         /// <param name="objInv"></param>
         public void ModificarInventario(Cls_AjusteInventario objInv)
         {
-            MySqlCommand cm = new MySqlCommand();
-            objC.Conectar();
-            MySqlDataReader dr;
-            cm.Parameters.AddWithValue("@NOMBRE", objInv.Nombre);
-            cm.Parameters.AddWithValue("@CANTIDAD", objInv.Cantidad);
-            cm.Parameters.AddWithValue("@PRECIOCOSTO", objInv.PrecioCosto);
-            cm.Parameters.AddWithValue("@PRECIOCLIENTE", objInv.PrecioCliente);
-            cm.Parameters.AddWithValue("@ESTADO", objInv.Estado);
-            cm.Parameters.AddWithValue("@TIPOAJUSTE", objInv.TipoAjuste);
+            try
+            {
+                MySqlCommand cm = new MySqlCommand();
+                objC.Conectar();
+                MySqlDataReader dr;
+                cm.Parameters.AddWithValue("@NOMBRE", objInv.Nombre);
+                cm.Parameters.AddWithValue("@CANTIDAD", objInv.Cantidad);
+                cm.Parameters.AddWithValue("@PRECIOCOSTO", objInv.PrecioCosto);
+                cm.Parameters.AddWithValue("@PRECIOCLIENTE", objInv.PrecioCliente);
+                cm.Parameters.AddWithValue("@ESTADO", objInv.Estado);
+                cm.Parameters.AddWithValue("@TIPOAJUSTE", objInv.TipoAjuste);
 
-            cm.CommandText = "UPDATE productos set "
-            + "Nombre = @NOMBRE, Cantidad = @CANTIDAD, Precio_Costo = @PRECIOCOSTO, "
-            + "Precio_Cliente = @PRECIOCLIENTE, Disponible = @ESTADO, "
-            + "Ajuste = @TIPOAJUSTE "
-            + "where Nombre = @NOMBRE";
+                cm.CommandText = "UPDATE productos set "
+                + "Nombre = @NOMBRE, Cantidad = @CANTIDAD, Precio_Costo = @PRECIOCOSTO, "
+                + "Precio_Cliente = @PRECIOCLIENTE, Disponible = @ESTADO, "
+                + "Ajuste = @TIPOAJUSTE "
+                + "where Nombre = @NOMBRE";
 
-            cm.CommandType = CommandType.Text;
-            cm.Connection = objC.cConexion;
-            dr = cm.ExecuteReader();
-            objC.Cerrar();
+                cm.CommandType = CommandType.Text;
+                cm.Connection = objC.cConexion;
+                dr = cm.ExecuteReader();
+                objC.Cerrar();
+            }
+            catch (MySqlException e)
+            {
+                objC.Cerrar();
+            }
+            
         }
     }
 }
