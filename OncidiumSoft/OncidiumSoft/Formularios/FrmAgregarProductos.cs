@@ -74,58 +74,67 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(editar){
-                Cls_Productos c = new Cls_Productos();
-                c.idProductoss = id;
-                c.NombreProducto = txtNombre.Text.ToString();
-                c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
-                c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
-                c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
-                c.AjusteProducto = false;
-                c.Disponibilidad = true;
-                c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
-                c.TipoProducto = cboxTipo.Text.ToString();
-                MemoryStream ms = new MemoryStream();
-                m.Save(ms, ImageFormat.Png);
-                byte[] imgArr = ms.ToArray();
-                c.imgenProducto = imgArr;
-                bool ps = pDao.editar(c);
-                if(ps){
-                    MessageBox.Show("Se edito el producto");
-                    new FrmProductos().Show();
-                    this.Close();
+            if (txtCantidad.Text != "" && txtNombre.Text != "" && txtpreciocliente.Text != "" && txtPrecioCosto.Text != "" && cboxTipo.Text != "" && cobProvedor.Text != "")
+            {
+                if (editar)
+                {
+                    Cls_Productos c = new Cls_Productos();
+                    c.idProductoss = id;
+                    c.NombreProducto = txtNombre.Text.ToString();
+                    c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
+                    c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
+                    c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
+                    c.AjusteProducto = false;
+                    c.Disponibilidad = true;
+                    c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
+                    c.TipoProducto = cboxTipo.Text.ToString();
+                    MemoryStream ms = new MemoryStream();
+                    m.Save(ms, ImageFormat.Png);
+                    byte[] imgArr = ms.ToArray();
+                    c.imgenProducto = imgArr;
+                    bool ps = pDao.editar(c);
+                    if (ps)
+                    {
+                        MessageBox.Show("Se edito el producto");
+                        new FrmProductos().Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error no se pudo editar el producto");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error no se pudo editar el producto");
+                    Cls_Productos c = new Cls_Productos();
+                    c.NombreProducto = txtNombre.Text.ToString();
+                    c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
+                    c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
+                    c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
+                    c.AjusteProducto = false;
+                    c.Disponibilidad = true;
+                    c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
+                    c.TipoProducto = cboxTipo.Text.ToString();
+                    MemoryStream ms = new MemoryStream();
+                    m.Save(ms, ImageFormat.Png);
+                    byte[] imgArr = ms.ToArray();
+                    c.imgenProducto = imgArr;
+                    bool ps = pDao.AgregarProducto(c);
+                    if (ps)
+                    {
+                        MessageBox.Show("Se agrego el producto");
+                        new FrmProductos().Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error no se pudo editar el producto");
+                    }
                 }
             }
             else
             {
-                Cls_Productos c = new Cls_Productos();
-                c.NombreProducto = txtNombre.Text.ToString();
-                c.PrecioalCliente = double.Parse(txtpreciocliente.Text.ToString());
-                c.CantidadProducto = int.Parse(txtCantidad.Text.ToString());
-                c.Precio_costo = double.Parse(txtPrecioCosto.Text.ToString());
-                c.AjusteProducto = false;
-                c.Disponibilidad = true;
-                c.iddeProvedores = pDao.idProvedores(cobProvedor.Text.ToString());
-                c.TipoProducto = cboxTipo.Text.ToString();
-                MemoryStream ms = new MemoryStream();
-                m.Save(ms, ImageFormat.Png);
-                byte[] imgArr = ms.ToArray();
-                c.imgenProducto = imgArr;
-                bool ps = pDao.AgregarProducto(c);
-                if (ps)
-                {
-                    MessageBox.Show("Se agrego el producto");
-                    new FrmProductos().Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error no se pudo editar el producto");
-                }
+                MessageBox.Show("Llene todos los campos");
             }
         }
         /// <summary>

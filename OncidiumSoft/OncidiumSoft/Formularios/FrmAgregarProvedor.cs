@@ -67,50 +67,57 @@ namespace OncidiumSoft.Formularios
         /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (txtTelefono.Text.ToString().Length == 10)
+            if (txtDireccion.Text != "" && txtEmpresa.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
             {
-                if (editar)
+                if (txtTelefono.Text.ToString().Length == 10)
                 {
-                    p.NombreProvedor = txtNombre.Text;
-                    p.DireccionProvedor = txtDireccion.Text;
-                    p.EmpresadeProvedor = txtEmpresa.Text;
-                    p.TelefonoProvedor = txtTelefono.Text;
-                    bool s = pDao.editar(p);
-                    if (s)
+                    if (editar)
                     {
-                        MessageBox.Show("Se actualizo el provedor");
-                        limpiar();
-                        this.Close();
-                        new FrmProvedores().Show();
+                        p.NombreProvedor = txtNombre.Text;
+                        p.DireccionProvedor = txtDireccion.Text;
+                        p.EmpresadeProvedor = txtEmpresa.Text;
+                        p.TelefonoProvedor = txtTelefono.Text;
+                        bool s = pDao.editar(p);
+                        if (s)
+                        {
+                            MessageBox.Show("Se actualizo el provedor");
+                            limpiar();
+                            this.Close();
+                            new FrmProvedores().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar");
+                        p.NombreProvedor = txtNombre.Text.ToString();
+                        p.DireccionProvedor = txtDireccion.Text.ToString();
+                        p.EmpresadeProvedor = txtEmpresa.Text.ToString();
+                        p.TelefonoProvedor = txtTelefono.Text.ToString();
+                        bool s = pDao.agregar(p);
+                        if (s)
+                        {
+                            MessageBox.Show("Se agrego el provedor");
+                            limpiar();
+                            this.Close();
+                            new FrmProvedores().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al guardar");
+                        }
                     }
                 }
                 else
                 {
-                    p.NombreProvedor = txtNombre.Text.ToString();
-                    p.DireccionProvedor = txtDireccion.Text.ToString();
-                    p.EmpresadeProvedor = txtEmpresa.Text.ToString();
-                    p.TelefonoProvedor = txtTelefono.Text.ToString();
-                    bool s = pDao.agregar(p);
-                    if (s)
-                    {
-                        MessageBox.Show("Se agrego el provedor");
-                        limpiar();
-                        this.Close();
-                        new FrmProvedores().Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al guardar");
-                    }
+                    MessageBox.Show("El telefono debe de contener 10 digitos");
                 }
             }
             else
             {
-                MessageBox.Show("El telefono debe de contener 10 digitos");
+                MessageBox.Show("Llene todos los campos");
             }
         }
         /// <summary>
