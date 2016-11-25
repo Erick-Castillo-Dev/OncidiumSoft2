@@ -116,6 +116,10 @@ namespace OncidiumSoft.Formularios
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("El telefono debe contener 10 digitos");
+            }
         }
         /// <summary>
         /// Evento que valida que solo ingresen numeros
