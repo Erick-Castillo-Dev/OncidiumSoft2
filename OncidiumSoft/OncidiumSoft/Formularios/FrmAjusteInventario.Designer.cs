@@ -57,7 +57,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancelar.Location = new System.Drawing.Point(224, 340);
+            this.btnCancelar.Location = new System.Drawing.Point(236, 340);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(97, 33);
             this.btnCancelar.TabIndex = 8;
@@ -71,7 +71,7 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAceptar.Font = new System.Drawing.Font("Rockwell", 12F);
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAceptar.Location = new System.Drawing.Point(127, 340);
+            this.btnAceptar.Location = new System.Drawing.Point(139, 340);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 33);
             this.btnAceptar.TabIndex = 7;
@@ -84,9 +84,9 @@
             this.cboAjuste.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAjuste.FormattingEnabled = true;
             this.cboAjuste.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
-            this.cboAjuste.Location = new System.Drawing.Point(155, 295);
+            "Con ajuste",
+            "Sin ajuste"});
+            this.cboAjuste.Location = new System.Drawing.Point(167, 295);
             this.cboAjuste.Name = "cboAjuste";
             this.cboAjuste.Size = new System.Drawing.Size(167, 21);
             this.cboAjuste.TabIndex = 6;
@@ -109,7 +109,7 @@
             this.cboEstado.Items.AddRange(new object[] {
             "Disponible",
             "No disponible"});
-            this.cboEstado.Location = new System.Drawing.Point(155, 250);
+            this.cboEstado.Location = new System.Drawing.Point(167, 250);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(167, 21);
             this.cboEstado.TabIndex = 5;
@@ -132,16 +132,16 @@
             this.lblPrecioCliente.Font = new System.Drawing.Font("Rockwell", 12F);
             this.lblPrecioCliente.Location = new System.Drawing.Point(39, 210);
             this.lblPrecioCliente.Name = "lblPrecioCliente";
-            this.lblPrecioCliente.Size = new System.Drawing.Size(111, 19);
+            this.lblPrecioCliente.Size = new System.Drawing.Size(124, 19);
             this.lblPrecioCliente.TabIndex = 38;
-            this.lblPrecioCliente.Text = "Precio Cliente";
+            this.lblPrecioCliente.Text = "Precio Cliente $";
             // 
             // txtPrecioCliente
             // 
             this.txtPrecioCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioCliente.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.txtPrecioCliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPrecioCliente.Location = new System.Drawing.Point(155, 209);
+            this.txtPrecioCliente.Location = new System.Drawing.Point(167, 209);
             this.txtPrecioCliente.Name = "txtPrecioCliente";
             this.txtPrecioCliente.Size = new System.Drawing.Size(167, 23);
             this.txtPrecioCliente.TabIndex = 4;
@@ -154,16 +154,16 @@
             this.lblPrecioCosto.Font = new System.Drawing.Font("Rockwell", 12F);
             this.lblPrecioCosto.Location = new System.Drawing.Point(39, 167);
             this.lblPrecioCosto.Name = "lblPrecioCosto";
-            this.lblPrecioCosto.Size = new System.Drawing.Size(101, 19);
+            this.lblPrecioCosto.Size = new System.Drawing.Size(126, 19);
             this.lblPrecioCosto.TabIndex = 36;
-            this.lblPrecioCosto.Text = "Precio Costo";
+            this.lblPrecioCosto.Text = "Precio Costo    $";
             // 
             // txtPrecioCosto
             // 
             this.txtPrecioCosto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioCosto.Font = new System.Drawing.Font("Rockwell", 9.75F);
             this.txtPrecioCosto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPrecioCosto.Location = new System.Drawing.Point(154, 166);
+            this.txtPrecioCosto.Location = new System.Drawing.Point(166, 166);
             this.txtPrecioCosto.Name = "txtPrecioCosto";
             this.txtPrecioCosto.Size = new System.Drawing.Size(167, 23);
             this.txtPrecioCosto.TabIndex = 3;
@@ -184,7 +184,7 @@
             // 
             this.cboProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProducto.FormattingEnabled = true;
-            this.cboProducto.Location = new System.Drawing.Point(155, 82);
+            this.cboProducto.Location = new System.Drawing.Point(167, 82);
             this.cboProducto.Name = "cboProducto";
             this.cboProducto.Size = new System.Drawing.Size(167, 21);
             this.cboProducto.TabIndex = 1;
@@ -195,7 +195,7 @@
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCantidad.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtCantidad.Location = new System.Drawing.Point(155, 124);
+            this.txtCantidad.Location = new System.Drawing.Point(167, 124);
             this.txtCantidad.MaxLength = 3;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 23);
@@ -219,7 +219,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(343, 53);
+            this.pictureBox1.Size = new System.Drawing.Size(355, 53);
             this.pictureBox1.TabIndex = 53;
             this.pictureBox1.TabStop = false;
             // 
@@ -241,7 +241,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.ForestGreen;
             this.pictureBox3.BackgroundImage = global::OncidiumSoft.Properties.Resources._12283043_773212156137905_384527972_n;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(276, 26);
+            this.pictureBox3.Location = new System.Drawing.Point(285, 26);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(49, 47);
@@ -254,7 +254,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(-1, 386);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(343, 27);
+            this.pictureBox2.Size = new System.Drawing.Size(355, 27);
             this.pictureBox2.TabIndex = 57;
             this.pictureBox2.TabStop = false;
             // 
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 413);
+            this.ClientSize = new System.Drawing.Size(354, 413);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
