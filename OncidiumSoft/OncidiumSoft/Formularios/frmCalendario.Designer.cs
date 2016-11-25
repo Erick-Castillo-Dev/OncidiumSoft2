@@ -116,7 +116,7 @@
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dtpFecha);
             this.Name = "frmCalendario";
-            this.Text = "frmCalendario";
+            this.Text = "Calendario";
             this.Load += new System.EventHandler(this.frmCalendario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

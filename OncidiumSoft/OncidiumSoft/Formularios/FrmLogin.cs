@@ -39,6 +39,7 @@ namespace OncidiumSoft.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
         /// <summary>
         /// Metodo para aceptar y mandar una peticion para el acceso al sistema
@@ -54,8 +55,9 @@ namespace OncidiumSoft.Formularios
                 obj.contrasena = txtPassword.Text;
                 if(dao.entrar(obj)){
                     this.Hide();
-                    FrmPrincipal frm = new FrmPrincipal();
-                    frm.idUsuario2.Text = "" + dao.idUsuario(obj);
+                    FrmCargar frm = new FrmCargar();
+                    frm.s = "" + dao.idUsuario(obj);
+                    frm.si = true;
                     frm.Show();
                 }else{
                     MessageBox.Show("Usuario y/o contraseña no son correctos");

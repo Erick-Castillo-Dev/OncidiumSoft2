@@ -474,7 +474,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPedidos";
+            this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.frmPedidos_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

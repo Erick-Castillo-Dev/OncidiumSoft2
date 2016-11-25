@@ -286,7 +286,7 @@
             this.Controls.Add(this.txtGastosFertilizantes);
             this.Controls.Add(this.lblGastosFertilizantes);
             this.Name = "FrmGastosEspecificos";
-            this.Text = "FrmGastosEspecificos";
+            this.Text = "Gastos Especificos";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

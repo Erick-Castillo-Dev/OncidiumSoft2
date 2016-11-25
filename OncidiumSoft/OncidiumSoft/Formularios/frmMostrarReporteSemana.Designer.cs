@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetPrincipal = new OncidiumSoft.Objetos.DataSetPrincipal();
             this.dataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetPrincipal = new OncidiumSoft.Objetos.DataSetPrincipal();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataTable2TableAdapter = new OncidiumSoft.Objetos.DataSetPrincipalTableAdapters.DataTable2TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataTable2BindingSource
+            // 
+            this.dataTable2BindingSource.DataMember = "DataTable2";
+            this.dataTable2BindingSource.DataSource = this.dataSetPrincipal;
+            // 
+            // dataSetPrincipal
+            // 
+            this.dataSetPrincipal.DataSetName = "DataSetPrincipal";
+            this.dataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -51,16 +61,6 @@
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // dataSetPrincipal
-            // 
-            this.dataSetPrincipal.DataSetName = "DataSetPrincipal";
-            this.dataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable2BindingSource
-            // 
-            this.dataTable2BindingSource.DataMember = "DataTable2";
-            this.dataTable2BindingSource.DataSource = this.dataSetPrincipal;
-            // 
             // dataTable2TableAdapter
             // 
             this.dataTable2TableAdapter.ClearBeforeFill = true;
@@ -72,11 +72,11 @@
             this.ClientSize = new System.Drawing.Size(1354, 712);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmMostrarReporteSemana";
-            this.Text = "frmMostrarReporteSemana";
+            this.Text = "Mostrar Reporte Semana";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMostrarReporteSemana_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }

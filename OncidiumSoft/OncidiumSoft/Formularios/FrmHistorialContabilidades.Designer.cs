@@ -142,7 +142,7 @@
             this.Controls.Add(this.btnAceptar);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "FrmHistorialContabilidades";
-            this.Text = "FrmHistorialContabilidades";
+            this.Text = "Historial Contabilidades";
             this.Load += new System.EventHandler(this.FrmHistorialContabilidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -202,7 +202,7 @@
             this.MinimizeBox = false;
             this.Name = "frmListPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListPedidos";
+            this.Text = "Listado de Pedidos";
             this.Load += new System.EventHandler(this.frmListPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListapedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

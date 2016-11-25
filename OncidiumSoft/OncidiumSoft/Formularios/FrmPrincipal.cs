@@ -165,8 +165,8 @@ namespace OncidiumSoft
         /// <param name="e"></param>
         private void Salir_Click(object sender, EventArgs e)
         {
+            new FrmCreditos().Show();
             this.Close();
-            Application.Exit();
         }
         /// <summary>
         /// Llamada al formulario de administrador de provedores

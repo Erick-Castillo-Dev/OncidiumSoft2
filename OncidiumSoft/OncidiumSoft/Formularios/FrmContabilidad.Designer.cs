@@ -330,7 +330,7 @@
             this.Controls.Add(this.lblGastosGenerales);
             this.Controls.Add(this.lblVentas);
             this.Name = "FrmContabilidad";
-            this.Text = "FrmContabilidad";
+            this.Text = "Contabilidad";
             this.Load += new System.EventHandler(this.FrmContabilidad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

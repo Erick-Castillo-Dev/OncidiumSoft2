@@ -72,7 +72,7 @@
             this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmMostrarReporteMes";
-            this.Text = "frmMostrarReporteMes";
+            this.Text = "Mostrar Reporte Mes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMostrarReporteMes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();

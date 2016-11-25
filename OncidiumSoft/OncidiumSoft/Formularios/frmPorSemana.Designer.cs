@@ -161,7 +161,7 @@
             this.Controls.Add(this.Semana);
             this.Controls.Add(this.label1);
             this.Name = "frmPorSemana";
-            this.Text = "frmPorSemana";
+            this.Text = "Por Semana";
             this.Load += new System.EventHandler(this.frmPorSemana_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
